@@ -83,12 +83,12 @@ const ui = (uiDict as Record<string, (typeof uiDict)["en"]>)[lang] ?? uiDict.en;
     countEl.textContent = `· ${step.stars} ${starsLabel} ★`;
     notationEl.innerHTML =
       step.stars === 0
-        ? "(10<sup>36</sup>)"
-        : `(10<sup>36</sup>)<sup>★${step.stars}</sup>`;
+        ? "a"
+        : `a<sup>★${step.stars}</sup>`;
     valueEl.textContent = step.value.length > 60 ? step.value.slice(0, 60) + "…" : step.value;
     hintEl.textContent = step.hint;
 
-    let html = "<span class='tile base'>10³⁶</span>";
+    let html = "<span class='tile base'>a</span>";
     const tiles = Math.min(step.stars, MAX_TILES);
     for (let k = 0; k < tiles; k++) html += "<span class='tile star'>★</span>";
     if (step.stars > MAX_TILES) html += `<span class='tile more'>⋯ ★${step.stars}</span>`;

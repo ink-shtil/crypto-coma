@@ -17,22 +17,23 @@ is level 26. We write `L(n)` for the value of the `n`-th level, `1 ≤ n ≤ 26`
 
 ### 1.1 Starting value
 
-$$a = L(1) = \text{undecillion} = 10^{36}.$$
+$$a = L(1) = \bigl(10^{36}\bigr)^{\,10^{36}}.$$
 
 **Rationale (from the legend).** The two boys count upward until they reach an
 *undecillion* and it is still not enough; `a` is the first *new* step they invent beyond
-it. We anchor `a` at the short-scale undecillion, `10^{36}`, so the ladder starts from a
-number that already has a real name.
+it — the undecillion raised to itself, `a = (10^{36})^{(10^{36})}`. The short-scale
+undecillion `10^{36}` survives as the **anchor** inside `a`, so the ladder is still pinned
+to a number that already has a real name.
 
-> This is the one free parameter of the model. It is fixed to `10^36` by decision. See
-> Open Question O1 for alternatives — changing it changes every downstream number, so it
-> must only be changed here.
+> The `10^{36}` anchor is the one free parameter of the model. It is fixed by decision.
+> See Open Question O1 for alternatives — changing it changes every downstream number, so
+> it must only be changed here.
 
 ### 1.2 The recurrence
 
 Each level is the self-power of the previous one:
 
-$$L(n+1) = L(n)^{\,L(n)}, \qquad L(1) = 10^{36}.$$
+$$L(n+1) = L(n)^{\,L(n)}, \qquad L(1) = \bigl(10^{36}\bigr)^{\,10^{36}}.$$
 
 This is (offset) **tetration**: the values form a base-that-grows power tower, which is
 why the magnitudes explode past anything physically meaningful within a few steps.
@@ -58,13 +59,14 @@ $$x^{\star} = x^{x} \qquad\text{(one star = "raise the number to itself")}.$$
 
 Writing `★ᵏ` for `k` applications, the ladder and its summit collapse to:
 
-$$a = 10^{36},\quad L(n) = \bigl(10^{36}\bigr)^{\star\,(n-1)},\quad
-  \boxed{\ \text{crypto coma} = \bigl(10^{36}\bigr)^{\star\,26}\ }$$
+$$a = \bigl(10^{36}\bigr)^{\,10^{36}},\quad L(n) = a^{\star\,(n-1)},\quad
+  \boxed{\ \text{crypto coma} = a^{\star\,26}\ }$$
 
-That is: **10³⁶, self-powered 26 times — one star per letter of the alphabet.** So
-`a` has 0 stars, `b` has 1, …, `z` has 25, and the crypto coma `= z★` has 26.
+That is: **`a` (the undecillion raised to itself), self-powered 26 more times — one star
+per letter of the alphabet.** So `a` has 0 stars, `b` has 1, …, `z` has 25, and the
+crypto coma `= z★` has 26.
 
-One-line description: *"the crypto coma is 10³⁶ raised to itself, over and over, 26 times."*
+One-line description: *"the crypto coma is `(10³⁶)^(10³⁶)` raised to itself, over and over, 26 times."*
 
 ---
 

@@ -16,6 +16,13 @@ from .scales import describe
 SYMBOL = "ℂ⇈"  # crypto-coma symbol (see docs/formal-model.md §4)
 
 
+def _a_value() -> str:
+    """Symbolic base level ``a`` for display: ``(10^36)^(10^36)`` (one self-power above
+    the ``10^36`` anchor). Sourced from the model's single free parameter."""
+    anchor = f"10^{int(model.START_LOG10)}"
+    return f"({anchor})^({anchor})"
+
+
 def _find_repo_root(start: Path) -> Path:
     """Walk up from *start* to the repo root (marked by ``docs/`` + ``backlog/``)."""
     for parent in [start, *start.parents]:
@@ -39,7 +46,7 @@ def build_dataset() -> dict:
             {
                 "n": n,
                 "letter": model.letter(n),
-                "stars": n - 1,  # self-powers of a: a=0, b=1, …, z=25  →  (10^36)★(n-1)
+                "stars": n - 1,  # self-powers of the base a: a=0, b=1, …, z=25  →  a★(n-1)
                 "value_str": m.value_str(),
                 "log10_str": m.log10_str(),
                 "magnitude": m.as_dict(),
@@ -52,7 +59,7 @@ def build_dataset() -> dict:
         "name": "crypto coma",
         "symbol": SYMBOL,
         "definition": "z ^ z = L(26) ^ L(26)",
-        "star_notation": f"(10^{int(model.START_LOG10)})*{model.LEVELS}",  # (10^36)★26
+        "star_notation": f"({_a_value()})*{model.LEVELS}",  # ℂ⇈ = a★26, a = (10^36)^(10^36)
         "value_str": cc.value_str(),
         "log10_str": cc.log10_str(),
         "magnitude": cc.as_dict(),
@@ -61,7 +68,9 @@ def build_dataset() -> dict:
     }
     return {
         "meta": {
-            "start_value_log10": model.START_LOG10,
+            "a_value": _a_value(),  # base level a = (10^36)^(10^36), for display
+            "anchor_log10": model.START_LOG10,  # the 10^36 sub-base inside a (undecillion)
+            "start_value_log10": model.START_LOG10,  # kept for back-compat; the 10^36 anchor
             "levels": model.LEVELS,
             "recurrence": "L(n+1) = L(n) ^ L(n)",
             "symbol": SYMBOL,
@@ -77,7 +86,7 @@ def build_dataset() -> dict:
 
 
 def _print_table(data: dict) -> None:
-    print(f"Crypto Coma — levels a…z  (start a = 10^{int(model.START_LOG10)})\n")
+    print(f"Crypto Coma — levels a…z  (base a = {_a_value()})\n")
     header = f"{'lvl':>3}  {'letter':<6}  {'value L(n)':<22}  scale"
     print(header)
     print("-" * len(header))

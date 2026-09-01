@@ -57,7 +57,7 @@ jobs:
     name: deploy (GitHub Pages)
     # Deploy only from main; PRs still build via the `site` job but never publish.
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    needs: site
+    needs: [site, paper] # need the built PDF too, to ship it with the site
     runs-on: ubuntu-latest
     permissions:
       pages: write # publish to GitHub Pages
@@ -71,6 +71,13 @@ jobs:
         with:
           name: site-dist
           path: dist
+      - name: Download paper PDF
+        uses: actions/download-artifact@v4
+        with:
+          name: crypto-coma-paper
+          path: pdf
+      - name: Add PDF to the site (served at /crypto-coma/crypto-coma.pdf)
+        run: mv pdf/main.pdf dist/crypto-coma.pdf
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

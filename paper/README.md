@@ -30,6 +30,6 @@ references.bib
 
 ## Single source of truth
 
-Every number in the paper (`a = 10^36`, `b = 10^(3.6×10^37)`, tower height ≈ 25, level
-count 26) is pulled from `../docs/data/levels.json` via `gen_data.py`. Never hardcode a
+Every number in the paper (`a = (10^36)^(10^36)`, `b = 10^(10^(3.6×10^37))`, tower height ≈ 26,
+level count 26) is pulled from `../docs/data/levels.json` via `gen_data.py`. Never hardcode a
 number here — regenerate instead.

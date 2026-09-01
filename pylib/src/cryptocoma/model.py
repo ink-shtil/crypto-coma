@@ -4,8 +4,8 @@ Single source of truth: ``docs/formal-model.md``.
 
 Levels ``a … z`` are ``L(1) … L(26)`` with
 
-    L(1) = 10**36            (undecillion)
-    L(n+1) = L(n) ** L(n)    (offset tetration)
+    L(1) = a = (10**36) ** (10**36)   (one self-power above the undecillion anchor)
+    L(n+1) = L(n) ** L(n)             (offset tetration)
 
     crypto coma = z ** z = L(26) ** L(26)
 
@@ -27,8 +27,10 @@ from __future__ import annotations
 import math
 from dataclasses import dataclass
 
-#: log10 of the starting value ``a`` (undecillion = 10**36).  The one free parameter;
-#: change it only here and in ``docs/formal-model.md`` §1.1.
+#: log10 of the **anchor / sub-base** ``10**36`` (the undecillion).  The one free
+#: parameter; change it only here and in ``docs/formal-model.md`` §1.1.  The base level
+#: ``a`` is one self-power above this anchor: ``a = (10**36) ** (10**36)`` (see
+#: ``magnitudes``), so ``10**36`` survives only as the sub-base printed inside ``a``.
 START_LOG10 = 36.0
 
 #: Number of lettered levels ``a … z``.
@@ -123,7 +125,9 @@ def magnitudes(up_to: int = LEVELS) -> list[Tower]:
     """Magnitudes ``M(1) … M(up_to)`` (index ``k`` is level ``k+1``)."""
     if up_to < 1:
         raise ValueError("up_to must be >= 1")
-    m = Tower.exact(START_LOG10)  # M(1) = log10(10**36) = 36
+    # M(1) is the base level ``a = (10**36) ** (10**36)`` — one self-power above the
+    # ``10**36`` anchor, i.e. one ``_next_magnitude`` step past ``log10(10**36) = 36``.
+    m = _next_magnitude(Tower.exact(START_LOG10))
     out = [m]
     for _ in range(1, up_to):
         m = _next_magnitude(m)

@@ -43,12 +43,8 @@ const parts = [
     <h2 id="legend">{t("home.legend.title")}</h2>
     <Figure
       src="/img/boys_imagine_big_numbers.jpeg"
-      alt={lang === "ru"
-        ? "Двое мальчиков на лавочке смотрят на звёздное небо"
-        : "Two boys on a bench looking at the starry sky"}
-      caption={lang === "ru"
-        ? "Летним вечером на лавочке под звёздами."
-        : "A summer evening on a bench under the stars."}
+      alt={t("home.legend.figAlt")}
+      caption={t("home.legend.figCaption")}
       max="30rem"
     />
     {c.legend.map((p) => <p>{p}</p>)}
@@ -58,7 +54,7 @@ const parts = [
     <h2 id="formula">{t("home.formula.title")}</h2>
     <p>{c.formulaIntro}</p>
     <div class="formula">
-      a = {a.value_str}<br />
+      a = (10<sup>36</sup>)<sup>(10<sup>36</sup>)</sup><br />
       b = a<sup>a</sup> = {b.value_str}<br />
       c = b<sup>b</sup> = {levels.find((l) => l.letter === "c")!.value_str}<br />
       … <br />
@@ -68,8 +64,8 @@ const parts = [
 
     <div class="formula">
       x<sup>★</sup> = x<sup>x</sup> &nbsp;→&nbsp;
-      <span class="ccoma">ℂ⇈</span> = (10<sup>36</sup>)<sup>★26</sup>
-      &nbsp;<span style="color:var(--muted)">(26 ★, {lang === "ru" ? "по одной на букву" : "one per letter"})</span>
+      <span class="ccoma">ℂ⇈</span> = a<sup>★26</sup>
+      &nbsp;<span style="color:var(--muted)">(26 ★, {t("home.formula.perLetter")})</span>
     </div>
     <p>{c.compact}</p>
 

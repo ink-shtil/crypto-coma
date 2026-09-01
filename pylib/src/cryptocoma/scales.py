@@ -34,7 +34,7 @@ REFERENCES: list[Reference] = [
     Reference(19, "grains of sand on Earth (~10^19)", "песчинки на Земле (~10^19)"),
     Reference(23.8, "Avogadro's number (~6×10^23)", "число Авогадро (~6×10^23)"),
     Reference(24, "stars in the observable universe (~10^24)", "звёзды в наблюдаемой Вселенной (~10^24)"),
-    Reference(36, "an undecillion (10^36) — level a starts here", "ундециллион (10^36) — здесь начинается уровень a"),
+    Reference(36, "an undecillion (10^36) — anchor inside base a", "ундециллион (10^36) — опора внутри базы a"),
     Reference(50, "atoms making up the Earth (~10^50)", "атомы, составляющие Землю (~10^50)"),
     Reference(67.8, "orderings of a 52-card deck (52! ≈ 10^68)", "перестановки колоды из 52 карт (52! ≈ 10^68)"),
     Reference(80, "atoms in the observable universe (~10^80)", "атомы в наблюдаемой Вселенной (~10^80)"),

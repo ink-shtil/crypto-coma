@@ -4,7 +4,7 @@ Computes the log-scale magnitudes of the **Crypto Coma** power tower defined in
 [`docs/formal-model.md`](../docs/formal-model.md):
 
 ```
-a = 10^36 ,  L(n+1) = L(n)^L(n) ,  crypto coma = z^z
+a = (10^36)^(10^36) ,  L(n+1) = L(n)^L(n) ,  crypto coma = z^z
 ```
 
 The level values are unrepresentable, so the library works with **magnitudes**

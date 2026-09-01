@@ -11,7 +11,8 @@ def test_build_dataset_shape():
     assert data["levels"][0]["letter"] == "a"
     assert data["levels"][-1]["letter"] == "z"
     assert data["crypto_coma"]["definition"] == "z ^ z = L(26) ^ L(26)"
-    assert data["crypto_coma"]["tower_height"] == 25
+    assert data["crypto_coma"]["tower_height"] == 26
+    assert data["meta"]["a_value"] == "(10^36)^(10^36)"
 
 
 def test_table_writes_json(tmp_path, capsys):

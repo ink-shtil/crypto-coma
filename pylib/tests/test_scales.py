@@ -33,6 +33,7 @@ def test_tower_magnitude_is_beyond_physical():
     assert hint.beyond_physical is True
 
 
-def test_level_a_is_within_physical_scales():
+def test_level_a_is_beyond_physical():
+    # a = (10^36)^(10^36) is already far past any physical scale
     hint = describe(model.level_magnitude(1))
-    assert hint.beyond_physical is False
+    assert hint.beyond_physical is True

@@ -27,6 +27,8 @@ export interface CryptoComa {
 
 export interface LevelsData {
   meta: {
+    a_value: string; // symbolic base level a, e.g. "(10^36)^(10^36)"
+    anchor_log10: number; // the 10^36 sub-base inside a
     start_value_log10: number;
     levels: number;
     recurrence: string;

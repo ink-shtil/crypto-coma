@@ -26,7 +26,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "There are twenty-six levels, one per letter. The crypto coma is the self-power of the last level, z.",
     compact:
-      "In short: write x★ = xˣ (a star means “raise the number to itself”). Then the crypto coma is (10³⁶)★²⁶ — twenty-six stars, one per letter of the alphabet.",
+      "In short: write x★ = xˣ (a star means “raise the number to itself”). Then the crypto coma is ((10³⁶)^(10³⁶))★²⁶ — twenty-six stars, one per letter of the alphabet.",
   },
   ru: {
     manifest: [
@@ -42,7 +42,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "Всего уровней — двадцать шесть, по числу букв. Крипто кома — это самовозведение последнего уровня z.",
     compact:
-      "Короче: обозначим x★ = xˣ (звёздочка значит «возвести число в себя»). Тогда крипто кома — это (10³⁶)★²⁶: двадцать шесть звёздочек, по одной на каждую букву алфавита.",
+      "Короче: обозначим x★ = xˣ (звёздочка значит «возвести число в себя»). Тогда крипто кома — это ((10³⁶)^(10³⁶))★²⁶: двадцать шесть звёздочек, по одной на каждую букву алфавита.",
   },
   de: {
     manifest: [
@@ -58,7 +58,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "Es gibt sechsundzwanzig Stufen, eine je Buchstabe. Die Crypto Coma ist die Selbstpotenz der letzten Stufe, z.",
     compact:
-      "Kurz gesagt: Schreibe x★ = xˣ (ein Stern heißt „die Zahl in sich selbst potenzieren“). Dann ist die Crypto Coma (10³⁶)★²⁶ — sechsundzwanzig Sterne, einer je Buchstabe.",
+      "Kurz gesagt: Schreibe x★ = xˣ (ein Stern heißt „die Zahl in sich selbst potenzieren“). Dann ist die Crypto Coma ((10³⁶)^(10³⁶))★²⁶ — sechsundzwanzig Sterne, einer je Buchstabe.",
   },
   fr: {
     manifest: [
@@ -74,7 +74,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "Il y a vingt-six niveaux, un par lettre. La crypto coma est la puissance du dernier niveau, z, par lui-même.",
     compact:
-      "En bref : posons x★ = xˣ (une étoile signifie « élever le nombre à lui-même »). Alors la crypto coma vaut (10³⁶)★²⁶ — vingt-six étoiles, une par lettre.",
+      "En bref : posons x★ = xˣ (une étoile signifie « élever le nombre à lui-même »). Alors la crypto coma vaut ((10³⁶)^(10³⁶))★²⁶ — vingt-six étoiles, une par lettre.",
   },
   it: {
     manifest: [
@@ -90,7 +90,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "Ci sono ventisei livelli, uno per lettera. La crypto coma è l’autopotenza dell’ultimo livello, z.",
     compact:
-      "In breve: scriviamo x★ = xˣ (una stella significa « elevare il numero a se stesso »). Allora la crypto coma è (10³⁶)★²⁶ — ventisei stelle, una per lettera.",
+      "In breve: scriviamo x★ = xˣ (una stella significa « elevare il numero a se stesso »). Allora la crypto coma è ((10³⁶)^(10³⁶))★²⁶ — ventisei stelle, una per lettera.",
   },
   es: {
     manifest: [
@@ -106,7 +106,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "Hay veintiséis niveles, uno por letra. La crypto coma es la autopotencia del último nivel, z.",
     compact:
-      "En resumen: escribimos x★ = xˣ (una estrella significa « elevar el número a sí mismo »). Entonces la crypto coma es (10³⁶)★²⁶ — veintiséis estrellas, una por letra.",
+      "En resumen: escribimos x★ = xˣ (una estrella significa « elevar el número a sí mismo »). Entonces la crypto coma es ((10³⁶)^(10³⁶))★²⁶ — veintiséis estrellas, una por letra.",
   },
   pt: {
     manifest: [
@@ -122,7 +122,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "Há vinte e seis níveis, um por letra. A crypto coma é a autopotência do último nível, z.",
     compact:
-      "Em resumo: escrevemos x★ = xˣ (uma estrela significa « elevar o número a si próprio »). Então a crypto coma é (10³⁶)★²⁶ — vinte e seis estrelas, uma por letra.",
+      "Em resumo: escrevemos x★ = xˣ (uma estrela significa « elevar o número a si próprio »). Então a crypto coma é ((10³⁶)^(10³⁶))★²⁶ — vinte e seis estrelas, uma por letra.",
   },
   zh: {
     manifest: [
@@ -136,7 +136,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaIntro: "这个数列由起始值 a 和一条简单规则决定：下一层是上一层自身的幂。",
     formulaOutro: "共有二十六层，每个字母一层。crypto coma 就是最后一层 z 的自身之幂。",
     compact:
-      "简而言之：记 x★ = xˣ（一颗星表示“把这个数自乘为幂”）。那么 crypto coma 就是 (10³⁶)★²⁶——二十六颗星，每个字母一颗。",
+      "简而言之：记 x★ = xˣ（一颗星表示“把这个数自乘为幂”）。那么 crypto coma 就是 ((10³⁶)^(10³⁶))★²⁶——二十六颗星，每个字母一颗。",
   },
   ja: {
     manifest: [
@@ -151,7 +151,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
       "この数列は、初期値 a と一つの単純な規則で定まる：次の段は、前の段を自分自身で累乗したものである。",
     formulaOutro: "段は二十六、文字ごとに一つ。クリプト・コーマは最後の段 z の自己累乗である。",
     compact:
-      "手短に言えば：x★ = xˣ と書く（星印は「その数を自分自身で累乗する」の意）。すると、クリプト・コーマは (10³⁶)★²⁶——星が二十六個、各文字に一つずつ。",
+      "手短に言えば：x★ = xˣ と書く（星印は「その数を自分自身で累乗する」の意）。すると、クリプト・コーマは ((10³⁶)^(10³⁶))★²⁶——星が二十六個、各文字に一つずつ。",
   },
   ko: {
     manifest: [
@@ -166,7 +166,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
       "이 수열은 시작값 a와 하나의 단순한 규칙으로 정해진다: 다음 단계는 이전 단계를 자기 자신으로 거듭제곱한 것이다.",
     formulaOutro: "스물여섯 단계, 글자마다 하나씩이다. 크립토 코마는 마지막 단계 z의 자기 거듭제곱이다.",
     compact:
-      "요컨대: x★ = xˣ로 쓴다(별표는 ‘그 수를 자기 자신으로 거듭제곱한다’는 뜻). 그러면 크립토 코마는 (10³⁶)★²⁶—별 스물여섯 개, 각 글자마다 하나씩.",
+      "요컨대: x★ = xˣ로 쓴다(별표는 ‘그 수를 자기 자신으로 거듭제곱한다’는 뜻). 그러면 크립토 코마는 ((10³⁶)^(10³⁶))★²⁶—별 스물여섯 개, 각 글자마다 하나씩.",
   },
   hi: {
     manifest: [
@@ -182,7 +182,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "छब्बीस स्तर हैं, हर अक्षर के लिए एक। crypto coma अंतिम स्तर z की स्वयं-घात है।",
     compact:
-      "संक्षेप में: लिखिए x★ = xˣ (एक तारा यानी “संख्या को स्वयं की घात पर उठाना”)। तब crypto coma है (10³⁶)★²⁶ — छब्बीस तारे, हर अक्षर के लिए एक।",
+      "संक्षेप में: लिखिए x★ = xˣ (एक तारा यानी “संख्या को स्वयं की घात पर उठाना”)। तब crypto coma है ((10³⁶)^(10³⁶))★²⁶ — छब्बीस तारे, हर अक्षर के लिए एक।",
   },
   ar: {
     manifest: [
@@ -198,7 +198,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "هناك ستّةٌ وعشرون مستوًى، لكلّ حرفٍ مستوى. و«الكريبتو كوما» هي المستوى الأخير z مرفوعًا إلى نفسه.",
     compact:
-      "باختصار: نكتب x★ = xˣ (النجمة تعني «رفع العدد إلى نفسه»). عندئذٍ تكون الكريبتو كوما (10³⁶)★²⁶ — ستّةٌ وعشرون نجمة، واحدةٌ لكلّ حرف.",
+      "باختصار: نكتب x★ = xˣ (النجمة تعني «رفع العدد إلى نفسه»). عندئذٍ تكون الكريبتو كوما ((10³⁶)^(10³⁶))★²⁶ — ستّةٌ وعشرون نجمة، واحدةٌ لكلّ حرف.",
   },
   he: {
     manifest: [
@@ -214,7 +214,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "יש עשרים ושש רמות, אחת לכל אות. הקריפטו קומה היא החזקה העצמית של הרמה האחרונה, z.",
     compact:
-      "בקצרה: נכתוב x★ = xˣ (כוכב פירושו « להעלות את המספר בחזקת עצמו »). אז הקריפטו קומה היא (10³⁶)★²⁶ — עשרים ושישה כוכבים, אחד לכל אות.",
+      "בקצרה: נכתוב x★ = xˣ (כוכב פירושו « להעלות את המספר בחזקת עצמו »). אז הקריפטו קומה היא ((10³⁶)^(10³⁶))★²⁶ — עשרים ושישה כוכבים, אחד לכל אות.",
   },
   ka: {
     manifest: [
@@ -230,7 +230,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "ოცდაექვსი დონეა, თითო ასოზე. კრიპტო კომა ბოლო დონის, z-ის, თვითახარისხებაა.",
     compact:
-      "მოკლედ: დავწეროთ x★ = xˣ (ვარსკვლავი ნიშნავს « რიცხვის თავის თავზე ახარისხებას »). მაშინ კრიპტო კომა არის (10³⁶)★²⁶ — ოცდაექვსი ვარსკვლავი, თითო ასოზე.",
+      "მოკლედ: დავწეროთ x★ = xˣ (ვარსკვლავი ნიშნავს « რიცხვის თავის თავზე ახარისხებას »). მაშინ კრიპტო კომა არის ((10³⁶)^(10³⁶))★²⁶ — ოცდაექვსი ვარსკვლავი, თითო ასოზე.",
   },
   hy: {
     manifest: [
@@ -246,7 +246,7 @@ const home: Partial<Record<Lang, HomeContent>> = {
     formulaOutro:
       "Կա քսանվեց մակարդակ՝ մեկը յուրաքանչյուր տառի համար։ Կրիպտո կոման վերջին՝ z մակարդակի ինքնաստիճանն է։",
     compact:
-      "Համառոտ. գրենք x★ = xˣ (աստղը նշանակում է « թիվը բարձրացնել ինքն իր վրա »)։ Այդ դեպքում կրիպտո կոման (10³⁶)★²⁶ է՝ քսանվեց աստղ, մեկը յուրաքանչյուր տառի համար։",
+      "Համառոտ. գրենք x★ = xˣ (աստղը նշանակում է « թիվը բարձրացնել ինքն իր վրա »)։ Այդ դեպքում կրիպտո կոման ((10³⁶)^(10³⁶))★²⁶ է՝ քսանվեց աստղ, մեկը յուրաքանչյուր տառի համար։",
   },
 };
 
