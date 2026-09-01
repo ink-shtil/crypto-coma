@@ -2,33 +2,37 @@
 import { useTranslations, withBase } from "../i18n/utils";
 import type { Lang } from "../i18n/ui";
 
-// Nav dropdown to open the paper PDF in English or Russian. The two PDF editions are fixed
-// (EN/RU) and independent of the site's UI locale; each is published to the site root by the
-// deploy job (crypto-coma-en.pdf / crypto-coma-ru.pdf). Native <select> for accessibility;
-// picking an option opens that PDF in a new tab, then resets back to the "PDF" placeholder.
+// The paper PDF in its two editions (EN/RU), shown as two direct links under one PDF icon —
+// e.g. "📄 EN · RU". With only two languages a dropdown is overkill; two plain anchors are
+// clearer and, being direct user-gesture links, open reliably in every browser (Safari
+// silently blocks window.open() fired from a <select>, which the earlier version used).
+// Each edition is published to the site root by the deploy job (crypto-coma-{en,ru}.pdf).
 const { current } = Astro.props as { current: Lang };
 const t = useTranslations(current);
 
 const editions = [
-  { label: "English", href: withBase("/crypto-coma-en.pdf") },
-  { label: "Русский", href: withBase("/crypto-coma-ru.pdf") },
+  { code: "EN", label: "English", href: withBase("/crypto-coma-en.pdf") },
+  { code: "RU", label: "Русский", href: withBase("/crypto-coma-ru.pdf") },
 ];
 ---
 
-<label class="pdf-switch">
+<span class="pdf-links">
   <span class="pdf-ico" aria-hidden="true">📄</span>
-  <span class="sr-only">{t("nav.pdf")}</span>
-  <select
-    aria-label={t("nav.pdf")}
-    onchange="if(this.value){window.open(this.value,'_blank','noopener');this.value=''}"
-  >
-    <option value="" selected>{t("nav.pdf")}</option>
-    {editions.map((e) => <option value={e.href}>{e.label}</option>)}
-  </select>
-</label>
+  <span class="sr-only">{t("nav.pdf")}:</span>
+  {
+    editions.map((e, i) => (
+      <>
+        {i > 0 && <span class="pdf-sep" aria-hidden="true">·</span>}
+        <a href={e.href} target="_blank" rel="noopener" aria-label={`${t("nav.pdf")} — ${e.label}`}>
+          {e.code}
+        </a>
+      </>
+    ))
+  }
+</span>
 
 <style>
-  .pdf-switch {
+  .pdf-links {
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
@@ -39,18 +43,18 @@ const editions = [
     font-size: 0.95rem;
     opacity: 0.7;
   }
-  .pdf-switch select {
-    font-family: var(--sans);
-    font-size: 0.85rem;
+  .pdf-links a {
     color: var(--ink);
-    background: #fff;
-    border: 1px solid var(--rule);
-    border-radius: 6px;
-    padding: 0.2rem 0.4rem;
-    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
-  .pdf-switch select:hover {
-    border-color: var(--accent);
+  .pdf-links a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .pdf-sep {
+    opacity: 0.4;
   }
   .sr-only {
     position: absolute;
