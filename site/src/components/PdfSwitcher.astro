@@ -1,10 +1,11 @@
 ---
 import { withBase } from "../i18n/utils";
 
-// Two separate download buttons for the paper PDF, one per edition — "📄 pdf ENG" and
-// "📄 pdf RU". Plain anchors with the `download` attribute: a direct user-gesture link that
-// downloads reliably in every browser (Safari included). Each edition is published to the
-// site root by the deploy job (crypto-coma-{en,ru}.pdf).
+// Two separate buttons for the paper PDF, one per edition — "📄 pdf ENG" and "📄 pdf RU".
+// Each opens the PDF in a new tab (target="_blank"): the browser's PDF viewer shows it there
+// and offers a download. Plain anchors are direct user gestures, so they open reliably in
+// every browser (Safari included). Each edition is published to the site root by the deploy
+// job (crypto-coma-{en,ru}.pdf).
 const editions = [
   { code: "ENG", label: "English", href: withBase("/crypto-coma-en.pdf") },
   { code: "RU", label: "Русский", href: withBase("/crypto-coma-ru.pdf") },
@@ -14,7 +15,13 @@ const editions = [
 <span class="pdf-btns">
   {
     editions.map((e) => (
-      <a class="pdf-btn" href={e.href} download aria-label={`Download the paper — ${e.label} PDF`}>
+      <a
+        class="pdf-btn"
+        href={e.href}
+        target="_blank"
+        rel="noopener"
+        aria-label={`Open the paper — ${e.label} PDF`}
+      >
         <span aria-hidden="true">📄</span> pdf {e.code}
       </a>
     ))
