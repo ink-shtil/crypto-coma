@@ -71,13 +71,15 @@ jobs:
         with:
           name: site-dist
           path: dist
-      - name: Download paper PDF
+      - name: Download paper PDFs
         uses: actions/download-artifact@v4
         with:
           name: crypto-coma-paper
           path: pdf
-      - name: Add PDF to the site (served at /crypto-coma/crypto-coma.pdf)
-        run: mv pdf/main.pdf dist/crypto-coma.pdf
+      - name: Add PDFs to the site (served at /crypto-coma/crypto-coma-{ru,en}.pdf)
+        run: |
+          mv pdf/main.pdf dist/crypto-coma-ru.pdf
+          mv pdf/main-en.pdf dist/crypto-coma-en.pdf
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -99,13 +101,17 @@ jobs:
           pip install -e ./pylib
           python -m cryptocoma table
           python paper/gen_data.py
-      - name: "Build LaTeX (TeX Live scheme-full: Cyrillic + TikZ)"
+      - name: "Build LaTeX ×2 (RU + EN; TeX Live scheme-full: Cyrillic + TikZ)"
         uses: xu-cheng/latex-action@v3
         with:
           working_directory: paper
-          root_file: main.tex
-      - name: Upload PDF
+          root_file: |
+            main.tex
+            main-en.tex
+      - name: Upload PDFs
         uses: actions/upload-artifact@v4
         with:
           name: crypto-coma-paper
-          path: paper/build/main.pdf
+          path: |
+            paper/build/main.pdf
+            paper/build/main-en.pdf

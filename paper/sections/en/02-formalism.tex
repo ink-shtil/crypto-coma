@@ -1,0 +1,54 @@
+\section{Formalism}
+
+\subsection{Definition of the series}
+Label the levels with the Latin letters \(a, b, \dots, z\) --- \nlevels{} levels in all ---
+and write the value of the \(n\)-th level as \(L(n)\), so that \(L(1)=a\) and
+\(L(\nlevels)=z\). The series is fixed by a starting value and a recurrence:
+\[
+  a = L(1) = \avalue, \qquad L(n+1) = L(n)^{\,L(n)}.
+\]
+This is (offset) \emph{tetration}: the base of the exponent itself grows at every step.
+
+\subsection{The crypto coma}
+By the \emph{crypto coma} we mean the self-power of the last level:
+\[
+  \boxed{\;\ccoma = z^{z} = L(\nlevels)^{\,L(\nlevels)}.\;}
+\]
+
+\subsection{Compact form: the self-power operator}
+The whole ladder is one operation applied many times. Introduce the \emph{self-power
+operator} \(\star\):
+\[
+  x^{\star} = x^{x} \qquad (\text{one star} = \text{``raise the number to itself''}).
+\]
+Writing \(\star^{k}\) for \(k\) applications, the whole ladder and its summit fit on one
+line:
+\[
+  a = \avalue, \qquad L(n) = \bigl(\avalue\bigr)^{\star\,(n-1)}, \qquad
+  \boxed{\;\ccoma = \bigl(\avalue\bigr)^{\star\,\nlevels}.\;}
+\]
+In other words: \(\avalue\), raised to itself \nlevels{} times --- one star per letter of
+the alphabet (\(a\) has no stars, \(z\) has 25, and the crypto coma \(=z^{\star}\) has
+\nlevels).
+
+\subsection{Estimating the magnitude (on a log scale)}
+Already \(b = a^{a} = \bigl(\avalue\bigr)^{\avalue} = \bvalue\); this number cannot be
+written in digits. So we work with the \emph{order of magnitude} \(M(n)=\log_{10}L(n)\).
+Taking \(\log_{10}\) of the recurrence gives a convenient formula for the order:
+\[
+  M(1) = \amagnitude, \qquad M(n+1) = M(n)\cdot 10^{\,M(n)}.
+\]
+Thus \(M(2) = \bmagnitude\), and from level \(c\) on the order itself no longer fits in a
+machine number and is represented as a \emph{tower} of powers of ten. The crypto coma
+\(\ccoma\) is a base-ten power tower about \ccheight{} storeys tall.
+
+\subsection{The symbol}
+For the crypto coma we propose the symbol \(\ccoma\) --- a handwritten ``C'' (Crypto Coma)
+struck through by a double upward arrow \(\uparrow\uparrow\), evoking the rising tower of
+powers (and Knuth's notation for tetration).
+
+\subsection{``Cardinality''}
+In the spirit of set theory we appraise the crypto coma as a \emph{cardinality} and submit
+it to the attention of the scientific community and everyone who cares about numbers.
+Strictly speaking, \(\ccoma\) is a finite natural number; on the subtlety of this usage see
+Section~\ref{sec:disclaimer}.

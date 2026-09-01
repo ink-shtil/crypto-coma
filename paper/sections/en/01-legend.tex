@@ -1,0 +1,36 @@
+\section{The legend, or the statement of the problem}
+
+One summer evening two boys sat on a bench, looked at the stars, and argued about how
+many atoms would fit in the Universe. They named ever larger numbers --- a million, a
+billion, a trillion --- and reached an \emph{undecillion}, \(10^{36}\). It felt too
+small.
+
+So they did what any mathematician does when faced with a number that has no name yet:
+they gave it one. They made the very first step a large one: let
+\(a = \avalue\) --- an undecillion raised to itself. And from there --- upward: each next
+number is the previous one raised to itself. Thus was born the series that leads to the
+\textbf{crypto coma}.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  node distance=8mm and 14mm,
+  lvl/.style={draw,rounded corners,minimum width=13mm,minimum height=9mm,font=\small},
+  arr/.style={-{Stealth[length=2mm]},thick},
+]
+  \node[lvl] (a) {$a$};
+  \node[lvl,right=of a] (b) {$b$};
+  \node[lvl,right=of b] (c) {$c$};
+  \node[right=of c] (dots) {$\cdots$};
+  \node[lvl,right=of dots] (z) {$z$};
+  \node[lvl,fill=black!8,right=of z] (cc) {$\ccoma$};
+  \draw[arr] (a) -- node[above,font=\scriptsize]{$(\cdot)^{(\cdot)}$} (b);
+  \draw[arr] (b) -- (c);
+  \draw[arr] (c) -- (dots);
+  \draw[arr] (dots) -- (z);
+  \draw[arr] (z) -- node[above,font=\scriptsize]{$z^{z}$} (cc);
+\end{tikzpicture}
+\caption{The ladder of levels: \(a\) --- the first step, \(z\) --- the twenty-sixth, the
+crypto coma \(\ccoma = z^{z}\) --- its summit. Levels in all: \nlevels.}
+\label{fig:ladder}
+\end{figure}

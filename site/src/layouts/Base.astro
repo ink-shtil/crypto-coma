@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
 import LangSwitcher from "../components/LangSwitcher.astro";
-import { useTranslations, path, withBase } from "../i18n/utils";
+import PdfSwitcher from "../components/PdfSwitcher.astro";
+import { useTranslations, path } from "../i18n/utils";
 import { rtlLangs, type Lang } from "../i18n/ui";
 
 interface Props {
@@ -44,7 +45,7 @@ const showReview = reviewNeeded.includes(lang);
           <a href={path(lang, "/meditations")}>{t("nav.meditations")}</a>
           <a href={path(lang, "/archive")}>{t("nav.archive")}</a>
           <a href={path(lang, "/collaborate")}>{t("nav.collaborate")}</a>
-          <a href={withBase("/crypto-coma.pdf")} target="_blank" rel="noopener">{t("nav.pdf")}</a>
+          <PdfSwitcher current={lang} />
           <LangSwitcher current={lang} />
         </nav>
       </div>

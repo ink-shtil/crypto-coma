@@ -1,0 +1,66 @@
+---
+import { useTranslations, withBase } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+// Nav dropdown to open the paper PDF in English or Russian. The two PDF editions are fixed
+// (EN/RU) and independent of the site's UI locale; each is published to the site root by the
+// deploy job (crypto-coma-en.pdf / crypto-coma-ru.pdf). Native <select> for accessibility;
+// picking an option opens that PDF in a new tab, then resets back to the "PDF" placeholder.
+const { current } = Astro.props as { current: Lang };
+const t = useTranslations(current);
+
+const editions = [
+  { label: "English", href: withBase("/crypto-coma-en.pdf") },
+  { label: "Русский", href: withBase("/crypto-coma-ru.pdf") },
+];
+---
+
+<label class="pdf-switch">
+  <span class="pdf-ico" aria-hidden="true">📄</span>
+  <span class="sr-only">{t("nav.pdf")}</span>
+  <select
+    aria-label={t("nav.pdf")}
+    onchange="if(this.value){window.open(this.value,'_blank','noopener');this.value=''}"
+  >
+    <option value="" selected>{t("nav.pdf")}</option>
+    {editions.map((e) => <option value={e.href}>{e.label}</option>)}
+  </select>
+</label>
+
+<style>
+  .pdf-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+  }
+  .pdf-ico {
+    font-size: 0.95rem;
+    opacity: 0.7;
+  }
+  .pdf-switch select {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.2rem 0.4rem;
+    cursor: pointer;
+  }
+  .pdf-switch select:hover {
+    border-color: var(--accent);
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
