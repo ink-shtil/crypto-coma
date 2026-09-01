@@ -1,0 +1,143 @@
+{
+  "lang": "de",
+  "reference": {
+    "numbers": {
+      "undecillion": {
+        "name": "Undezillion",
+        "domain": "Benannte Zahlen (kurze Skala); der Beginn unserer Leiter (= Stufe a)"
+      },
+      "avogadro": {
+        "name": "Avogadro-Konstante",
+        "domain": "Chemie: Teilchen in einem Mol einer Substanz"
+      },
+      "deck52": {
+        "name": "Anordnungen eines 52-Karten-Blattes (52!)",
+        "domain": "Kombinatorik; praktisch jedes gemischte Blatt ist einzigartig"
+      },
+      "eddington": {
+        "name": "Atome im beobachtbaren Universum",
+        "domain": "Kosmologie (Schätzung; Eddington-Zahl für Protonen ~10^80)"
+      },
+      "photons": {
+        "name": "Photonen im beobachtbaren Universum",
+        "domain": "Kosmologie (dominiert durch die kosmische Hintergrundstrahlung)"
+      },
+      "googol": {
+        "name": "Googol",
+        "domain": "Populäre Mathematik (der Name stammt von einem Neunjährigen)"
+      },
+      "shannon": {
+        "name": "Shannon-Zahl",
+        "domain": "Spieltheorie: eine untere Schranke für die Komplexität des Schachspielbaums"
+      },
+      "go-positions": {
+        "name": "Legale Stellungen im Go (19×19)",
+        "domain": "Kombinatorische Spieltheorie"
+      },
+      "planck-volumes": {
+        "name": "Planck-Volumina im beobachtbaren Universum",
+        "domain": "Physik: kleinstes sinnvolles Volumen × Volumen des Universums"
+      },
+      "aes256": {
+        "name": "AES-256-Schlüsselraum",
+        "domain": "Kryptographie: ein solcher Raum ist physisch nicht zu durchsuchen"
+      },
+      "skewes": {
+        "name": "Skewes' Zahl",
+        "domain": "Zahlentheorie: wo π(x) erstmals li(x) übersteigt"
+      },
+      "graham": {
+        "name": "Grahams Zahl",
+        "domain": "Kombinatorik (Ramsey-Theorie); lange Zeit die größte Zahl in einem veröffentlichten Beweis"
+      },
+      "tree3": {
+        "name": "TREE(3)",
+        "domain": "Ordnungstheorie (Kruskals Satz); unvergleichlich größer als Grahams Zahl"
+      }
+    },
+    "sequences": {
+      "naturals": {
+        "name": "Die natürlichen Zahlen ℕ",
+        "note": "Die einfachste Reihe, die gegen Unendlich läuft; ihre Mächtigkeit ist ℵ₀ (abzählbar)."
+      },
+      "tetration": {
+        "name": "Tetration und Knuths Pfeile",
+        "note": "Genau diese Regel (aᵃ) entdeckten die Jungen wieder: Wachstum schneller als jede Potenz."
+      },
+      "ackermann": {
+        "name": "Die Ackermann-Funktion A(n,n)",
+        "note": "Rekursiv, aber nicht primitiv-rekursiv; wächst schneller als jede elementare Funktion."
+      },
+      "busy-beaver": {
+        "name": "Die Fleißiger-Biber-Funktion Σ(n)",
+        "note": "Nicht berechenbar; wächst schneller als jede überhaupt berechenbare Funktion."
+      },
+      "fast-growing-hierarchy": {
+        "name": "Die schnell wachsende Hierarchie f_α",
+        "note": "Mit Ordinalzahlen indiziert; dient als Maßstab zum Vergleich gigantischer Zahlen."
+      },
+      "cardinals": {
+        "name": "Unendliche Kardinalzahlen ℵ₀, ℵ₁, 2^ℵ₀",
+        "note": "Echte „Mächtigkeiten“ — anders als unsere Crypto Coma, die bloß endlich ist."
+      },
+      "ordinals": {
+        "name": "Ordinalzahlen ω, ε₀",
+        "note": "Ordinale „Stockwerke“ der Unendlichkeit; ε₀ ist der Grenzwert der Türme aus ω."
+      }
+    }
+  },
+  "named": {
+    "0": { "name": "eins", "use": "das Zählen eines einzelnen Dings; der Anfang von allem." },
+    "1": { "name": "zehn", "use": "Finger an zwei Händen; die Basis unseres Zahlensystems." },
+    "2": { "name": "hundert", "use": "Prozente; Jahre in einem Jahrhundert." },
+    "3": { "name": "tausend", "use": "alltägliche Mengen; Millimeter in einem Meter." },
+    "6": { "name": "Million", "use": "die Einwohnerzahl einer Stadt; Pixel in einem Foto." },
+    "9": { "name": "Milliarde", "use": "Weltbevölkerung; Bytes in einem Gigabyte; Sekunden in ~32 Jahren." },
+    "12": { "name": "Billion", "use": "Staatsschulden und BIP; Sterne in einer großen Galaxie; Bytes in einem Terabyte." },
+    "15": { "name": "Billiarde", "use": "Synapsen im menschlichen Gehirn (~10^15); Bytes in einem Petabyte." },
+    "18": { "name": "Trillion", "use": "Sandkörner an allen Stränden der Erde (~7×10^18); Stellungen des Zauberwürfels (~4×10^19)." },
+    "21": { "name": "Trilliarde", "use": "Sterne im beobachtbaren Universum (~10^22); Liter Wasser in den Ozeanen." },
+    "24": { "name": "Quadrillion", "use": "die Größenordnung der Avogadro-Zahl (6×10^23); Moleküle in einigen Mol." },
+    "27": { "name": "Quadrilliarde", "use": "Atome im menschlichen Körper (~7×10^27)." },
+    "30": { "name": "Quintillion", "use": "Bakterien auf der Erde (~5×10^30)." },
+    "33": { "name": "Quintilliarde", "use": "die Masse der Sonne in Gramm (~2×10^33)." },
+    "36": { "name": "Sextillion", "use": "wo unsere Leiter beginnt — dies ist Stufe a." },
+    "39": { "name": "Sextilliarde", "use": "fast ohne praktischen Nutzen — ein Name auf der Suche nach einer Größe." },
+    "42": { "name": "Septillion", "use": "ein Name auf der Suche nach einer Größe." },
+    "45": { "name": "Septilliarde", "use": "ein Name auf der Suche nach einer Größe." },
+    "48": { "name": "Oktillion", "use": "nahe der Größenordnung der Atome, aus denen die Erde besteht (~1.3×10^50)." },
+    "51": { "name": "Oktilliarde", "use": "ein Name auf der Suche nach einer Größe." },
+    "54": { "name": "Nonillion", "use": "ein Name auf der Suche nach einer Größe." },
+    "57": { "name": "Nonilliarde", "use": "die Größenordnung der Zahl der Atome in der Sonne (~10^57)." },
+    "60": { "name": "Dezillion", "use": "ein Name auf der Suche nach einer Größe." },
+    "63": { "name": "Undezillion", "use": "die klassische Grenze der vertrauten -illionen; dahinter werden die Namen selten." },
+    "100": { "name": "Googol", "use": "ein Wahrzeichen der populären Mathematik; mehr als die Atome im Universum." },
+    "303": { "name": "Zentillion", "use": "der letzte der klassischen -illion-Namen der kurzen Skala." }
+  },
+  "epigraphs": {
+    "kronecker": {
+      "text": "Gott schuf die natürlichen Zahlen, alles andere ist Menschenwerk.",
+      "who": "Leopold Kronecker"
+    },
+    "cantor": {
+      "text": "Ich sehe es, aber ich glaube es nicht.",
+      "who": "Georg Cantor (über sein eigenes Ergebnis)"
+    },
+    "boys": {
+      "text": "Eine Undezillion? Zu wenig.",
+      "who": "Zwei Jungen"
+    },
+    "hilbert": {
+      "text": "Niemand wird uns aus dem Paradies vertreiben, das Cantor uns geschaffen hat.",
+      "who": "David Hilbert"
+    },
+    "gauss": {
+      "text": "Ich protestiere gegen den Gebrauch einer unendlichen Größe als etwas Vollendetem, was in der Mathematik niemals erlaubt ist.",
+      "who": "Carl Friedrich Gauß"
+    },
+    "newton": {
+      "text": "Wenn ich weiter gesehen habe, dann deshalb, weil ich auf den Schultern von Riesen stand.",
+      "who": "Isaac Newton"
+    }
+  }
+}

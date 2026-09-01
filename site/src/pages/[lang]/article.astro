@@ -1,0 +1,595 @@
+---
+import Base from "../../layouts/Base.astro";
+import { langStaticPaths } from "../../i18n/paths";
+import { useTranslations, path } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+import { meta, levels, cryptoComa } from "../../data/levels";
+import Figure from "../../components/Figure.astro";
+import Epigraph from "../../components/Epigraph.astro";
+
+export function getStaticPaths() {
+  return langStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const b = levels.find((l) => l.letter === "b")!;
+
+const dict = {
+  ru: {
+    title: "Крипто кома",
+    abstractH: "Аннотация",
+    abstract:
+      "Мы вводим восходящий ряд a, b, …, z, где каждый следующий член есть предыдущий, возведённый в собственную степень, и определяем его кульминацию — крипто кому ℂ⇈ = z^z. Мы оцениваем эту величину, записываем её степенным выражением и предлагаем символ. А затем честно признаём, сколько вопросов остаётся без ответа.",
+    formalismH: "Формализм",
+    formalism: `Обозначим уровни буквами a…z (всего ${meta.levels}). Ряд задаётся как a = 10^${meta.start_value_log10} и L(n+1) = L(n)^L(n). Это тетрация: основание степени само растёт.`,
+    starNote:
+      "Короче: если x★ = xˣ, то крипто кома — это (10³⁶)★²⁶, двадцать шесть звёздочек, по одной на букву.",
+    magnitudeH: "Оценка величины",
+    magnitude: `Уже b = a^a = ${b.value_str} — записать цифрами невозможно. Поэтому мы работаем с порядком M(n) = log10 L(n). Крипто кома — степенная башня из десяток высотой примерно ${cryptoComa.tower_height} этажей.`,
+    diffH: "Чем d отличается от p?",
+    diff:
+      "Оба — и d, и p — лежат за пределами всего счётного. Спросите Вселенную, спросите свои чувства, спросите почти всю математику: об обоих вы услышите один ответ — «слишком много». Разницы не почувствовать. И всё же p чудовищно больше d. Насколько? Чтобы ужать p до размеров d, пришлось бы взять от него логарифм двенадцать раз подряд. А d — это уже число, у которого число цифр в числе его цифр астрономично. При этом прибавьте d к p — и p не шелохнётся; отнимите — не заметит. В арифметике этих гигантов d есть погрешность округления. И одновременно d больше всего, что можно было бы построить из атомов Вселенной. Как удержать обе мысли разом?",
+    workH: "Как с этим вообще работать?",
+    work:
+      "Никак — если «работать» значит «записать» или «вычислить»: не хватит ни бумаги, ни атомов, ни времени. Математик работает не с числом, а с его адресом — высотой башни, скоростью роста, ординалами как линейкой. Мы сравниваем не числа, а темпы их бегства в бесконечность. Но тогда: возиться с адресом числа — то же ли, что знать число? Мы уверенно пишем ℂ⇈, ни разу его не видев. Что у нас в руках — число или имя?",
+    existH: "А оно вообще существует?",
+    exist:
+      "d нельзя записать, нельзя досчитать до него, нельзя хранить. Считай Вселенная от единицы вечно — она бы до d не дошла. В каком смысле d существует? Мы его придумали — или обнаружили? Если это факт о мире, то где он лежит? Если только о нашей записи — почему он подчиняется тем же законам, что и настоящие числа?",
+    cardinalityH: "«Мощность»",
+    cardinality:
+      "Мы называем крипто кому «мощностью», играя на двух значениях слова — «кардинальное число» и «сила». Шутка? Да. Но чем дольше смотришь на эти уровни, тем меньше понятно, где кончается шутка.",
+    questionsH: "Вопросы без ответов",
+    questions: [
+      "Если и d, и p для человека «бесконечно большие», есть ли между ними разница — или она живёт только на бумаге?",
+      "Число, которое нельзя ни записать, ни вычислить, ни досчитать, — существует ли оно?",
+      "Мы придумали крипто кому — или наткнулись на неё?",
+      "Работать с адресом числа — это работать с числом?",
+      "«Мало» — мало для чего? Что добавляет размер, чего не хватает смыслу?",
+      "Есть ли последнее число — или у мысли нет потолка?",
+      "Почему нас вообще тянет вверх по этой лестнице?",
+    ],
+    disclaimerH: "Оговорка",
+    disclaimer:
+      "Честно: крипто кома — конечное число. Но «конечное» не значит «постижимое». Мальчики остановились на z лишь потому, что кончился алфавит, а не числа; наибольшего числа нет — любая вершина оказывается ступенью. Взрослым эти числа «известны» — но известно имя, а не число: его не видел никто. Посмейтесь над двумя мальчиками ещё раз. Уже не смешно, правда?",
+  },
+  en: {
+    title: "Crypto Coma",
+    abstractH: "Abstract",
+    abstract:
+      "We introduce an ascending series a, b, …, z where each term is the previous one raised to itself, and define its culmination — the crypto coma ℂ⇈ = z^z. We estimate the value, write it as a power expression, and propose a symbol. And then we admit, honestly, how many questions are left with no answer.",
+    formalismH: "Formalism",
+    formalism: `Label the levels a…z (${meta.levels} in total). The series is a = 10^${meta.start_value_log10} and L(n+1) = L(n)^L(n). This is tetration: the base of the power grows at every step.`,
+    starNote:
+      "In short: with x★ = xˣ, the crypto coma is (10³⁶)★²⁶ — twenty-six stars, one per letter.",
+    magnitudeH: "Estimating the magnitude",
+    magnitude: `Already b = a^a = ${b.value_str} — impossible to write in digits. So we work with the order M(n) = log10 L(n). The crypto coma is a base-10 power tower about ${cryptoComa.tower_height} storeys tall.`,
+    diffH: "How is d different from p?",
+    diff:
+      "Both d and p sit past everything countable. Ask the universe, ask your senses, ask almost all of mathematics: for both you hear one answer — “too much.” You cannot feel the difference. And yet p is monstrously larger than d. By how much? To shrink p down to the size of d you would have to take its logarithm twelve times over. And d is already a number whose count of digits has a count of digits that is astronomical. Meanwhile, add d to p and p does not stir; subtract it and p does not notice. In the arithmetic of these giants d is a rounding error — and at the same time d is larger than anything you could build from the atoms of the universe. How do you hold both thoughts at once?",
+    workH: "How can anyone work with these?",
+    work:
+      "You cannot — if “work” means “write down” or “compute”: there is not enough paper, nor atoms, nor time. A mathematician works not with the number but with its address — the height of the tower, the rate of growth, ordinals as a ruler. We compare not numbers but the speeds at which they flee to infinity. But then: is handling a number’s address the same as knowing the number? We write ℂ⇈ with confidence, having never seen it. What do we hold — a number, or a name?",
+    existH: "Does it even exist?",
+    exist:
+      "d cannot be written, counted to, or stored. If the universe counted from one forever, it would never reach d. In what sense, then, does d exist? Did we invent it — or discover it? If it is a fact about the world, where is it kept? If only about our notation, why does it obey the same laws as ordinary numbers?",
+    cardinalityH: "“Cardinality”",
+    cardinality:
+      "We call the crypto coma a “cardinality,” punning on a word that means both “cardinal number” and “might.” A joke? Yes. But the longer you stare at these levels, the less certain you are where the joke ends.",
+    questionsH: "Questions without answers",
+    questions: [
+      "If both d and p are “infinitely large” to a human, is there a difference between them — or does it live only on paper?",
+      "A number you can neither write, compute, nor count to — does it exist?",
+      "Did we invent the crypto coma, or stumble upon it?",
+      "Is working with a number’s address the same as working with the number?",
+      "“Too small” — too small for what? What does size add that meaning is missing?",
+      "Is there a last number — or does thought have no ceiling?",
+      "Why are we drawn up this ladder at all?",
+    ],
+    disclaimerH: "Disclaimer",
+    disclaimer:
+      "Honestly: the crypto coma is a finite number. But “finite” does not mean “graspable.” The boys stopped at z only because the alphabet ran out, not the numbers; there is no largest number — every summit turns out to be a step. Adults “know” these numbers — but they know the name, not the number: no one has ever seen it. Now laugh at the two boys again. It doesn’t quite work anymore, does it?",
+  },
+  zh: {
+    title: "Crypto Coma",
+    abstract:
+      "我们引入一个上升数列 a, b, …, z，其中每一项都是前一项自身的幂，并定义它的顶点——crypto coma ℂ⇈ = z^z。我们估计它的大小，用幂的表达式写出它，并为它提出一个符号。然后我们坦白：还有多少问题没有答案。",
+    formalismH: "形式化",
+    formalism: `把各层记为 a…z（共 ${meta.levels} 层）。数列由 a = 10^${meta.start_value_log10} 与 L(n+1) = L(n)^L(n) 给定。这就是超幂（tetration）：幂的底数每一步都在增大。`,
+    starNote: "简而言之：记 x★ = xˣ，则 crypto coma 为 (10³⁶)★²⁶——二十六颗星，每个字母一颗。",
+    magnitudeH: "估计其大小",
+    magnitude: `仅仅 b = a^a = ${b.value_str} 就已无法用数字写出。于是我们改用其“阶” M(n) = log10 L(n)。crypto coma 是一座以 10 为底、约 ${cryptoComa.tower_height} 层高的幂塔。`,
+    diffH: "d 与 p 有何不同？",
+    diff:
+      "d 与 p 都远在一切可数之外。去问宇宙，问你的感官，问几乎全部的数学：对二者你都只会听到同一个答案——“太多了”。你感觉不到差别。然而 p 比 d 大得骇人。大多少？要把 p 缩到 d 的大小，你得对它连取十二次对数。而 d 本身，已是一个“它的位数的位数”都大到天文数字的数。与此同时，把 d 加到 p 上，p 纹丝不动；减去 d，p 也毫无察觉。在这些巨人的算术里，d 只是舍入误差——可它同时又比你用宇宙全部原子能造出的任何东西都大。你如何同时握住这两个念头？",
+    workH: "人究竟如何与它们打交道？",
+    work:
+      "无法——如果“打交道”意味着“写下”或“计算”：纸张不够，原子不够，时间也不够。数学家处理的不是数本身，而是它的“地址”——塔的高度、增长的速度、作为标尺的序数。我们比较的不是数，而是它们奔向无穷的速度。可这样一来：摆弄一个数的地址，等于认识这个数吗？我们从未见过 ℂ⇈，却写得如此笃定。我们手里握着的，是数，还是名字？",
+    existH: "它究竟存在吗？",
+    exist:
+      "d 无法写出，无法数到，也无法储存。纵使宇宙从一开始永远数下去，也到不了 d。那么 d 在何种意义上存在？是我们发明了它，还是发现了它？若它是关于世界的事实，那它藏在哪里？若只是关于我们记法的事实，它又为何遵守与真实的数相同的定律？",
+    cardinalityH: "“势”",
+    cardinality:
+      "我们把 crypto coma 称作一种“势”（мощность）——这个词兼有“基数”与“力量”之意，是个双关。玩笑吗？是的。可你越久地凝视这些层级，就越难说清玩笑在哪里终止。",
+    questionsH: "没有答案的问题",
+    questions: [
+      "若 d 与 p 对人而言都“无穷大”，它们之间还有差别吗——还是差别只活在纸上？",
+      "一个既不能写、不能算、也数不到的数——它存在吗？",
+      "crypto coma 是我们发明的，还是我们撞见的？",
+      "处理一个数的地址，等于处理这个数吗？",
+      "“太小”——对什么而言太小？当尺寸增加时，意义缺的是什么？",
+      "有最后一个数吗——还是思想没有天花板？",
+      "我们究竟为何被引着，一路攀上这座梯子？",
+    ],
+    disclaimerH: "附注",
+    disclaimer:
+      "老实说：crypto coma 是个有限的数。但“有限”并不意味着“可把握”。两个男孩停在 z，只因字母用完了，而不是数用完了；根本没有最大的数——每一座顶峰，原来都只是一级台阶。大人们“知道”这些数——可他们知道的是名字，不是数：没有人真正见过它。现在，再来嘲笑这两个男孩吧。已经笑不太出来了，对吧？",
+  },
+  ja: {
+    title: "Crypto Coma",
+    abstract:
+      "私たちは上昇数列 a, b, …, z を導入する。各項は前項を自分自身で累乗したものであり、その頂点を crypto coma ℂ⇈ = z^z と定める。その大きさを見積もり、累乗の式で書き表し、記号を提案する。そして正直に認める——答えのない問いが、どれほど残るかを。",
+    formalismH: "形式化",
+    formalism: `各段を a…z と記す（全 ${meta.levels} 段）。数列は a = 10^${meta.start_value_log10} と L(n+1) = L(n)^L(n) で定まる。これはテトレーション——累乗の底が一段ごとに自ら大きくなる。`,
+    starNote: "手短に言えば：x★ = xˣ とすると、crypto coma は (10³⁶)★²⁶——星が二十六個、文字ごとに一つ。",
+    magnitudeH: "大きさの見積もり",
+    magnitude: `すでに b = a^a = ${b.value_str} でさえ、数字では書けない。そこで私たちは位 M(n) = log10 L(n) を扱う。crypto coma は、底 10 の、およそ ${cryptoComa.tower_height} 階建ての累乗の塔である。`,
+    diffH: "d は p とどう違うのか？",
+    diff:
+      "d も p も、数えられるいっさいの彼方にある。宇宙に問え、己の感覚に問え、ほとんどすべての数学に問え——どちらについても返る答えは同じ、「多すぎる」。違いは感じ取れない。それでも p は d より途方もなく大きい。どれほどか？ p を d の大きさまで縮めるには、対数を十二回続けて取らねばならない。しかも d は、その桁数の桁数さえ天文学的な数なのだ。一方で、d を p に足しても p は微動だにせず、引いても気づかない。この巨人たちの算術では、d は丸め誤差にすぎない——それでいて d は、宇宙のすべての原子で作りうる何よりも大きい。この二つの考えを、どうすれば同時に抱えられるのか？",
+    workH: "そもそも、どう扱えばよいのか？",
+    work:
+      "扱えない——「扱う」が「書き下す」か「計算する」を意味するなら。紙も、原子も、時間も足りない。数学者が扱うのは数そのものではなく、その〈住所〉である——塔の高さ、増大の速さ、ものさしとしての順序数。私たちが比べるのは数ではなく、無限へ逃げていく速さだ。だが、そうだとすれば——数の住所をいじることは、その数を知ることと同じなのか？ 私たちは ℂ⇈ を一度も見ないまま、確信をもって書く。手にしているのは、数か、それとも名前か。",
+    existH: "それは本当に存在するのか？",
+    exist:
+      "d は書けず、そこまで数えられず、蓄えられない。宇宙が一から永遠に数え続けても、d には届かない。ならば d はいかなる意味で存在するのか。私たちはそれを発明したのか、発見したのか。もし世界についての事実なら、それはどこにあるのか。もし私たちの記法についての事実にすぎないなら、なぜ本物の数と同じ法則に従うのか。",
+    cardinalityH: "「濃度」",
+    cardinality:
+      "私たちは crypto coma を「濃度（мощность）」と呼ぶ——「基数」と「力」の両義をかけた駄洒落だ。冗談か？ そのとおり。だが、これらの段を長く見つめるほど、その冗談がどこで終わるのか、確信は薄れていく。",
+    questionsH: "答えのない問い",
+    questions: [
+      "d も p も人にとって「無限に大きい」なら、両者に違いはあるのか——それとも違いは紙の上にしかないのか。",
+      "書くことも、計算することも、数え上げることもできない数——それは存在するのか。",
+      "crypto coma を、私たちは発明したのか、偶然行き当たったのか。",
+      "数の住所を扱うことは、その数を扱うことと同じか。",
+      "「小さすぎる」——何にとって小さすぎるのか。大きさが増すとき、意味に欠けているものは何か。",
+      "最後の数はあるのか——それとも思考に天井はないのか。",
+      "そもそもなぜ私たちは、この梯子を昇るよう誘われるのか。",
+    ],
+    disclaimerH: "但し書き",
+    disclaimer:
+      "正直に言おう：crypto coma は有限の数である。だが「有限」は「把握できる」を意味しない。少年たちが z で止まったのは、数が尽きたからではなく、アルファベットが尽きたからだ。最大の数などない——どの頂も、結局は一段の階段にすぎない。大人たちはこれらの数を「知っている」——だが知っているのは名前であって、数ではない。誰一人、それを見た者はいない。さあ、もう一度あの二人の少年を笑ってみるといい。もう、うまく笑えないだろう？",
+  },
+  ko: {
+    title: "Crypto Coma",
+    abstract:
+      "우리는 상승 수열 a, b, …, z를 도입한다. 각 항은 앞의 항을 자기 자신으로 거듭제곱한 것이며, 그 정점을 crypto coma ℂ⇈ = z^z로 정의한다. 우리는 그 크기를 어림하고, 거듭제곱 식으로 적고, 기호를 제안한다. 그러고 나서 솔직히 인정한다—답 없는 물음이 얼마나 남는지를.",
+    formalismH: "형식화",
+    formalism: `각 단계를 a…z로 표기한다(모두 ${meta.levels}단계). 수열은 a = 10^${meta.start_value_log10}와 L(n+1) = L(n)^L(n)로 정해진다. 이것이 테트레이션이다—거듭제곱의 밑이 매 단계 스스로 커진다.`,
+    starNote: "요컨대: x★ = xˣ로 두면 crypto coma는 (10³⁶)★²⁶—별 스물여섯 개, 글자마다 하나씩.",
+    magnitudeH: "크기 어림하기",
+    magnitude: `이미 b = a^a = ${b.value_str}만 해도 숫자로는 쓸 수 없다. 그래서 우리는 자릿수 M(n) = log10 L(n)을 다룬다. crypto coma는 밑이 10이고 높이가 약 ${cryptoComa.tower_height}층인 거듭제곱 탑이다.`,
+    diffH: "d는 p와 어떻게 다른가?",
+    diff:
+      "d와 p는 모두 셀 수 있는 모든 것 너머에 있다. 우주에 물어도, 감각에 물어도, 거의 모든 수학에 물어도—둘 다에 대해 같은 답이 돌아온다: “너무 많다.” 차이를 느낄 수 없다. 그런데도 p는 d보다 무시무시하게 크다. 얼마나? p를 d의 크기로 줄이려면 로그를 연달아 열두 번 취해야 한다. 게다가 d는, 그 자릿수의 자릿수마저 천문학적인 수다. 한편 d를 p에 더해도 p는 꿈쩍하지 않고, 빼도 알아차리지 못한다. 이 거인들의 산술에서 d는 반올림 오차일 뿐이다—그러면서도 d는 우주의 모든 원자로 지을 수 있는 그 무엇보다 크다. 이 두 생각을 어떻게 동시에 붙잡을 것인가?",
+    workH: "대체 이것들을 어떻게 다루는가?",
+    work:
+      "다룰 수 없다—‘다룬다’가 ‘적는다’나 ‘계산한다’를 뜻한다면. 종이도, 원자도, 시간도 모자란다. 수학자가 다루는 것은 수 자체가 아니라 그 〈주소〉다—탑의 높이, 자라는 속도, 자로 쓰는 순서수. 우리가 비교하는 것은 수가 아니라 무한으로 달아나는 속도다. 그러나 그렇다면—수의 주소를 만지는 일이 그 수를 아는 일과 같은가? 우리는 ℂ⇈를 한 번도 보지 못한 채 확신에 차서 쓴다. 우리가 손에 쥔 것은 수인가, 이름인가?",
+    existH: "그것은 정말 존재하는가?",
+    exist:
+      "d는 쓸 수도, 거기까지 셀 수도, 저장할 수도 없다. 우주가 하나부터 영원히 센다 해도 d에 이르지 못한다. 그렇다면 d는 어떤 의미에서 존재하는가? 우리가 그것을 발명했는가, 발견했는가? 그것이 세계에 관한 사실이라면 어디에 놓여 있는가? 우리 표기법에 관한 사실일 뿐이라면, 어째서 진짜 수와 같은 법칙을 따르는가?",
+    cardinalityH: "‘농도’",
+    cardinality:
+      "우리는 crypto coma를 ‘농도(мощность)’라 부른다—‘기수’와 ‘힘’을 함께 뜻하는 말장난이다. 농담인가? 그렇다. 그러나 이 단계들을 오래 바라볼수록, 농담이 어디서 끝나는지 점점 확신이 서지 않는다.",
+    questionsH: "답 없는 물음",
+    questions: [
+      "d와 p가 사람에게 모두 ‘무한히 크다’면, 둘 사이에 차이가 있는가—아니면 그 차이는 종이 위에만 있는가?",
+      "쓸 수도, 계산할 수도, 셀 수도 없는 수—그것은 존재하는가?",
+      "crypto coma를 우리는 발명했는가, 우연히 마주쳤는가?",
+      "수의 주소를 다루는 일이 그 수를 다루는 일과 같은가?",
+      "‘너무 작다’—무엇에 비해 작은가? 크기가 더해질 때, 의미에 모자란 것은 무엇인가?",
+      "마지막 수가 있는가—아니면 사고에는 천장이 없는가?",
+      "우리는 대체 왜 이 사다리를 오르도록 이끌리는가?",
+    ],
+    disclaimerH: "부기",
+    disclaimer:
+      "솔직히 말하자: crypto coma는 유한한 수다. 그러나 ‘유한’이 ‘파악할 수 있음’을 뜻하지는 않는다. 두 소년이 z에서 멈춘 것은 수가 아니라 알파벳이 다했기 때문이다. 가장 큰 수란 없다—어떤 정상도 알고 보면 한 계단일 뿐이다. 어른들은 이 수들을 ‘안다’—그러나 그들이 아는 것은 이름이지 수가 아니다. 누구도 그것을 본 적이 없다. 이제 저 두 소년을 다시 비웃어 보라. 더는 잘 웃기지 않는다, 그렇지?",
+  },
+  hi: {
+    title: "Crypto Coma",
+    abstract:
+      "हम एक आरोही श्रेणी a, b, …, z प्रस्तुत करते हैं, जिसमें हर पद पिछले पद की स्वयं-घात है, और इसकी पराकाष्ठा को परिभाषित करते हैं—crypto coma ℂ⇈ = z^z। हम इसका परिमाण आँकते हैं, इसे घात-व्यंजक के रूप में लिखते हैं, और एक प्रतीक सुझाते हैं। और फिर ईमानदारी से मानते हैं कि कितने प्रश्न बिना उत्तर के रह जाते हैं।",
+    formalismH: "औपचारिकता",
+    formalism: `स्तरों को a…z कहें (कुल ${meta.levels})। श्रेणी a = 10^${meta.start_value_log10} और L(n+1) = L(n)^L(n) से तय होती है। यह टेट्रेशन है: घात का आधार हर क़दम पर स्वयं बढ़ता है।`,
+    starNote: "संक्षेप में: यदि x★ = xˣ, तो crypto coma है (10³⁶)★²⁶—छब्बीस तारे, हर अक्षर के लिए एक।",
+    magnitudeH: "परिमाण का आकलन",
+    magnitude: `केवल b = a^a = ${b.value_str} को ही अंकों में लिखना असंभव है। इसलिए हम कोटि M(n) = log10 L(n) के साथ काम करते हैं। crypto coma आधार-10 की, लगभग ${cryptoComa.tower_height} मंज़िल ऊँची घात-मीनार है।`,
+    diffH: "d, p से किस तरह भिन्न है?",
+    diff:
+      "d और p दोनों हर गिनने योग्य वस्तु से परे हैं। ब्रह्मांड से पूछिए, अपनी इंद्रियों से पूछिए, लगभग समूचे गणित से पूछिए—दोनों के लिए एक ही उत्तर मिलेगा: “बहुत ज़्यादा।” अंतर महसूस नहीं होता। फिर भी p, d से भयावह रूप से बड़ा है। कितना? p को d के आकार तक घटाने के लिए आपको उसका लघुगणक लगातार बारह बार लेना पड़ेगा। और d तो पहले ही ऐसा है जिसकी अंक-संख्या की अंक-संख्या भी खगोलीय है। वहीं, d को p में जोड़िए—p हिलता तक नहीं; घटाइए—उसे पता ही नहीं चलता। इन दैत्यों के अंकगणित में d महज़ पूर्णांकन-त्रुटि है—और साथ ही d उस हर चीज़ से बड़ा है जिसे आप ब्रह्मांड के सारे परमाणुओं से बना सकें। इन दोनों विचारों को एक साथ कैसे थामें?",
+    workH: "आख़िर इनके साथ काम कैसे किया जाए?",
+    work:
+      "किसी तरह नहीं—यदि ‘काम’ का अर्थ ‘लिखना’ या ‘गणना करना’ है: न काग़ज़ पर्याप्त है, न परमाणु, न समय। गणितज्ञ संख्या के साथ नहीं, उसके ‘पते’ के साथ काम करता है—मीनार की ऊँचाई, वृद्धि की गति, मापदंड के रूप में क्रमसूचक। हम संख्याओं की नहीं, अनंत की ओर उनके भागने की गति की तुलना करते हैं। पर तब: किसी संख्या के पते से खेलना, क्या उस संख्या को जानना है? हम ℂ⇈ को कभी देखे बिना पूरे विश्वास से लिखते हैं। हमारे हाथ में क्या है—संख्या या नाम?",
+    existH: "क्या यह सचमुच अस्तित्व में है?",
+    exist:
+      "d को न लिखा जा सकता है, न वहाँ तक गिना जा सकता है, न संचित किया जा सकता है। यदि ब्रह्मांड एक से अनंत काल तक गिनता रहे, तब भी d तक न पहुँचे। तो d किस अर्थ में अस्तित्व रखता है? हमने इसे रचा या पाया? यदि यह संसार के बारे में तथ्य है, तो कहाँ रखा है? यदि केवल हमारी संकेत-पद्धति के बारे में है, तो यह असली संख्याओं जैसे नियमों का पालन क्यों करता है?",
+    cardinalityH: "“मोश्नोस्त” (सामर्थ्य / कार्डिनैलिटी)",
+    cardinality:
+      "हम crypto coma को एक “सामर्थ्य” कहते हैं—रूसी शब्द पर श्लेष, जिसका अर्थ ‘कार्डिनल संख्या’ भी है और ‘शक्ति’ भी। मज़ाक? हाँ। पर जितनी देर आप इन स्तरों को ताकते हैं, उतना ही कम स्पष्ट रहता है कि मज़ाक कहाँ ख़त्म होता है।",
+    questionsH: "बिना उत्तर के प्रश्न",
+    questions: [
+      "यदि d और p दोनों मनुष्य के लिए ‘अनंत रूप से बड़े’ हैं, तो उनमें अंतर है भी—या वह केवल काग़ज़ पर जीता है?",
+      "जिस संख्या को न लिखा, न गिना, न परिकलित किया जा सके—क्या वह अस्तित्व रखती है?",
+      "crypto coma को हमने रचा, या उससे टकरा गए?",
+      "किसी संख्या के पते के साथ काम करना, क्या उस संख्या के साथ काम करना है?",
+      "‘बहुत कम’—किसके लिए कम? जब आकार बढ़ता है, तो अर्थ में क्या घटता है?",
+      "क्या कोई अंतिम संख्या है—या विचार की कोई छत नहीं?",
+      "आख़िर हम इस सीढ़ी पर ऊपर चढ़ने को क्यों खिंचे चले जाते हैं?",
+    ],
+    disclaimerH: "एक स्पष्टीकरण",
+    disclaimer:
+      "सच कहें: crypto coma एक परिमित संख्या है। पर ‘परिमित’ का अर्थ ‘बोधगम्य’ नहीं। लड़के z पर इसलिए रुके क्योंकि वर्णमाला ख़त्म हो गई, संख्याएँ नहीं; कोई सबसे बड़ी संख्या है ही नहीं—हर शिखर आख़िरकार एक सीढ़ी निकलता है। बड़े लोग इन संख्याओं को ‘जानते’ हैं—पर वे नाम जानते हैं, संख्या नहीं: उसे किसी ने नहीं देखा। अब उन दो लड़कों पर फिर हँसिए। अब ठीक से हँसी नहीं आती, है ना?",
+  },
+  ar: {
+    title: "Crypto Coma",
+    abstract:
+      "نقدّم متتاليةً صاعدة a, b, …, z، حيث كلّ حدٍّ هو سابقه مرفوعًا إلى نفسه، ونعرّف ذروتها — الكريبتو كوما ℂ⇈ = z^z. نقدّر مقدارها، ونكتبها بصيغةٍ أُسّية، ونقترح لها رمزًا. ثم نعترف بصدق: كم من الأسئلة تبقى بلا جواب.",
+    formalismH: "الصياغة الشكلية",
+    formalism: `نرمز للمستويات بـ a…z (وعددها ${meta.levels}). تُعطى المتتالية بـ a = 10^${meta.start_value_log10} و L(n+1) = L(n)^L(n). هذا هو «التربيع المتكرّر» (tetration): أساس الأُسّ نفسه يكبر عند كلّ خطوة.`,
+    starNote: "باختصار: إذا كتبنا x★ = xˣ، فإنّ الكريبتو كوما هي (10³⁶)★²⁶ — ستّةٌ وعشرون نجمة، واحدةٌ لكلّ حرف.",
+    magnitudeH: "تقدير المقدار",
+    magnitude: `حتى b = a^a = ${b.value_str} يستحيل كتابته بالأرقام. لذا نتعامل مع الرتبة M(n) = log10 L(n). والكريبتو كوما برجٌ أُسّيٌّ أساسه 10 وارتفاعه نحو ${cryptoComa.tower_height} طابقًا.`,
+    diffH: "بمَ يختلف d عن p؟",
+    diff:
+      "كلاهما، d و p، يقعان وراء كلّ ما يُعَدّ. اسأل الكون، واسأل حواسّك، واسأل الرياضيات كلَّها تقريبًا: عن كليهما ستسمع الجواب نفسه — «أكثر من اللازم». لن تشعر بالفرق. ومع ذلك فإنّ p أكبر من d بصورةٍ مرعبة. بكم؟ لتقليص p إلى حجم d عليك أن تأخذ لوغاريتمه اثنتي عشرة مرّة متتالية. و d نفسه عددٌ صار حتى «عددُ أرقام عددِ أرقامه» فلكيًّا. وفي الوقت ذاته، أضِف d إلى p فلا يتزحزح p؛ واطرحه فلا يشعر به. في حساب هؤلاء العمالقة، d مجرّد خطأ تقريب — وهو في الوقت نفسه أكبر من أيّ شيء يمكن أن تبنيه من ذرّات الكون كلّها. فكيف تُمسك بالفكرتين معًا؟",
+    workH: "كيف يمكن أصلًا التعامل معها؟",
+    work:
+      "لا سبيل — إن كان «التعامل» يعني «الكتابة» أو «الحساب»: فلا الورق يكفي، ولا الذرّات، ولا الزمن. الرياضيّ لا يتعامل مع العدد نفسه بل مع «عنوانه» — ارتفاع البرج، وسرعة النموّ، والأعداد الترتيبية بوصفها مسطرة. نحن لا نقارن الأعداد بل سرعة فرارها نحو اللانهاية. لكن حينئذٍ: هل العبث بعنوان العدد كمعرفة العدد ذاته؟ نكتب ℂ⇈ بثقة ولم نرَها قطّ. فما الذي في أيدينا — عددٌ أم اسم؟",
+    existH: "وهل هي موجودة أصلًا؟",
+    exist:
+      "لا يمكن كتابة d، ولا العدّ إليه، ولا تخزينه. ولو ظلّ الكون يعدّ من الواحد إلى الأبد لما بلغ d. فبأيّ معنًى يوجد d إذن؟ أاخترعناه أم اكتشفناه؟ إن كان حقيقةً عن العالم، فأين يقيم؟ وإن كان مجرّد حقيقةٍ عن ترميزنا، فلماذا يخضع لقوانين الأعداد الحقيقية نفسها؟",
+    cardinalityH: "«القوّة» (الكاردينالية)",
+    cardinality:
+      "نسمّي الكريبتو كوما «قوّة» (мощность) — توريةٌ على كلمةٍ تعني «العدد الأصلي/الكاردينال» و«القدرة» معًا. أمزحةٌ هي؟ نعم. لكن كلّما أطلتَ التأمّل في هذه المستويات، قلّ يقينك أين تنتهي المزحة.",
+    questionsH: "أسئلةٌ بلا جواب",
+    questions: [
+      "إن كان d و p كلاهما «لا نهائيَّي الكبر» بالنسبة إلى الإنسان، فهل بينهما فرق — أم أنّ الفرق يعيش على الورق فقط؟",
+      "عددٌ لا يُكتب ولا يُحسب ولا يُعَدّ إليه — هل هو موجود؟",
+      "الكريبتو كوما: هل اخترعناها أم عثرنا عليها مصادفةً؟",
+      "هل التعامل مع عنوان العدد كالتعامل مع العدد نفسه؟",
+      "«صغيرٌ جدًّا» — صغيرٌ بالنسبة إلى ماذا؟ وما الذي يضيفه الحجم مما يفتقر إليه المعنى؟",
+      "أثمّة عددٌ أخير — أم أنّ الفكر بلا سقف؟",
+      "ولماذا نُساق أصلًا صعودًا في هذا السُّلّم؟",
+    ],
+    disclaimerH: "تنويه",
+    disclaimer:
+      "بصدق: الكريبتو كوما عددٌ منتهٍ. لكنّ «المنتهي» لا يعني «القابل للإدراك». توقّف الصبيّان عند z لأنّ الأبجدية نفدت، لا الأعداد؛ فلا يوجد عددٌ أكبر من الكلّ — كلّ قمّةٍ تتبيّن في النهاية درجةً. الكبار «يعرفون» هذه الأعداد — لكنّهم يعرفون الاسم لا العدد: ما رآه أحد قطّ. فاضحك الآن على الصبيَّين من جديد. لم يعد الأمر مضحكًا تمامًا، أليس كذلك؟",
+  },
+  de: {
+    title: "Crypto Coma",
+    abstract:
+      "Wir führen eine aufsteigende Reihe a, b, …, z ein, in der jedes Glied das vorige in sich selbst potenziert ist, und definieren ihren Höhepunkt — die Crypto Coma ℂ⇈ = z^z. Wir schätzen den Wert, schreiben ihn als Potenzausdruck und schlagen ein Symbol vor. Und dann geben wir ehrlich zu, wie viele Fragen ohne Antwort bleiben.",
+    formalismH: "Formalismus",
+    formalism: `Bezeichnen wir die Stufen mit a…z (insgesamt ${meta.levels}). Die Reihe ist a = 10^${meta.start_value_log10} und L(n+1) = L(n)^L(n). Das ist Tetration: Die Basis der Potenz wächst bei jedem Schritt selbst.`,
+    starNote: "Kurz: mit x★ = xˣ ist die Crypto Coma (10³⁶)★²⁶ — sechsundzwanzig Sterne, einer je Buchstabe.",
+    magnitudeH: "Die Größe abschätzen",
+    magnitude: `Schon b = a^a = ${b.value_str} lässt sich nicht in Ziffern schreiben. Also arbeiten wir mit der Ordnung M(n) = log10 L(n). Die Crypto Coma ist ein Zehnerturm von etwa ${cryptoComa.tower_height} Stockwerken.`,
+    diffH: "Worin unterscheidet sich d von p?",
+    diff:
+      "Beide, d und p, liegen jenseits alles Zählbaren. Fragen Sie das Universum, fragen Sie Ihre Sinne, fragen Sie fast die gesamte Mathematik: Über beide hören Sie dieselbe Antwort — „zu viel“. Den Unterschied spüren Sie nicht. Und doch ist p ungeheuer größer als d. Um wie viel? Um p auf die Größe von d zu schrumpfen, müssten Sie zwölfmal hintereinander seinen Logarithmus nehmen. Und d ist bereits eine Zahl, deren Anzahl der Ziffern ihrer Ziffern astronomisch ist. Zugleich: Addieren Sie d zu p, und p rührt sich nicht; ziehen Sie es ab, und p bemerkt es nicht. In der Arithmetik dieser Riesen ist d ein Rundungsfehler — und zugleich ist d größer als alles, was Sie aus den Atomen des Universums bauen könnten. Wie hält man beide Gedanken zugleich fest?",
+    workH: "Wie kann man mit ihnen überhaupt arbeiten?",
+    work:
+      "Gar nicht — wenn „arbeiten“ heißt „aufschreiben“ oder „berechnen“: Es reicht weder das Papier noch die Atome noch die Zeit. Ein Mathematiker arbeitet nicht mit der Zahl, sondern mit ihrer Adresse — der Höhe des Turms, der Wachstumsrate, den Ordinalzahlen als Maßstab. Wir vergleichen nicht Zahlen, sondern die Geschwindigkeit, mit der sie ins Unendliche fliehen. Aber dann: Ist das Hantieren mit der Adresse einer Zahl dasselbe wie das Kennen der Zahl? Wir schreiben ℂ⇈ mit Überzeugung, ohne es je gesehen zu haben. Was halten wir in Händen — eine Zahl oder einen Namen?",
+    existH: "Existiert es überhaupt?",
+    exist:
+      "d lässt sich nicht schreiben, nicht bis dahin zählen, nicht speichern. Zählte das Universum von eins bis in alle Ewigkeit, es erreichte d nie. In welchem Sinne existiert d dann? Haben wir es erfunden oder entdeckt? Ist es eine Tatsache über die Welt — wo liegt sie? Ist es nur eine Tatsache über unsere Schreibweise — warum gehorcht es denselben Gesetzen wie echte Zahlen?",
+    cardinalityH: "„Mächtigkeit“",
+    cardinality:
+      "Wir nennen die Crypto Coma eine „Mächtigkeit“ (мощность) — ein Wortspiel mit einem Wort, das zugleich „Kardinalzahl“ und „Macht“ bedeutet. Ein Scherz? Ja. Doch je länger man diese Stufen betrachtet, desto weniger sicher ist man, wo der Scherz endet.",
+    questionsH: "Fragen ohne Antwort",
+    questions: [
+      "Wenn d und p für einen Menschen beide „unendlich groß“ sind, gibt es dann einen Unterschied zwischen ihnen — oder lebt er nur auf dem Papier?",
+      "Eine Zahl, die man weder schreiben noch berechnen noch abzählen kann — existiert sie?",
+      "Haben wir die Crypto Coma erfunden oder sind wir über sie gestolpert?",
+      "Ist das Arbeiten mit der Adresse einer Zahl dasselbe wie das Arbeiten mit der Zahl?",
+      "„Zu klein“ — zu klein wofür? Was fügt Größe hinzu, das dem Sinn fehlt?",
+      "Gibt es eine letzte Zahl — oder hat das Denken keine Decke?",
+      "Warum zieht es uns überhaupt diese Leiter hinauf?",
+    ],
+    disclaimerH: "Anmerkung",
+    disclaimer:
+      "Ehrlich: Die Crypto Coma ist eine endliche Zahl. Doch „endlich“ heißt nicht „fassbar“. Die Jungen hielten bei z inne, nur weil das Alphabet zu Ende war, nicht die Zahlen; es gibt keine größte Zahl — jeder Gipfel erweist sich als Stufe. Erwachsene „kennen“ diese Zahlen — aber sie kennen den Namen, nicht die Zahl: Niemand hat sie je gesehen. Lachen Sie nun noch einmal über die beiden Jungen. Es gelingt nicht mehr recht, nicht wahr?",
+  },
+  fr: {
+    title: "Crypto Coma",
+    abstract:
+      "Nous introduisons une suite ascendante a, b, …, z, où chaque terme est le précédent élevé à lui-même, et définissons son point culminant — la crypto coma ℂ⇈ = z^z. Nous en estimons la taille, l’écrivons comme une expression de puissance et proposons un symbole. Puis nous admettons, honnêtement, combien de questions restent sans réponse.",
+    formalismH: "Formalisme",
+    formalism: `Nommons les niveaux a…z (${meta.levels} en tout). La suite est a = 10^${meta.start_value_log10} et L(n+1) = L(n)^L(n). C’est la tétration : la base de la puissance croît elle-même à chaque étape.`,
+    starNote: "En bref : avec x★ = xˣ, la crypto coma vaut (10³⁶)★²⁶ — vingt-six étoiles, une par lettre.",
+    magnitudeH: "Estimer la grandeur",
+    magnitude: `Déjà b = a^a = ${b.value_str} est impossible à écrire en chiffres. Nous travaillons donc avec l’ordre M(n) = log10 L(n). La crypto coma est une tour de puissances de dix d’environ ${cryptoComa.tower_height} étages.`,
+    diffH: "En quoi d diffère-t-il de p ?",
+    diff:
+      "Tous deux, d et p, sont au-delà de tout ce qui est dénombrable. Demandez à l’univers, demandez à vos sens, demandez à presque toutes les mathématiques : pour l’un comme pour l’autre, la même réponse — « trop ». Vous ne sentez pas la différence. Et pourtant p est monstrueusement plus grand que d. De combien ? Pour ramener p à la taille de d, il faudrait prendre son logarithme douze fois de suite. Et d est déjà un nombre dont le nombre de chiffres du nombre de ses chiffres est astronomique. En même temps, ajoutez d à p, p ne bronche pas ; retranchez-le, p ne s’en aperçoit pas. Dans l’arithmétique de ces géants, d n’est qu’une erreur d’arrondi — et pourtant d est plus grand que tout ce qu’on pourrait bâtir avec les atomes de l’univers. Comment tenir les deux pensées à la fois ?",
+    workH: "Comment peut-on seulement travailler avec eux ?",
+    work:
+      "On ne peut pas — si « travailler » veut dire « écrire » ou « calculer » : ni le papier, ni les atomes, ni le temps n’y suffisent. Le mathématicien ne travaille pas avec le nombre, mais avec son adresse — la hauteur de la tour, la vitesse de croissance, les ordinaux comme règle. Nous comparons non des nombres, mais la vitesse à laquelle ils fuient vers l’infini. Mais alors : manipuler l’adresse d’un nombre, est-ce connaître le nombre ? Nous écrivons ℂ⇈ avec assurance sans l’avoir jamais vu. Que tenons-nous — un nombre, ou un nom ?",
+    existH: "Existe-t-il seulement ?",
+    exist:
+      "d ne peut être écrit, ni atteint par le compte, ni stocké. Si l’univers comptait depuis un jusqu’à l’éternité, il n’atteindrait jamais d. En quel sens d existe-t-il alors ? L’avons-nous inventé ou découvert ? Si c’est un fait sur le monde, où réside-t-il ? Si ce n’est qu’un fait sur notre notation, pourquoi obéit-il aux mêmes lois que les vrais nombres ?",
+    cardinalityH: "« Puissance »",
+    cardinality:
+      "Nous appelons la crypto coma une « puissance » (мощность) — jeu de mots sur un terme qui signifie à la fois « cardinal » et « force ». Une plaisanterie ? Oui. Mais plus on contemple ces niveaux, moins on sait où la plaisanterie s’arrête.",
+    questionsH: "Questions sans réponse",
+    questions: [
+      "Si d et p sont tous deux « infiniment grands » pour un humain, y a-t-il une différence entre eux — ou ne vit-elle que sur le papier ?",
+      "Un nombre qu’on ne peut ni écrire, ni calculer, ni atteindre par le compte — existe-t-il ?",
+      "Avons-nous inventé la crypto coma, ou sommes-nous tombés dessus ?",
+      "Travailler avec l’adresse d’un nombre, est-ce travailler avec le nombre ?",
+      "« Trop petit » — trop petit pour quoi ? Qu’ajoute la taille qui manque au sens ?",
+      "Y a-t-il un dernier nombre — ou la pensée n’a-t-elle pas de plafond ?",
+      "Pourquoi sommes-nous seulement attirés en haut de cette échelle ?",
+    ],
+    disclaimerH: "Avertissement",
+    disclaimer:
+      "Honnêtement : la crypto coma est un nombre fini. Mais « fini » ne veut pas dire « saisissable ». Les garçons se sont arrêtés à z seulement parce que l’alphabet était épuisé, non les nombres ; il n’y a pas de plus grand nombre — tout sommet se révèle une marche. Les adultes « connaissent » ces nombres — mais ils connaissent le nom, non le nombre : personne ne l’a jamais vu. Riez maintenant des deux garçons, encore une fois. Cela ne marche plus tout à fait, n’est-ce pas ?",
+  },
+  it: {
+    title: "Crypto Coma",
+    abstract:
+      "Introduciamo una serie ascendente a, b, …, z, in cui ogni termine è il precedente elevato a se stesso, e ne definiamo il culmine — la crypto coma ℂ⇈ = z^z. Ne stimiamo la grandezza, la scriviamo come espressione di potenza e proponiamo un simbolo. E poi ammettiamo, onestamente, quante domande restino senza risposta.",
+    formalismH: "Formalismo",
+    formalism: `Chiamiamo i livelli a…z (${meta.levels} in tutto). La serie è a = 10^${meta.start_value_log10} e L(n+1) = L(n)^L(n). Questa è la tetrazione: la base della potenza cresce essa stessa a ogni passo.`,
+    starNote: "In breve: con x★ = xˣ, la crypto coma è (10³⁶)★²⁶ — ventisei stelle, una per lettera.",
+    magnitudeH: "Stimare la grandezza",
+    magnitude: `Già b = a^a = ${b.value_str} è impossibile da scrivere in cifre. Perciò lavoriamo con l’ordine M(n) = log10 L(n). La crypto coma è una torre di dieci alta circa ${cryptoComa.tower_height} piani.`,
+    diffH: "In che cosa d differisce da p?",
+    diff:
+      "Entrambi, d e p, stanno oltre tutto ciò che è numerabile. Chiedete all’universo, chiedete ai vostri sensi, chiedete a quasi tutta la matematica: per entrambi udrete la stessa risposta — « troppo ». Non ne sentite la differenza. Eppure p è mostruosamente più grande di d. Di quanto? Per ridurre p alla dimensione di d dovreste prenderne il logaritmo dodici volte di seguito. E d è già un numero il cui numero di cifre del numero delle sue cifre è astronomico. Nel frattempo, aggiungete d a p e p non si scompone; sottraetelo e p non se ne accorge. Nell’aritmetica di questi giganti d è un errore di arrotondamento — e insieme d è più grande di qualunque cosa possiate costruire con gli atomi dell’universo. Come tenere insieme i due pensieri?",
+    workH: "Come si può mai lavorare con essi?",
+    work:
+      "In nessun modo — se « lavorare » significa « scrivere » o « calcolare »: non bastano né la carta, né gli atomi, né il tempo. Il matematico non lavora con il numero, ma con il suo indirizzo — l’altezza della torre, la velocità di crescita, gli ordinali come righello. Confrontiamo non i numeri, ma la velocità con cui fuggono verso l’infinito. Ma allora: maneggiare l’indirizzo di un numero è lo stesso che conoscerlo? Scriviamo ℂ⇈ con sicurezza senza averlo mai visto. Che cosa teniamo in mano — un numero o un nome?",
+    existH: "Ma esiste davvero?",
+    exist:
+      "d non si può scrivere, né raggiungere contando, né conservare. Se l’universo contasse da uno per l’eternità, non arriverebbe mai a d. In che senso, allora, d esiste? L’abbiamo inventato o scoperto? Se è un fatto sul mondo, dove si trova? Se è solo un fatto sulla nostra notazione, perché obbedisce alle stesse leggi dei numeri veri?",
+    cardinalityH: "« Cardinalità »",
+    cardinality:
+      "Chiamiamo la crypto coma una « cardinalità » (мощность) — un gioco di parole su un termine che significa insieme « cardinale » e « potenza ». Uno scherzo? Sì. Ma più a lungo si contemplano questi livelli, meno si è certi di dove lo scherzo finisca.",
+    questionsH: "Domande senza risposta",
+    questions: [
+      "Se d e p sono entrambi « infinitamente grandi » per un uomo, c’è una differenza tra loro — o vive solo sulla carta?",
+      "Un numero che non si può né scrivere, né calcolare, né raggiungere contando — esiste?",
+      "Abbiamo inventato la crypto coma, o ci siamo imbattuti in essa?",
+      "Lavorare con l’indirizzo di un numero è lavorare con il numero?",
+      "« Troppo piccolo » — piccolo per che cosa? Che cosa aggiunge la grandezza che manca al senso?",
+      "C’è un ultimo numero — o il pensiero non ha soffitto?",
+      "Perché mai siamo attratti su per questa scala?",
+    ],
+    disclaimerH: "Avvertenza",
+    disclaimer:
+      "Onestamente: la crypto coma è un numero finito. Ma « finito » non significa « afferrabile ». I ragazzi si fermarono a z solo perché l’alfabeto era finito, non i numeri; non esiste un numero più grande — ogni vetta si rivela un gradino. Gli adulti « conoscono » questi numeri — ma conoscono il nome, non il numero: nessuno l’ha mai visto. Ora ridete di nuovo dei due ragazzi. Non riesce più bene, vero?",
+  },
+  es: {
+    title: "Crypto Coma",
+    abstract:
+      "Introducimos una serie ascendente a, b, …, z, donde cada término es el anterior elevado a sí mismo, y definimos su culminación — la crypto coma ℂ⇈ = z^z. Estimamos su tamaño, la escribimos como una expresión de potencia y proponemos un símbolo. Y luego admitimos, con honestidad, cuántas preguntas quedan sin respuesta.",
+    formalismH: "Formalismo",
+    formalism: `Llamemos a los niveles a…z (${meta.levels} en total). La serie es a = 10^${meta.start_value_log10} y L(n+1) = L(n)^L(n). Esto es tetración: la base de la potencia crece ella misma en cada paso.`,
+    starNote: "En resumen: con x★ = xˣ, la crypto coma es (10³⁶)★²⁶ — veintiséis estrellas, una por letra.",
+    magnitudeH: "Estimar la magnitud",
+    magnitude: `Ya b = a^a = ${b.value_str} es imposible de escribir en cifras. Por eso trabajamos con el orden M(n) = log10 L(n). La crypto coma es una torre de dieces de unos ${cryptoComa.tower_height} pisos.`,
+    diffH: "¿En qué se diferencia d de p?",
+    diff:
+      "Ambos, d y p, están más allá de todo lo contable. Pregunta al universo, pregunta a tus sentidos, pregunta a casi todas las matemáticas: de ambos oirás la misma respuesta — « demasiado ». No sientes la diferencia. Y sin embargo p es monstruosamente mayor que d. ¿Cuánto? Para reducir p al tamaño de d tendrías que tomar su logaritmo doce veces seguidas. Y d ya es un número cuyo número de cifras del número de sus cifras es astronómico. Al mismo tiempo, suma d a p y p no se inmuta; réstalo y p no lo nota. En la aritmética de estos gigantes d es un error de redondeo — y a la vez d es mayor que cualquier cosa que pudieras construir con los átomos del universo. ¿Cómo sostener ambas ideas a la vez?",
+    workH: "¿Cómo puede alguien trabajar con ellos?",
+    work:
+      "No se puede — si « trabajar » significa « escribir » o « calcular »: no bastan ni el papel, ni los átomos, ni el tiempo. El matemático no trabaja con el número, sino con su dirección — la altura de la torre, la velocidad de crecimiento, los ordinales como regla. No comparamos números, sino la velocidad con que huyen hacia el infinito. Pero entonces: manejar la dirección de un número, ¿es conocerlo? Escribimos ℂ⇈ con seguridad sin haberlo visto jamás. ¿Qué tenemos en las manos — un número o un nombre?",
+    existH: "¿Acaso existe?",
+    exist:
+      "d no se puede escribir, ni alcanzar contando, ni almacenar. Si el universo contara desde uno por la eternidad, nunca llegaría a d. ¿En qué sentido existe entonces d? ¿Lo inventamos o lo descubrimos? Si es un hecho sobre el mundo, ¿dónde reside? Si es solo un hecho sobre nuestra notación, ¿por qué obedece a las mismas leyes que los números reales?",
+    cardinalityH: "« Cardinalidad »",
+    cardinality:
+      "Llamamos a la crypto coma una « cardinalidad » (мощность) — un juego con una palabra que significa a la vez « número cardinal » y « poder ». ¿Una broma? Sí. Pero cuanto más se contemplan estos niveles, menos se sabe dónde termina la broma.",
+    questionsH: "Preguntas sin respuesta",
+    questions: [
+      "Si d y p son ambos « infinitamente grandes » para un humano, ¿hay diferencia entre ellos — o vive solo en el papel?",
+      "Un número que no se puede ni escribir, ni calcular, ni alcanzar contando — ¿existe?",
+      "¿Inventamos la crypto coma, o tropezamos con ella?",
+      "Trabajar con la dirección de un número, ¿es trabajar con el número?",
+      "« Demasiado pequeño » — ¿pequeño para qué? ¿Qué añade el tamaño que le falta al sentido?",
+      "¿Hay un último número — o el pensamiento no tiene techo?",
+      "¿Por qué nos atrae siquiera subir por esta escalera?",
+    ],
+    disclaimerH: "Advertencia",
+    disclaimer:
+      "Con honestidad: la crypto coma es un número finito. Pero « finito » no significa « aprehensible ». Los niños se detuvieron en z solo porque se acabó el alfabeto, no los números; no hay un número más grande — toda cima resulta un peldaño. Los adultos « conocen » estos números — pero conocen el nombre, no el número: nadie lo ha visto jamás. Ahora ríete de los dos niños otra vez. Ya no sale del todo, ¿verdad?",
+  },
+  pt: {
+    title: "Crypto Coma",
+    abstract:
+      "Introduzimos uma série ascendente a, b, …, z, em que cada termo é o anterior elevado a si mesmo, e definimos o seu culminar — a crypto coma ℂ⇈ = z^z. Estimamos o seu tamanho, escrevemo-lo como uma expressão de potência e propomos um símbolo. E depois admitimos, honestamente, quantas perguntas ficam sem resposta.",
+    formalismH: "Formalismo",
+    formalism: `Chamemos aos níveis a…z (${meta.levels} no total). A série é a = 10^${meta.start_value_log10} e L(n+1) = L(n)^L(n). Isto é a tetração: a base da potência cresce ela própria a cada passo.`,
+    starNote: "Em resumo: com x★ = xˣ, a crypto coma é (10³⁶)★²⁶ — vinte e seis estrelas, uma por letra.",
+    magnitudeH: "Estimar a grandeza",
+    magnitude: `Já b = a^a = ${b.value_str} é impossível de escrever em algarismos. Por isso trabalhamos com a ordem M(n) = log10 L(n). A crypto coma é uma torre de dez com cerca de ${cryptoComa.tower_height} andares.`,
+    diffH: "Em que difere d de p?",
+    diff:
+      "Ambos, d e p, estão para além de tudo o que é contável. Pergunte ao universo, pergunte aos seus sentidos, pergunte a quase toda a matemática: de ambos ouvirá a mesma resposta — « demasiado ». Não sente a diferença. E, no entanto, p é monstruosamente maior do que d. Quanto? Para reduzir p ao tamanho de d teria de tirar o seu logaritmo doze vezes seguidas. E d já é um número cujo número de algarismos do número dos seus algarismos é astronómico. Ao mesmo tempo, some d a p e p não se mexe; subtraia-o e p não dá por isso. Na aritmética destes gigantes, d é um erro de arredondamento — e, ao mesmo tempo, d é maior do que tudo o que se poderia construir com os átomos do universo. Como segurar os dois pensamentos ao mesmo tempo?",
+    workH: "Como é que alguém trabalha com eles?",
+    work:
+      "De modo nenhum — se « trabalhar » significa « escrever » ou « calcular »: não chega o papel, nem os átomos, nem o tempo. O matemático não trabalha com o número, mas com o seu endereço — a altura da torre, a velocidade de crescimento, os ordinais como régua. Comparamos não números, mas a velocidade com que fogem para o infinito. Mas então: mexer no endereço de um número é o mesmo que conhecê-lo? Escrevemos ℂ⇈ com confiança sem nunca o termos visto. O que temos nas mãos — um número ou um nome?",
+    existH: "Será que existe sequer?",
+    exist:
+      "d não pode ser escrito, nem alcançado a contar, nem guardado. Se o universo contasse desde um pela eternidade, nunca chegaria a d. Em que sentido, então, existe d? Inventámo-lo ou descobrimo-lo? Se é um facto sobre o mundo, onde reside? Se é apenas um facto sobre a nossa notação, porque obedece às mesmas leis que os números reais?",
+    cardinalityH: "« Cardinalidade »",
+    cardinality:
+      "Chamamos à crypto coma uma « cardinalidade » (мощность) — um trocadilho com uma palavra que significa ao mesmo tempo « cardinal » e « poder ». Uma piada? Sim. Mas quanto mais se contemplam estes níveis, menos se sabe onde a piada acaba.",
+    questionsH: "Perguntas sem resposta",
+    questions: [
+      "Se d e p são ambos « infinitamente grandes » para um humano, há diferença entre eles — ou vive só no papel?",
+      "Um número que não se pode escrever, nem calcular, nem alcançar a contar — existe?",
+      "Inventámos a crypto coma, ou tropeçámos nela?",
+      "Trabalhar com o endereço de um número é trabalhar com o número?",
+      "« Demasiado pequeno » — pequeno para quê? O que acrescenta o tamanho que falta ao sentido?",
+      "Há um último número — ou o pensamento não tem tecto?",
+      "Porque é que somos sequer atraídos escada acima?",
+    ],
+    disclaimerH: "Nota",
+    disclaimer:
+      "Honestamente: a crypto coma é um número finito. Mas « finito » não significa « apreensível ». Os meninos pararam em z apenas porque o alfabeto se esgotou, não os números; não há um número maior — todo o cume se revela um degrau. Os adultos « conhecem » estes números — mas conhecem o nome, não o número: ninguém o viu jamais. Agora ria-se dos dois meninos outra vez. Já não resulta bem, pois não?",
+  },
+  he: {
+    title: "Crypto Coma",
+    abstract:
+      "אנו מציגים סדרה עולה a, b, …, z, שבה כל איבר הוא הקודם מועלה בחזקת עצמו, ומגדירים את שיאה — הקריפטו קומה ℂ⇈ = z^z. אנו אומדים את גודלה, כותבים אותה כביטוי חזקה, ומציעים סמל. ואז מודים, בכנות, כמה שאלות נותרות ללא מענה.",
+    formalismH: "פורמליזם",
+    formalism: `נסמן את הרמות a…z (בסך הכול ${meta.levels}). הסדרה היא a = 10^${meta.start_value_log10} ו-L(n+1) = L(n)^L(n). זוהי טטרציה: בסיס החזקה עצמו גדל בכל צעד.`,
+    starNote: "בקצרה: עם x★ = xˣ, הקריפטו קומה היא (10³⁶)★²⁶ — עשרים ושישה כוכבים, אחד לכל אות.",
+    magnitudeH: "אומדן הגודל",
+    magnitude: `כבר b = a^a = ${b.value_str} אי-אפשר לכתוב בספרות. לכן אנו עובדים עם הסדר M(n) = log10 L(n). הקריפטו קומה היא מגדל של עשרות בגובה כ-${cryptoComa.tower_height} קומות.`,
+    diffH: "במה שונה d מ-p?",
+    diff:
+      "שניהם, d ו-p, מצויים מעבר לכל מה שנספר. שאלו את היקום, שאלו את חושיכם, שאלו כמעט את כל המתמטיקה: על שניהם תשמעו אותה תשובה — « יותר מדי ». את ההבדל לא תחושו. ובכל זאת p גדול מ-d באורח מפלצתי. בכמה? כדי לכווץ את p לגודלו של d תצטרכו לקחת את הלוגריתם שלו שתים-עשרה פעמים ברציפות. ו-d כבר הוא מספר שמספר הספרות של מספר ספרותיו אסטרונומי. ובד בבד, הוסיפו d ל-p ו-p לא ינוע; החסירו אותו ו-p לא יבחין. באריתמטיקה של הענקים האלה d הוא שגיאת עיגול — ועם זאת d גדול מכל דבר שתוכלו לבנות מאטומי היקום. כיצד אוחזים בשתי המחשבות בו-זמנית?",
+    workH: "כיצד בכלל אפשר לעבוד איתם?",
+    work:
+      "אי-אפשר — אם « לעבוד » פירושו « לכתוב » או « לחשב »: לא הנייר מספיק, לא האטומים, ולא הזמן. המתמטיקאי אינו עובד עם המספר אלא עם כתובתו — גובה המגדל, קצב הגידול, הסודרים כסרגל. איננו משווים מספרים אלא את המהירות שבה הם נמלטים אל האינסוף. אבל אז: לטפל בכתובת של מספר, האם זה כמו להכיר את המספר? אנו כותבים ℂ⇈ בביטחון בלי שראינו אותו מעולם. מה בידינו — מספר, או שם?",
+    existH: "האם הוא בכלל קיים?",
+    exist:
+      "d אי-אפשר לכתוב, אי-אפשר לספור עדיו, אי-אפשר לאחסן. גם אם היקום יספור מאחד לנצח, לעולם לא יגיע ל-d. באיזה מובן, אם כן, קיים d? האם המצאנו אותו או גילינו? אם זו עובדה על העולם, היכן היא שוכנת? אם זו רק עובדה על הסימון שלנו, מדוע הוא מציית לאותם חוקים כמו מספרים אמיתיים?",
+    cardinalityH: "« עוצמה »",
+    cardinality:
+      "אנו מכנים את הקריפטו קומה « עוצמה » (мощность) — משחק מילים על מונח שמשמעו גם « מספר מונה » וגם « כוח ». בדיחה? כן. אך ככל שמתבוננים יותר ברמות הללו, פחות בטוחים היכן הבדיחה נגמרת.",
+    questionsH: "שאלות ללא מענה",
+    questions: [
+      "אם d ו-p שניהם « אינסופיים בגודלם » עבור אדם, האם יש ביניהם הבדל — או שהוא חי רק על הנייר?",
+      "מספר שאי-אפשר לכתוב, לחשב, או לספור עדיו — האם הוא קיים?",
+      "האם המצאנו את הקריפטו קומה, או נתקלנו בה?",
+      "לעבוד עם כתובת של מספר, האם זה לעבוד עם המספר?",
+      "« קטן מדי » — קטן מדי לשם מה? מה מוסיף הגודל שחסר למשמעות?",
+      "האם יש מספר אחרון — או שלמחשבה אין תקרה?",
+      "מדוע בכלל נמשכים אנו במעלה הסולם הזה?",
+    ],
+    disclaimerH: "הסתייגות",
+    disclaimer:
+      "בכנות: הקריפטו קומה היא מספר סופי. אך « סופי » אין פירושו « בר-תפיסה ». הנערים עצרו ב-z רק משום שהאלף-בית אזל, לא המספרים; אין מספר גדול ביותר — כל פסגה מתגלה כמדרגה. המבוגרים « מכירים » את המספרים הללו — אך הם מכירים את השם, לא את המספר: איש לא ראה אותו מעולם. עתה צחקו על שני הנערים שוב. זה כבר לא ממש עובד, נכון?",
+  },
+  ka: {
+    title: "Crypto Coma",
+    abstractH: "ანოტაცია",
+    abstract: "წარმოგიდგენთ აღმავალ მწკრივს a, b, …, z, სადაც ყოველი მომდევნო წევრი წინას საკუთარ თავში აყვანილია, და განვსაზღვრავთ მის კულმინაციას — crypto coma ℂ⇈ = z^z. ვაფასებთ ამ სიდიდეს, ვწერთ მას ხარისხოვანი გამოსახულებით და ვთავაზობთ სიმბოლოს. შემდეგ კი პატიოსნად ვაღიარებთ, რამდენი კითხვა რჩება უპასუხოდ.",
+    formalismH: "ფორმალიზმი",
+    starNote: "მოკლედ: თუ x★ = xˣ, მაშინ crypto coma არის (10³⁶)★²⁶ — ოცდაექვსი ვარსკვლავი, თითო ასოზე.",
+    magnitudeH: "სიდიდის შეფასება",
+    diffH: "რით განსხვავდება d p-სგან?",
+    diff: "ორივე — d და p — ყველაფერ თვლადს მიღმაა. ჰკითხეთ სამყაროს, ჰკითხეთ თქვენს გრძნობებს, ჰკითხეთ თითქმის მთელ მათემატიკას: ორივეზე ერთ პასუხს მოისმენთ — „ძალიან ბევრი“. განსხვავებას ვერ იგრძნობთ. და მაინც p საშინლად დიდია d-ზე. რამდენად? p-ს d-ს ზომამდე დასაპატარავებლად მისი ლოგარითმის აღება ზედიზედ თორმეტჯერ მოგიწევდათ. ხოლო d უკვე ისეთი რიცხვია, რომლის ციფრების რაოდენობის ციფრების რაოდენობაც ასტრონომიულია. ამასთან, d დაუმატეთ p-ს — და p არ შეიძვრება; გამოაკელით — ვერ შეამჩნევს. ამ გიგანტების არითმეტიკაში d დამრგვალების შეცდომაა. და ამავე დროს d უფრო დიდია, ვიდრე ყველაფერი, რისი აგებაც სამყაროს ატომებით შეიძლებოდა. როგორ შეითავსოთ ორივე აზრი ერთდროულად?",
+    workH: "და როგორ ვიმუშაოთ ამ ყველაფერთან საერთოდ?",
+    work: "არანაირად — თუ „მუშაობა“ ნიშნავს „ჩაწერას“ ან „გამოთვლას“: არც ქაღალდი კმარა, არც ატომები და არც დრო. მათემატიკოსი მუშაობს არა რიცხვთან, არამედ მის მისამართთან — კოშკის სიმაღლესთან, ზრდის სისწრაფესთან, ორდინალებთან როგორც სახაზავთან. ჩვენ ვადარებთ არა რიცხვებს, არამედ მათ გაქცევის ტემპებს უსასრულობისკენ. მაგრამ მაშინ: რიცხვის მისამართთან ჭყლეტა — იგივეა, რაც რიცხვის ცოდნა? ჩვენ თავდაჯერებით ვწერთ ℂ⇈, არც ერთხელ რომ არ გვინახავს ის. რა გვიჭირავს ხელში — რიცხვი თუ სახელი?",
+    existH: "ის საერთოდ არსებობს?",
+    exist: "d-ს ვერც ჩაწერ, ვერც მიუთვლი და ვერც შეინახავ. სამყარომ ერთიდან უსასრულოდ რომ ითვალოს, d-მდე ვერ მივიდოდა. რა აზრით მაშინ არსებობს d? ჩვენ გამოვიგონეთ ის — თუ აღმოვაჩინეთ? თუ ეს მსოფლიოს შესახებ ფაქტია, სად დევს ის? თუ მხოლოდ ჩვენი ჩანაწერის შესახებ — რატომ ემორჩილება ის იმავე კანონებს, რასაც ნამდვილი რიცხვები?",
+    cardinalityH: "„სიმძლავრე“",
+    cardinality: "ჩვენ crypto coma-ს „სიმძლავრეს“ ვეძახით, სიტყვის ორი მნიშვნელობით თამაშით — „კარდინალური რიცხვი“ და „ძალა“. ხუმრობა? დიახ. მაგრამ რაც უფრო დიდხანს უყურებ ამ დონეებს, მით ნაკლებად ნათელია, სად მთავრდება ხუმრობა.",
+    questionsH: "კითხვები უპასუხოდ",
+    disclaimerH: "განმარტება",
+    disclaimer: "გულახდილად: crypto coma — სასრული რიცხვია. მაგრამ „სასრული“ არ ნიშნავს „გასაგებს“. ბიჭები z-ზე მხოლოდ იმიტომ გაჩერდნენ, რომ ანბანი ამოიწურა, და არა რიცხვები; უდიდესი რიცხვი არ არსებობს — ნებისმიერი მწვერვალი საფეხურად გამოდის. უფროსებს ეს რიცხვები „ცნობილია“ — მაგრამ ცნობილია სახელი, და არა რიცხვი: ის არავის უნახავს. კიდევ ერთხელ გაეცინეთ ორ ბიჭს. უკვე აღარ არის სასაცილო, არა?",
+    formalism: `დონეები ავღნიშნოთ ასოებით a…z (სულ ${meta.levels}). მწკრივი განისაზღვრება როგორც a = 10^${meta.start_value_log10} და L(n+1) = L(n)^L(n). ეს ტეტრაციაა: ხარისხის ფუძე თავად იზრდება ყოველ საფეხურზე.`,
+    magnitude: `უკვე b = a^a = ${b.value_str} — ციფრებით ჩაწერა შეუძლებელია. ამიტომ ვმუშაობთ რიგით M(n) = log10 L(n). crypto coma — ათიანების ხარისხოვანი კოშკია დაახლოებით ${cryptoComa.tower_height} სართულის სიმაღლისა.`,
+    questions: [
+      "თუ d და p ორივე ადამიანისთვის „უსასრულოდ დიდია“, არსებობს მათ შორის განსხვავება — თუ ის მხოლოდ ქაღალდზე ცხოვრობს?",
+      "რიცხვი, რომლის არც ჩაწერა, არც გამოთვლა და არც მიუთვლა შეიძლება — არსებობს თუ არა ის?",
+      "ჩვენ გამოვიგონეთ crypto coma — თუ მას წავაწყდით?",
+      "რიცხვის მისამართთან მუშაობა — რიცხვთან მუშაობაა?",
+      "„ცოტაა“ — რისთვის ცოტა? რას ამატებს ზომა, რაც აზრს აკლია?",
+      "არსებობს უკანასკნელი რიცხვი — თუ აზრს ჭერი არ აქვს?",
+      "რატომ გვიზიდავს საერთოდ ამ კიბეზე ასვლა?",
+    ],
+  },
+  hy: {
+    title: "Crypto Coma",
+    abstractH: "Անոտացիա",
+    abstract: "Մենք ներկայացնում ենք աճող շարք a, b, …, z, որտեղ յուրաքանչյուր հաջորդ անդամ նախորդն է՝ բարձրացված ինքն իր աստիճան, և սահմանում նրա գագաթնակետը՝ crypto coma ℂ⇈ = z^z։ Մենք գնահատում ենք այդ մեծությունը, գրում այն աստիճանային արտահայտության տեսքով և առաջարկում խորհրդանիշ։ Ապա ազնվորեն ընդունում ենք, թե որքան հարց է մնում պատասխան չստացած։",
+    formalismH: "Ֆորմալիզմ",
+    starNote: "Համառոտ. եթե x★ = xˣ, ապա crypto coma-ն (10³⁶)★²⁶ է՝ քսանվեց աստղանիշ՝ մեկական յուրաքանչյուր տառի համար։",
+    magnitudeH: "Մեծության գնահատում",
+    diffH: "Ինչո՞վ է d-ն տարբերվում p-ից։",
+    diff: "Ե՛վ d-ն, և՛ p-ն այն ամենից այն կողմ են, ինչ կարելի է հաշվել։ Հարցրեք Տիեզերքին, հարցրեք ձեր զգայարաններին, հարցրեք գրեթե ամբողջ մաթեմատիկային. երկուսի մասին էլ միևնույն պատասխանը կլսեք՝ «չափազանց շատ»։ Տարբերությունը զգալ հնարավոր չէ։ Եվ այնուամենայնիվ p-ն հրեշավոր մեծ է d-ից։ Որքա՞ն։ Որպեսզի p-ն սեղմեք d-ի չափի, ստիպված կլինեք նրա լոգարիթմը վերցնել տասներկու անգամ անընդմեջ։ Իսկ d-ն արդեն այնպիսի թիվ է, որի թվանշանների քանակի թվանշանների քանակն աստղագիտական է։ Մինչդեռ d-ն ավելացրեք p-ին, և p-ն չի շարժվի. հանեք, և չի էլ նկատի։ Այդ հսկաների թվաբանության մեջ d-ն կլորացման սխալ է։ Եվ միաժամանակ d-ն մեծ է այն ամենից, ինչ կարելի էր կառուցել Տիեզերքի ատոմներից։ Ինչպե՞ս միաժամանակ պահել երկու միտքն էլ։",
+    workH: "Ինչպե՞ս ընդհանրապես աշխատել դրանց հետ։",
+    work: "Ոչ մի կերպ, եթե «աշխատել» նշանակում է «գրել» կամ «հաշվել». ոչ թուղթը կհերիքի, ոչ ատոմները, ոչ ժամանակը։ Մաթեմատիկոսն աշխատում է ոչ թե թվի, այլ նրա հասցեի հետ՝ աշտարակի բարձրության, աճի արագության, քանոն դարձած օրդինալների։ Մենք համեմատում ենք ոչ թե թվերը, այլ անվերջություն փախչելու նրանց արագությունները։ Բայց արդյոք թվի հասցեով զբաղվելը նույնն է, ինչ թիվը ճանաչելը։ Մենք վստահ գրում ենք ℂ⇈՝ երբեք չտեսած այն։ Մեր ձեռքում ի՞նչ է՝ թի՞վ, թե՞ անուն։",
+    existH: "Իսկ այն ընդհանրապես գոյությու՞ն ունի։",
+    exist: "d-ն չի կարելի գրել, չի կարելի հաշվելով հասնել, չի կարելի պահել։ Թող Տիեզերքը մեկից սկսած հավերժ հաշվի. այն երբեք չէր հասնի d-ին։ Ո՞ր իմաստով է ուրեմն d-ն գոյություն ունենում։ Մենք այն հնարե՞լ ենք, թե՞ հայտնաբերել։ Եթե դա փաստ է աշխարհի մասին, ապա որտե՞ղ է այն գտնվում։ Եթե՝ միայն մեր գրառման մասին, ինչո՞ւ է այն ենթարկվում նույն օրենքներին, ինչ իրական թվերը։",
+    cardinalityH: "«Հզորություն»",
+    cardinality: "Մենք crypto coma-ն անվանում ենք «հզորություն»՝ խաղալով բառի երկու իմաստների հետ՝ «կարդինալ թիվ» և «ուժ»։ Կատակ։ Այո։ Բայց որքան երկար ես նայում այդ մակարդակներին, այնքան պակաս պարզ է դառնում, թե որտեղ է ավարտվում կատակը։",
+    questionsH: "Անպատասխան հարցեր",
+    disclaimerH: "Վերապահում",
+    disclaimer: "Ազնիվ լինենք. crypto coma-ն վերջավոր թիվ է։ Բայց «վերջավոր» չի նշանակում «ըմբռնելի»։ Տղաները կանգ առան z-ի վրա միայն այն պատճառով, որ այբուբենը վերջացավ, ոչ թե թվերը. ամենամեծ թիվ գոյություն չունի. ամեն գագաթ էլ պարզվում է, որ աստիճան է։ Մեծերին այդ թվերը «հայտնի» են, բայց հայտնի է անունը, ոչ թե թիվը. այն ոչ ոք չի տեսել։ Ծիծաղեք երկու տղաների վրա ևս մեկ անգամ։ Այլևս այդքան ծիծաղելի չէ, ճի՞շտ է։",
+    formalism: `Նշանակենք մակարդակները a…z տառերով (ընդամենը ${meta.levels})։ Շարքը սահմանվում է որպես a = 10^${meta.start_value_log10} և L(n+1) = L(n)^L(n)։ Սա տետրացիա է. աստիճանի հիմքն ինքն է աճում։`,
+    magnitude: `Արդեն b = a^a = ${b.value_str}-ն անհնար է գրել թվանշաններով։ Ուստի աշխատում ենք M(n) = log10 L(n) կարգի հետ։ Crypto coma-ն տասի աստիճանային աշտարակ է՝ մոտ ${cryptoComa.tower_height} հարկ բարձրությամբ։`,
+    questions: [
+      "Եթե և՛ d-ն, և՛ p-ն մարդու համար «անվերջ մեծ» են, արդյոք նրանց միջև տարբերություն կա՞, թե՞ այն ապրում է միայն թղթի վրա։",
+      "Թիվ, որը չի կարելի գրել, հաշվել կամ հաշվելով հասնել, — գոյությու՞ն ունի։",
+      "Մենք հնարե՞լ ենք crypto coma-ն, թե՞ պատահաբար հանդիպել դրան։",
+      "Թվի հասցեով աշխատելը՝ արդյոք թիվը աշխատելու հետ նո՞ւյնն է։",
+      "«Քիչ է» — քիչ ինչի՞ համար։ Ի՞նչ է ավելացնում չափը, ինչը պակասում է իմաստին։",
+      "Կա՞ վերջին թիվը, թե՞ մտքի առաստաղ չկա։",
+      "Ինչո՞ւ է մեզ ընդհանրապես ձգում դեպի վեր այդ սանդուղքով։",
+    ],
+  },
+} as const;
+const copy = (dict as Record<string, (typeof dict)["en"]>)[lang] ?? dict.en;
+---
+
+<Base lang={lang} title={copy.title}>
+  <article>
+    <h1>{copy.title} <span class="ccoma">ℂ⇈</span></h1>
+    <p class="lead">{copy.abstract}</p>
+    <Epigraph lang={lang} id="kronecker" />
+
+    <h2>{copy.formalismH}</h2>
+    <p>{copy.formalism}</p>
+    <div class="formula">
+      L(n+1) = L(n)<sup>L(n)</sup>, &nbsp; a = {levels[0].value_str}<br />
+      x<sup>★</sup> = x<sup>x</sup> &nbsp;→&nbsp;
+      <span class="ccoma">ℂ⇈</span> = (10<sup>36</sup>)<sup>★26</sup>
+    </div>
+    <p>{copy.starNote}</p>
+
+    <Figure
+      src="/img/placeholders/power-tower.svg"
+      alt={lang === "ru"
+        ? "Восхождение к крипто коме: a → b → … → ℂ⇈"
+        : "Ascent to the crypto coma: a → b → … → ℂ⇈"}
+      caption={lang === "ru"
+        ? "Рис. 1. Лестница уровней, восходящая к крипто коме."
+        : "Fig. 1. The ladder of levels ascending to the crypto coma."}
+    />
+
+    <h2>{copy.magnitudeH}</h2>
+    <p>{copy.magnitude}</p>
+
+    <h2>{copy.diffH}</h2>
+    <p>{copy.diff}</p>
+
+    <h2>{copy.workH}</h2>
+    <p>{copy.work}</p>
+
+    <h2>{copy.existH}</h2>
+    <p>{copy.exist}</p>
+
+    <h2>{copy.cardinalityH}</h2>
+    <p>{copy.cardinality}</p>
+
+    <h2 class="rule-top">{copy.questionsH}</h2>
+    <ul class="q-list">
+      {copy.questions.map((q) => <li>{q}</li>)}
+    </ul>
+    <p>
+      <a class="cta" href={path(lang, "/meditations")}>
+        {lang === "ru" ? "Больше размышлений →" : "More meditations →"}
+      </a>
+    </p>
+
+    <h2 class="rule-top">{copy.disclaimerH}</h2>
+    <p class="closing">{copy.disclaimer}</p>
+  </article>
+</Base>

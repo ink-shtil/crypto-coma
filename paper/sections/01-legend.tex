@@ -1,0 +1,35 @@
+\section{Легенда, или Постановка задачи}
+
+Летним вечером двое мальчиков сидели на лавочке, смотрели на звёзды и спорили,
+сколько атомов поместится во Вселенной. Они называли всё большие числа --- миллион,
+миллиард, триллион --- и дошли до \emph{ундециллиона}, то есть до \(\avalue\). Им
+показалось мало.
+
+Тогда они поступили так, как поступает всякий математик, столкнувшись с числом, для
+которого ещё нет имени: они дали имя. Пусть \(a = \avalue\) --- первый шаг. А дальше
+--- по восходящей: каждое следующее число есть предыдущее, возведённое в самого себя.
+Так родился ряд, ведущий к \textbf{крипто коме}.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  node distance=8mm and 14mm,
+  lvl/.style={draw,rounded corners,minimum width=13mm,minimum height=9mm,font=\small},
+  arr/.style={-{Stealth[length=2mm]},thick},
+]
+  \node[lvl] (a) {$a$};
+  \node[lvl,right=of a] (b) {$b$};
+  \node[lvl,right=of b] (c) {$c$};
+  \node[right=of c] (dots) {$\cdots$};
+  \node[lvl,right=of dots] (z) {$z$};
+  \node[lvl,fill=black!8,right=of z] (cc) {$\ccoma$};
+  \draw[arr] (a) -- node[above,font=\scriptsize]{$(\cdot)^{(\cdot)}$} (b);
+  \draw[arr] (b) -- (c);
+  \draw[arr] (c) -- (dots);
+  \draw[arr] (dots) -- (z);
+  \draw[arr] (z) -- node[above,font=\scriptsize]{$z^{z}$} (cc);
+\end{tikzpicture}
+\caption{Лестница уровней: \(a\) --- первый шаг, \(z\) --- двадцать шестой,
+крипто кома \(\ccoma = z^{z}\) --- её вершина. Всего уровней: \nlevels.}
+\label{fig:ladder}
+\end{figure}

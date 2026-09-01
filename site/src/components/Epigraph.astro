@@ -1,0 +1,31 @@
+---
+import { epigraphs, tr } from "../data/meditations";
+import type { Lang } from "../i18n/ui";
+
+// Pick a specific epigraph by id (deterministic — no randomness, so builds are stable).
+const { lang, id } = Astro.props as { lang: Lang; id: string };
+const ep = epigraphs.find((e) => e.id === id) ?? epigraphs[0];
+---
+
+<blockquote class="epigraph">
+  <p>“{tr(ep.text, lang)}”</p>
+  <cite>— {tr(ep.who, lang)}</cite>
+</blockquote>
+
+<style>
+  .epigraph {
+    margin: 1.5rem 0 2rem;
+    padding: 0.25rem 0 0.25rem 1.1rem;
+    border-left: 3px solid var(--rule);
+    color: var(--muted);
+    font-style: italic;
+  }
+  .epigraph p {
+    margin: 0 0 0.3rem;
+  }
+  .epigraph cite {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-style: normal;
+  }
+</style>

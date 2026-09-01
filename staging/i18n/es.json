@@ -1,0 +1,221 @@
+{
+  "lang": "es",
+  "reference": {
+    "numbers": {
+      "undecillion": {
+        "name": "Undecillón",
+        "domain": "Números con nombre (escala corta); el comienzo de nuestra escalera (= nivel a)"
+      },
+      "avogadro": {
+        "name": "Número de Avogadro",
+        "domain": "Química: partículas en un mol de sustancia"
+      },
+      "deck52": {
+        "name": "Ordenaciones de una baraja de 52 cartas (52!)",
+        "domain": "Combinatoria; prácticamente toda baraja barajada es única"
+      },
+      "eddington": {
+        "name": "Átomos en el universo observable",
+        "domain": "Cosmología (estimación; número de Eddington para protones ~10^80)"
+      },
+      "photons": {
+        "name": "Fotones en el universo observable",
+        "domain": "Cosmología (domina el fondo cósmico de microondas)"
+      },
+      "googol": {
+        "name": "Googol",
+        "domain": "Matemática popular (el nombre lo acuñó un niño de 9 años)"
+      },
+      "shannon": {
+        "name": "Número de Shannon",
+        "domain": "Teoría de juegos: cota inferior de la complejidad del árbol de juego del ajedrez"
+      },
+      "go-positions": {
+        "name": "Posiciones legales en el go (19×19)",
+        "domain": "Teoría combinatoria de juegos"
+      },
+      "planck-volumes": {
+        "name": "Volúmenes de Planck en el universo observable",
+        "domain": "Física: el volumen mínimo con sentido × el volumen del universo"
+      },
+      "aes256": {
+        "name": "Espacio de claves de AES-256",
+        "domain": "Criptografía: agotar por fuerza bruta un espacio así es físicamente imposible"
+      },
+      "skewes": {
+        "name": "Número de Skewes",
+        "domain": "Teoría de números: donde π(x) supera a li(x) por primera vez"
+      },
+      "graham": {
+        "name": "Número de Graham",
+        "domain": "Combinatoria (teoría de Ramsey); durante mucho tiempo, el mayor número en una demostración publicada"
+      },
+      "tree3": {
+        "name": "TREE(3)",
+        "domain": "Teoría del orden (teorema de Kruskal); incomparablemente mayor que el número de Graham"
+      }
+    },
+    "sequences": {
+      "naturals": {
+        "name": "Los números naturales ℕ",
+        "note": "La serie más simple que tiende al infinito; su cardinalidad es ℵ₀ (numerable)."
+      },
+      "tetration": {
+        "name": "La tetración y las flechas de Knuth",
+        "note": "Es justo esta regla (aᵃ) la que los niños redescubrieron: un crecimiento más rápido que cualquier potencia."
+      },
+      "ackermann": {
+        "name": "La función de Ackermann A(n,n)",
+        "note": "Recursiva pero no primitivamente recursiva; crece más rápido que cualquier función elemental."
+      },
+      "busy-beaver": {
+        "name": "La función del « castor afanoso » Σ(n)",
+        "note": "Incomputable; crece más rápido que cualquier función computable, sin excepción alguna."
+      },
+      "fast-growing-hierarchy": {
+        "name": "La jerarquía de crecimiento rápido f_α",
+        "note": "Se indexa por ordinales; sirve de regla para comparar números gigantescos."
+      },
+      "cardinals": {
+        "name": "Cardinales infinitos ℵ₀, ℵ₁, 2^ℵ₀",
+        "note": "Auténticas « cardinalidades » — a diferencia de nuestra crypto coma, que apenas es finita."
+      },
+      "ordinals": {
+        "name": "Ordinales ω, ε₀",
+        "note": "Los « pisos » ordinales del infinito; ε₀ es el límite de las torres de ω."
+      }
+    }
+  },
+  "named": {
+    "0": {
+      "name": "uno",
+      "use": "contar una sola cosa; el principio de todo."
+    },
+    "1": {
+      "name": "diez",
+      "use": "los dedos de las dos manos; la base de nuestro sistema de numeración."
+    },
+    "2": {
+      "name": "cien",
+      "use": "porcentajes; los años de un siglo."
+    },
+    "3": {
+      "name": "mil",
+      "use": "cantidades cotidianas; milímetros en un metro."
+    },
+    "6": {
+      "name": "millón",
+      "use": "la población de una ciudad; píxeles en una foto."
+    },
+    "9": {
+      "name": "billón",
+      "use": "la población mundial; bytes en un gigabyte; segundos en ~32 años."
+    },
+    "12": {
+      "name": "trillón",
+      "use": "deudas públicas y PIB; estrellas en una galaxia grande; bytes en un terabyte."
+    },
+    "15": {
+      "name": "cuadrillón",
+      "use": "sinapsis en el cerebro humano (~10^15); bytes en un petabyte."
+    },
+    "18": {
+      "name": "quintillón",
+      "use": "granos de arena en todas las playas (~7×10^18); posiciones del cubo de Rubik (~4×10^19)."
+    },
+    "21": {
+      "name": "sextillón",
+      "use": "estrellas en el universo observable (~10^22); litros de agua en los océanos."
+    },
+    "24": {
+      "name": "septillón",
+      "use": "el orden del número de Avogadro (6×10^23); moléculas en unos pocos moles."
+    },
+    "27": {
+      "name": "octillón",
+      "use": "átomos en el cuerpo humano (~7×10^27)."
+    },
+    "30": {
+      "name": "nonillón",
+      "use": "bacterias en la Tierra (~5×10^30)."
+    },
+    "33": {
+      "name": "decillón",
+      "use": "la masa del Sol en gramos (~2×10^33)."
+    },
+    "36": {
+      "name": "undecillón",
+      "use": "aquí comienza nuestra escalera — este es el nivel a."
+    },
+    "39": {
+      "name": "duodecillón",
+      "use": "casi sin uso práctico — un nombre en busca de una cantidad."
+    },
+    "42": {
+      "name": "tredecillón",
+      "use": "un nombre en busca de una cantidad."
+    },
+    "45": {
+      "name": "cuatordecillón",
+      "use": "un nombre en busca de una cantidad."
+    },
+    "48": {
+      "name": "quindecillón",
+      "use": "cerca del orden de los átomos que componen la Tierra (~1.3×10^50)."
+    },
+    "51": {
+      "name": "sexdecillón",
+      "use": "un nombre en busca de una cantidad."
+    },
+    "54": {
+      "name": "septendecillón",
+      "use": "un nombre en busca de una cantidad."
+    },
+    "57": {
+      "name": "octodecillón",
+      "use": "el orden del número de átomos del Sol (~10^57)."
+    },
+    "60": {
+      "name": "novemdecillón",
+      "use": "un nombre en busca de una cantidad."
+    },
+    "63": {
+      "name": "vigintillón",
+      "use": "el límite clásico de los «-illones» familiares; más allá, los nombres escasean."
+    },
+    "100": {
+      "name": "googol",
+      "use": "un hito de la divulgación; más que átomos en el universo."
+    },
+    "303": {
+      "name": "centillón",
+      "use": "el último de los nombres clásicos de «-illones» de la escala corta."
+    }
+  },
+  "epigraphs": {
+    "kronecker": {
+      "text": "Dios creó los números naturales; todo lo demás es obra del hombre.",
+      "who": "Leopoldo Kronecker"
+    },
+    "cantor": {
+      "text": "Lo veo, pero no lo creo.",
+      "who": "Georg Cantor (sobre su propio resultado)"
+    },
+    "boys": {
+      "text": "¿Un undecillón? Poco.",
+      "who": "Dos niños"
+    },
+    "hilbert": {
+      "text": "Nadie nos expulsará del paraíso que Cantor creó para nosotros.",
+      "who": "David Hilbert"
+    },
+    "gauss": {
+      "text": "Protesto contra el uso de una magnitud infinita como algo ya completado, lo que nunca es permisible en matemáticas.",
+      "who": "Carl Friedrich Gauss"
+    },
+    "newton": {
+      "text": "Si he visto más lejos que otros, es porque estaba de pie sobre hombros de gigantes.",
+      "who": "Isaac Newton"
+    }
+  }
+}

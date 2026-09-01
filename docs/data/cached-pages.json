@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "note": "External reference pages about large numbers to snapshot locally (link-rot proof). Captured by site/scripts/cache-pages.mjs into site/public/cache/. Stored as a labelled extract plus a link to the original, not a full copy."
+  },
+  "pages": [
+    { "id": "googol", "url": "https://en.wikipedia.org/wiki/Googol", "title": "Googol" },
+    { "id": "large-numbers", "url": "https://en.wikipedia.org/wiki/Large_numbers", "title": "Large numbers" },
+    { "id": "names-of-large-numbers", "url": "https://en.wikipedia.org/wiki/Names_of_large_numbers", "title": "Names of large numbers" },
+    { "id": "grahams-number", "url": "https://en.wikipedia.org/wiki/Graham%27s_number", "title": "Graham's number" },
+    { "id": "up-arrow", "url": "https://en.wikipedia.org/wiki/Knuth%27s_up-arrow_notation", "title": "Knuth's up-arrow notation" },
+    { "id": "tetration", "url": "https://en.wikipedia.org/wiki/Tetration", "title": "Tetration" },
+    { "id": "busy-beaver", "url": "https://en.wikipedia.org/wiki/Busy_beaver", "title": "Busy beaver" }
+  ]
+}

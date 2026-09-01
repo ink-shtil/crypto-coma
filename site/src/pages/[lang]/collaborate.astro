@@ -1,0 +1,49 @@
+---
+import Base from "../../layouts/Base.astro";
+import { langStaticPaths } from "../../i18n/paths";
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+import Epigraph from "../../components/Epigraph.astro";
+
+export function getStaticPaths() {
+  return langStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const subject = t("collaborate.subject");
+const emails = ["k_mackl@mail.ru", "ink-shtil@mail.ru"];
+const bodies: Record<string, string> = {
+  en: "The ladder has no top — so the work is never finished. Send ideas, notes, and your own ascending series. Use the subject line “crypto coma”.",
+  ru: "Лестница не имеет вершины — а значит, работа не закончена. Присылайте идеи, замечания и собственные восходящие ряды. Тема письма — «crypto coma».",
+  zh: "梯子没有顶——所以工作永无止境。请寄来你的想法、意见，以及你自己的上升数列。邮件主题请写“crypto coma”。",
+  ja: "梯子に頂はない——だから仕事は決して終わらない。あなたの発想や意見、そしてあなた自身の上昇数列をお寄せください。件名は「crypto coma」で。",
+  ko: "사다리에는 꼭대기가 없다—그러므로 이 작업은 결코 끝나지 않는다. 당신의 생각과 의견, 그리고 당신만의 상승 수열을 보내 주세요. 제목은 “crypto coma”로.",
+  hi: "सीढ़ी का कोई शिखर नहीं—इसलिए यह काम कभी पूरा नहीं होता। अपने विचार, टिप्पणियाँ और अपनी स्वयं की आरोही श्रेणियाँ भेजें। विषय पंक्ति में लिखें “crypto coma”।",
+  ar: "لا قمّة للسُّلّم — ولذلك لا ينتهي العمل أبدًا. أرسِلوا أفكاركم وملاحظاتكم ومتتالياتكم الصاعدة الخاصة. واجعلوا عنوان الرسالة «crypto coma».",
+  he: "לסולם אין פסגה — ולכן העבודה לעולם אינה נגמרת. שִׁלחו רעיונות, הערות, וסדרות עולות משלכם. בשורת הנושא כִּתבו « crypto coma ».",
+  ka: "კიბეს მწვერვალი არ აქვს — ამიტომ სამუშაო არასოდეს მთავრდება. გამოგზავნეთ თქვენი იდეები, შენიშვნები და თქვენივე ახარისხებადი მწკრივები. წერილის თემაში მიუთითეთ „crypto coma“.",
+  hy: "Սանդուղքը գագաթ չունի — ուստի գործը երբեք չի ավարտվում։ Ուղարկեք ձեր մտքերը, դիտողությունները և ձեր սեփական աճող շարքերը։ Նամակի թեմայում գրեք «crypto coma»։",
+  de: "Die Leiter hat kein Ende — also ist die Arbeit nie fertig. Schicken Sie Ideen, Anmerkungen und Ihre eigenen aufsteigenden Reihen. Betreff der E-Mail: „crypto coma“.",
+  fr: "L’échelle n’a pas de sommet — le travail n’est donc jamais fini. Envoyez vos idées, remarques et vos propres suites ascendantes. Objet du message : « crypto coma ».",
+  it: "La scala non ha cima — quindi il lavoro non è mai finito. Inviate idee, osservazioni e le vostre serie ascendenti. Oggetto del messaggio: « crypto coma ».",
+  es: "La escalera no tiene cima — así que el trabajo nunca termina. Envíen ideas, comentarios y sus propias series ascendentes. Asunto del correo: « crypto coma ».",
+  pt: "A escada não tem topo — por isso o trabalho nunca termina. Enviem ideias, comentários e as vossas próprias séries ascendentes. Assunto da mensagem: « crypto coma ».",
+};
+const body = bodies[lang] ?? bodies.en;
+---
+
+<Base lang={lang} title={t("collaborate.title")}>
+  <h1>{t("collaborate.title")}</h1>
+  <p class="lead">{body}</p>
+  <Epigraph lang={lang} id="newton" />
+  <ul>
+    {
+      emails.map((e) => (
+        <li>
+          <a href={`mailto:${e}?subject=${encodeURIComponent(subject)}`}>{e}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Base>

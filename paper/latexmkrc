@@ -1,0 +1,4 @@
+$pdf_mode = 1;        # build PDF with pdflatex
+$bibtex_use = 2;      # run bibtex when needed
+$out_dir = 'build';
+$clean_ext = 'synctex.gz aux bbl bcf fdb_latexmk fls run.xml';

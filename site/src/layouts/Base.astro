@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+import LangSwitcher from "../components/LangSwitcher.astro";
+import { useTranslations, path } from "../i18n/utils";
+import { rtlLangs, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  title?: string;
+}
+const { lang, title } = Astro.props;
+const t = useTranslations(lang);
+const pageTitle = title ? `${title} — ${t("site.title")}` : t("site.title");
+const dir = rtlLangs.includes(lang) ? "rtl" : "ltr";
+
+// Locales whose deep-page prose is an unreviewed machine draft — shown with a banner.
+const reviewNeeded: string[] = ["ka", "hy"];
+const reviewText: Record<string, string> = {
+  ka: "მანქანური სქემატური თარგმანი — საჭიროებს მშობლიური ენის მცოდნის რედაქტირებას.",
+  hy: "Մեքենայական սևագիր թարգմանություն — կարիք ունի բնիկ խմբագրման։",
+  en: "Machine-drafted translation — needs a native review.",
+};
+const showReview = reviewNeeded.includes(lang);
+---
+
+<!doctype html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={t("site.tagline")} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href={path(lang, "/")}>
+          <span class="symbol">ℂ⇈</span>&nbsp;{t("site.title")}
+        </a>
+        <nav class="main">
+          <a href={path(lang, "/")}>{t("nav.home")}</a>
+          <a href={path(lang, "/article")}>{t("nav.article")}</a>
+          <a href={path(lang, "/reference")}>{t("nav.reference")}</a>
+          <a href={path(lang, "/meditations")}>{t("nav.meditations")}</a>
+          <a href={path(lang, "/archive")}>{t("nav.archive")}</a>
+          <a href={path(lang, "/collaborate")}>{t("nav.collaborate")}</a>
+          <LangSwitcher current={lang} />
+        </nav>
+      </div>
+    </header>
+
+    {
+      showReview && (
+        <div class="review-banner">
+          <div class="container">{reviewText[lang] ?? reviewText.en}</div>
+        </div>
+      )
+    }
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">{t("footer.disclaimer")}</div>
+    </footer>
+  </body>
+</html>

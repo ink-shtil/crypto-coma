@@ -1,0 +1,92 @@
+---
+import Base from "../../layouts/Base.astro";
+import { langStaticPaths } from "../../i18n/paths";
+import { useTranslations, path } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+import { homeContent, partBlurbsFor } from "../../data/content";
+import { meta, levels, cryptoComa } from "../../data/levels";
+import TowerBuilder from "../../components/TowerBuilder.astro";
+import Figure from "../../components/Figure.astro";
+import Epigraph from "../../components/Epigraph.astro";
+
+export function getStaticPaths() {
+  return langStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const c = homeContent(lang);
+
+const a = levels.find((l) => l.letter === "a")!;
+const b = levels.find((l) => l.letter === "b")!;
+
+const blurbs = partBlurbsFor(lang);
+const parts = [
+  { href: "/article", title: t("nav.article"), blurb: blurbs[0] },
+  { href: "/reference", title: t("nav.reference"), blurb: blurbs[1] },
+  { href: "/meditations", title: t("nav.meditations"), blurb: blurbs[2] },
+  { href: "/archive", title: t("nav.archive"), blurb: blurbs[3] },
+];
+---
+
+<Base lang={lang} title={t("home.manifest.title")}>
+  <h1>{t("site.title")} <span class="ccoma">ℂ⇈</span></h1>
+  <p class="tagline">{t("site.tagline")}</p>
+  <Epigraph lang={lang} id="boys" />
+
+  <section aria-labelledby="manifest">
+    <h2 id="manifest">{t("home.manifest.title")}</h2>
+    {c.manifest.map((p) => <p class="lead">{p}</p>)}
+  </section>
+
+  <section aria-labelledby="legend">
+    <h2 id="legend">{t("home.legend.title")}</h2>
+    <Figure
+      src="/img/boys_imagine_big_numbers.jpeg"
+      alt={lang === "ru"
+        ? "Двое мальчиков на лавочке смотрят на звёздное небо"
+        : "Two boys on a bench looking at the starry sky"}
+      caption={lang === "ru"
+        ? "Летним вечером на лавочке под звёздами."
+        : "A summer evening on a bench under the stars."}
+      max="30rem"
+    />
+    {c.legend.map((p) => <p>{p}</p>)}
+  </section>
+
+  <section aria-labelledby="formula">
+    <h2 id="formula">{t("home.formula.title")}</h2>
+    <p>{c.formulaIntro}</p>
+    <div class="formula">
+      a = {a.value_str}<br />
+      b = a<sup>a</sup> = {b.value_str}<br />
+      c = b<sup>b</sup> = {levels.find((l) => l.letter === "c")!.value_str}<br />
+      … <br />
+      <span class="ccoma">ℂ⇈</span> = z<sup>z</sup> = {cryptoComa.value_str.slice(0, 24)}…
+    </div>
+    <p>{c.formulaOutro}</p>
+
+    <div class="formula">
+      x<sup>★</sup> = x<sup>x</sup> &nbsp;→&nbsp;
+      <span class="ccoma">ℂ⇈</span> = (10<sup>36</sup>)<sup>★26</sup>
+      &nbsp;<span style="color:var(--muted)">(26 ★, {lang === "ru" ? "по одной на букву" : "one per letter"})</span>
+    </div>
+    <p>{c.compact}</p>
+
+    <TowerBuilder lang={lang} />
+  </section>
+
+  <section aria-labelledby="parts">
+    <h2 id="parts" class="rule-top">{t("home.parts.title")}</h2>
+    <div class="hub">
+      {
+        parts.map((p) => (
+          <a class="hub-card" href={path(lang, p.href)}>
+            <b>{p.title}</b>
+            <span>{p.blurb}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Base>

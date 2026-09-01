@@ -1,0 +1,101 @@
+---
+import Base from "../../layouts/Base.astro";
+import { langStaticPaths } from "../../i18n/paths";
+import { useTranslations, withBase } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+import manifest from "../../data/cache-manifest.json";
+import Epigraph from "../../components/Epigraph.astro";
+
+export function getStaticPaths() {
+  return langStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const pages = (manifest.pages as Array<Record<string, any>>).filter((p) => p.status === "ok");
+
+const dict = {
+  ru: {
+    title: "Кешированный архив",
+    intro:
+      "Локальные снимки внешних страниц о больших числах — на случай, если оригинал исчезнет (защита от «гниения ссылок»). Каждый снимок — текстовый экстракт со ссылкой на источник.",
+    captured: "снимок от",
+    snapshot: "Смотреть снимок",
+    original: "Оригинал",
+    generated: "Архив собран",
+  },
+  en: {
+    title: "Cached archive",
+    intro:
+      "Local snapshots of external pages about large numbers, in case the original disappears (link-rot protection). Each snapshot is a text extract with a link to the source.",
+    captured: "captured",
+    snapshot: "View snapshot",
+    original: "Original",
+    generated: "Archive generated",
+  },
+  zh: { title: "缓存存档", intro: "关于大数的外部网页的本地快照，以防原页面消失（防链接失效）。每份快照都是带有原文链接的文本摘录。", captured: "抓取于", snapshot: "查看快照", original: "原页面", generated: "存档生成于" },
+  ja: { title: "キャッシュ・アーカイブ", intro: "大きな数についての外部ページのローカル・スナップショット。原ページが消えても大丈夫なように（リンク切れ対策）。各スナップショットは出典へのリンク付きの抜粋である。", captured: "取得日", snapshot: "スナップショットを見る", original: "原ページ", generated: "アーカイブ生成日" },
+  ko: { title: "캐시 보관소", intro: "큰 수에 관한 외부 페이지의 로컬 스냅숏—원본이 사라져도 괜찮도록(링크 소멸 대비). 각 스냅숏은 출처 링크가 달린 발췌다.", captured: "수집일", snapshot: "스냅숏 보기", original: "원본", generated: "보관소 생성일" },
+  hi: { title: "कैश्ड संग्रह", intro: "बड़ी संख्याओं के बारे में बाहरी पन्नों की स्थानीय प्रतियाँ—यदि मूल पृष्ठ ग़ायब हो जाए (लिंक-सड़न से बचाव)। हर प्रति स्रोत के लिंक सहित एक पाठ-अंश है।", captured: "लिया गया", snapshot: "प्रति देखें", original: "मूल", generated: "संग्रह बना" },
+  ar: { title: "أرشيفٌ مخزّن", intro: "لقطاتٌ محلّية لصفحاتٍ خارجية عن الأعداد الكبيرة، تحسّبًا لاختفاء الأصل (حمايةً من تعفّن الروابط). كلّ لقطةٍ مقتطفٌ نصّيٌّ مع رابطٍ إلى المصدر.", captured: "التُقطت", snapshot: "عرض اللقطة", original: "الأصل", generated: "أُنشئ الأرشيف" },
+  he: { title: "ארכיון מטמון", intro: "עותקים מקומיים של דפים חיצוניים על מספרים גדולים, למקרה שהמקור ייעלם (הגנה מפני « ריקבון קישורים »). כל עותק הוא קטע טקסט עם קישור למקור.", captured: "נלכד", snapshot: "צפייה בעותק", original: "מקור", generated: "הארכיון נוצר" },
+  ka: { title: "ქეშირებული არქივი", intro: "დიდ რიცხვებზე გარე გვერდების ლოკალური ასლები, იმ შემთხვევისთვის თუ ორიგინალი გაქრება (ბმულების გაფუჭებისგან დაცვა). თითოეული ასლი წყაროს ბმულის მქონე ტექსტური ამონარიდია.", captured: "გადაღებულია", snapshot: "ასლის ნახვა", original: "ორიგინალი", generated: "არქივი შეიქმნა" },
+  hy: { title: "Պահված արխիվ", intro: "Մեծ թվերի մասին արտաքին էջերի տեղային պատճեններ՝ այն դեպքի համար, երբ բնօրինակը անհետանա (հղումների քայքայումից պաշտպանություն)։ Յուրաքանչյուր պատճեն աղբյուրի հղումով տեքստային քաղվածք է։", captured: "վերցվել է", snapshot: "Դիտել պատճենը", original: "Բնօրինակ", generated: "Արխիվը ստեղծվել է" },
+  de: { title: "Zwischengespeichertes Archiv", intro: "Lokale Kopien externer Seiten über große Zahlen, für den Fall, dass das Original verschwindet (Schutz vor Link-Rot). Jede Kopie ist ein Textauszug mit Link zur Quelle.", captured: "erfasst", snapshot: "Kopie ansehen", original: "Original", generated: "Archiv erstellt" },
+  fr: { title: "Archive en cache", intro: "Copies locales de pages externes sur les grands nombres, au cas où l’original disparaîtrait (protection contre la « pourriture des liens »). Chaque copie est un extrait de texte avec un lien vers la source.", captured: "capturé", snapshot: "Voir la copie", original: "Original", generated: "Archive générée" },
+  it: { title: "Archivio in cache", intro: "Copie locali di pagine esterne sui grandi numeri, nel caso l’originale scompaia (protezione dal « link rot »). Ogni copia è un estratto di testo con un collegamento alla fonte.", captured: "catturato", snapshot: "Vedi la copia", original: "Originale", generated: "Archivio generato" },
+  es: { title: "Archivo en caché", intro: "Copias locales de páginas externas sobre números grandes, por si el original desaparece (protección contra los enlaces rotos). Cada copia es un extracto de texto con un enlace a la fuente.", captured: "capturado", snapshot: "Ver copia", original: "Original", generated: "Archivo generado" },
+  pt: { title: "Arquivo em cache", intro: "Cópias locais de páginas externas sobre números grandes, caso o original desapareça (proteção contra ligações mortas). Cada cópia é um excerto de texto com uma ligação à fonte.", captured: "capturado", snapshot: "Ver cópia", original: "Original", generated: "Arquivo gerado" },
+} as const;
+const copy = (dict as Record<string, (typeof dict)["en"]>)[lang] ?? dict.en;
+---
+
+<Base lang={lang} title={copy.title}>
+  <h1>{copy.title}</h1>
+  <p class="lead">{copy.intro}</p>
+  <Epigraph lang={lang} id="hilbert" />
+  <p class="tagline">{copy.generated}: {manifest.generatedAt}</p>
+
+  <ul class="archive">
+    {
+      pages.map((p) => (
+        <li>
+          <a href={withBase(`/cache/${p.id}.html`)}>{p.title}</a>
+          <span class="tower-meta"> · {copy.captured} {p.capturedAt}</span>
+          <div class="archive-links">
+            <a href={withBase(`/cache/${p.id}.html`)}>{copy.snapshot}</a>
+            <a href={p.url} rel="noopener nofollow">{copy.original} ↗</a>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
+
+<style>
+  ul.archive {
+    list-style: none;
+    padding: 0;
+  }
+  ul.archive li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  ul.archive li > a {
+    font-family: var(--sans);
+    font-weight: 700;
+  }
+  .archive-links {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+  }
+  .archive-links a {
+    margin-right: 1rem;
+    color: var(--accent);
+  }
+  .tower-meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>

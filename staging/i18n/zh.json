@@ -1,0 +1,143 @@
+{
+  "lang": "zh",
+  "reference": {
+    "numbers": {
+      "undecillion": {
+        "name": "undecillion",
+        "domain": "有名字的数（短进级）；我们阶梯的起点（= 第 a 层）"
+      },
+      "avogadro": {
+        "name": "阿伏伽德罗常数",
+        "domain": "化学：一摩尔物质中的粒子数"
+      },
+      "deck52": {
+        "name": "一副 52 张牌的排列（52!）",
+        "domain": "组合学；几乎每一把洗过的牌都是独一无二的"
+      },
+      "eddington": {
+        "name": "可观测宇宙中的原子数",
+        "domain": "宇宙学（估算；爱丁顿数——质子 ~10^80）"
+      },
+      "photons": {
+        "name": "可观测宇宙中的光子数",
+        "domain": "宇宙学（以宇宙微波背景辐射为主）"
+      },
+      "googol": {
+        "name": "古戈尔",
+        "domain": "数学科普（这个名字是一个 9 岁孩子起的）"
+      },
+      "shannon": {
+        "name": "香农数",
+        "domain": "博弈论：国际象棋棋局树复杂度的下界"
+      },
+      "go-positions": {
+        "name": "围棋（19×19）的合法局面数",
+        "domain": "组合博弈论"
+      },
+      "planck-volumes": {
+        "name": "可观测宇宙中的普朗克体积数",
+        "domain": "物理：最小有意义的体积 × 宇宙的体积"
+      },
+      "aes256": {
+        "name": "AES-256 密钥空间",
+        "domain": "密码学：穷举这样的空间在物理上是不可能实现的"
+      },
+      "skewes": {
+        "name": "斯奎斯数",
+        "domain": "数论：π(x) 首次超过 li(x) 之处"
+      },
+      "graham": {
+        "name": "葛立恒数",
+        "domain": "组合学（拉姆齐理论）；曾长期是已发表证明中出现过的最大的数"
+      },
+      "tree3": {
+        "name": "TREE(3)",
+        "domain": "序理论（克鲁斯卡尔定理）；比葛立恒数不可比拟地大"
+      }
+    },
+    "sequences": {
+      "naturals": {
+        "name": "自然数 ℕ",
+        "note": "最简单的趋于无穷的数列；它的势是 ℵ₀（可数的）。"
+      },
+      "tetration": {
+        "name": "超幂（tetration）与高德纳箭头",
+        "note": "正是这条规则 (aᵃ) 被两个男孩重新发现：它比任何乘方都增长得更快。"
+      },
+      "ackermann": {
+        "name": "阿克曼函数 A(n,n)",
+        "note": "可递归，但非原始递归；比任何初等函数都增长得更快。"
+      },
+      "busy-beaver": {
+        "name": "“忙碌海狸”函数 Σ(n)",
+        "note": "不可计算；比任何可计算函数都增长得更快。"
+      },
+      "fast-growing-hierarchy": {
+        "name": "快速增长层级 f_α",
+        "note": "以序数作下标；用作比较巨大数的一把尺。"
+      },
+      "cardinals": {
+        "name": "无限基数 ℵ₀, ℵ₁, 2^ℵ₀",
+        "note": "真正的“势”——不同于我们的 crypto coma，它只是有限的。"
+      },
+      "ordinals": {
+        "name": "序数 ω, ε₀",
+        "note": "无穷的序数“楼层”；ε₀ 是 ω 的幂塔的极限。"
+      }
+    }
+  },
+  "named": {
+    "0": { "name": "一", "use": "数某一件东西；万物的开端。" },
+    "1": { "name": "十", "use": "双手的手指；我们数系的基底。" },
+    "2": { "name": "百", "use": "百分比；一个世纪中的年数。" },
+    "3": { "name": "千", "use": "日常的数量；一米中的毫米数。" },
+    "6": { "name": "million", "use": "一座城市的人口；照片中的像素数。" },
+    "9": { "name": "billion", "use": "世界人口；一吉字节中的字节数；约 32 年里的秒数。" },
+    "12": { "name": "trillion", "use": "国家债务与国内生产总值；一个大星系中的恒星数；一太字节中的字节数。" },
+    "15": { "name": "quadrillion", "use": "人脑中的突触数（~10^15）；一拍字节中的字节数。" },
+    "18": { "name": "quintillion", "use": "地球上所有海滩上的沙粒数（~7×10^18）；魔方的状态数（~4×10^19）。" },
+    "21": { "name": "sextillion", "use": "可观测宇宙中的恒星数（~10^22）；海洋中水的升数。" },
+    "24": { "name": "septillion", "use": "阿伏伽德罗常数的量级（6×10^23）；几摩尔里的分子数。" },
+    "27": { "name": "octillion", "use": "人体中的原子数（~7×10^27）。" },
+    "30": { "name": "nonillion", "use": "地球上的细菌数（~5×10^30）。" },
+    "33": { "name": "decillion", "use": "太阳的质量（以克计，~2×10^33）。" },
+    "36": { "name": "undecillion", "use": "我们的阶梯从这儿开始——这就是第 a 层。" },
+    "39": { "name": "duodecillion", "use": "几乎没有实际用途——一个等待量来认领的名字。" },
+    "42": { "name": "tredecillion", "use": "一个等待量来认领的名字。" },
+    "45": { "name": "quattuordecillion", "use": "一个等待量来认领的名字。" },
+    "48": { "name": "quindecillion", "use": "接近构成地球的原子数的量级（~1.3×10^50）。" },
+    "51": { "name": "sexdecillion", "use": "一个等待量来认领的名字。" },
+    "54": { "name": "septendecillion", "use": "一个等待量来认领的名字。" },
+    "57": { "name": "octodecillion", "use": "太阳中原子数的量级（~10^57）。" },
+    "60": { "name": "novemdecillion", "use": "一个等待量来认领的名字。" },
+    "63": { "name": "vigintillion", "use": "熟悉的“-illion”的经典边缘；再往上，名字就稀少了。" },
+    "100": { "name": "古戈尔", "use": "数学科普的一座里程碑；比宇宙中的原子还要多。" },
+    "303": { "name": "centillion", "use": "短进级经典“-illion”名字中的最后一个。" }
+  },
+  "epigraphs": {
+    "kronecker": {
+      "text": "上帝创造了自然数，其余一切都是人类的造物。",
+      "who": "Leopold Kronecker"
+    },
+    "cantor": {
+      "text": "我看见了，但我不相信。",
+      "who": "Georg Cantor（关于他自己的成果）"
+    },
+    "boys": {
+      "text": "一个 undecillion？不够。",
+      "who": "两个男孩"
+    },
+    "hilbert": {
+      "text": "没有人能把我们赶出康托尔为我们创造的天堂。",
+      "who": "David Hilbert"
+    },
+    "gauss": {
+      "text": "我反对把无穷大量当作某种已完成之物来使用——这在数学中是不允许的。",
+      "who": "Carl Friedrich Gauss"
+    },
+    "newton": {
+      "text": "如果说我看得更远，那是因为我站在巨人的肩膀上。",
+      "who": "Isaac Newton"
+    }
+  }
+}

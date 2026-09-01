@@ -1,0 +1,54 @@
+---
+// A captioned figure. `src` is a path under /public (e.g. /img/…). Keep illustrations in
+// the ink-on-cream / cross-hatch style of /img/boys_imagine_big_numbers.jpeg.
+// Root-absolute `src` is routed through withBase() so it resolves under the site base path.
+import { withBase } from "../i18n/utils";
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  credit?: string;
+  max?: string; // max-width, e.g. "26rem"
+}
+const { src, alt, caption, credit, max = "34rem" } = Astro.props;
+const resolvedSrc = src.startsWith("/") ? withBase(src) : src;
+---
+
+<figure class="fig" style={`--fig-max:${max}`}>
+  <img src={resolvedSrc} alt={alt} loading="lazy" />
+  {
+    (caption || credit) && (
+      <figcaption>
+        {caption}
+        {credit && <span class="credit"> {credit}</span>}
+      </figcaption>
+    )
+  }
+</figure>
+
+<style>
+  .fig {
+    margin: 1.5rem auto;
+    max-width: var(--fig-max);
+    text-align: center;
+  }
+  .fig img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: #fff;
+    display: block;
+  }
+  figcaption {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+  .credit {
+    font-style: normal;
+    opacity: 0.8;
+  }
+</style>

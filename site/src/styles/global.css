@@ -1,0 +1,297 @@
+:root {
+  --ink: #1a1a2e;
+  --paper: #f7f5ef;
+  --accent: #3a3a8c;
+  --muted: #6b6b7b;
+  --rule: #d8d4c8;
+  --max: 46rem;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 18px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.65;
+}
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* --- top bar --- */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+.site-header .container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand .symbol {
+  font-family: var(--sans);
+}
+nav.main a {
+  color: var(--ink);
+  text-decoration: none;
+  margin-left: 1rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+}
+nav.main a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* --- language switcher --- */
+.lang-switch {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+.lang-switch a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0 0.25rem;
+}
+.lang-switch a[aria-current="true"] {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* --- content --- */
+main.container {
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--sans);
+  line-height: 1.2;
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+.tagline {
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0;
+}
+.lead {
+  font-size: 1.1rem;
+}
+.formula {
+  font-family: var(--sans);
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+}
+.ccoma {
+  font-family: var(--sans);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.cta {
+  display: inline-block;
+  margin: 0.4rem 0.6rem 0 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.cta:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* --- tables --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 2rem;
+  font-size: 0.95rem;
+}
+th,
+td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+th {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+td:nth-child(2) {
+  word-break: break-word;
+}
+td.src {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* --- shared content vocabulary (used across every page for a consistent feel) --- */
+main h2 {
+  font-size: 1.35rem;
+  margin: 2.2rem 0 0.4rem;
+}
+main h3 {
+  font-size: 1.12rem;
+  margin: 1.6rem 0 0.3rem;
+}
+main > h1 + .lead,
+main > .lead:first-of-type {
+  margin-top: 0.5rem;
+}
+
+/* a heading that opens a new movement, separated by a rule */
+.rule-top {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--rule);
+}
+
+/* muted aside / margin note */
+.note {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--muted);
+  border-left: 3px solid var(--accent);
+  padding-left: 0.9rem;
+  margin: -0.25rem 0 2rem;
+  opacity: 0.9;
+}
+
+/* the unsettling closing block */
+.closing {
+  font-size: 1.12rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--ink);
+}
+
+/* a bordered content block (meditations, thought experiments) */
+.entry {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* a question, marked with a hanging accent "?" — single (.q) or list (.q-list) */
+.q,
+.q-list li {
+  position: relative;
+  padding-left: 2rem;
+  font-size: 1.06rem;
+  color: var(--ink);
+}
+.q-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+}
+.q-list li {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.q::before,
+.q-list li::before {
+  content: "?";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.55;
+}
+
+/* home hub: cards linking to the parts of the project */
+.hub {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin: 1.5rem 0 2rem;
+}
+.hub-card {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: #fff;
+  padding: 0.9rem 1rem;
+}
+.hub-card:hover {
+  border-color: var(--accent);
+}
+.hub-card b {
+  font-family: var(--sans);
+}
+.hub-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+@media (max-width: 34rem) {
+  .hub {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- machine-draft review banner --- */
+.review-banner {
+  background: #fbeecb;
+  border-bottom: 1px solid #e4c96b;
+  color: #6b5510;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+.review-banner .container {
+  padding: 0.5rem 1.25rem;
+}
+
+/* --- footer --- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+.site-footer .container {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}

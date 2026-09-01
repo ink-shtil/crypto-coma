@@ -1,0 +1,445 @@
+{
+  "meta": {
+    "start_value_log10": 36.0,
+    "levels": 26,
+    "recurrence": "L(n+1) = L(n) ^ L(n)",
+    "symbol": "ℂ⇈",
+    "source": "docs/formal-model.md",
+    "note": "Magnitudes are log10(L(n)); a magnitude is an iterated-log tower (height, top) meaning 10 stacked `height` times over `top`."
+  },
+  "levels": [
+    {
+      "n": 1,
+      "letter": "a",
+      "stars": 0,
+      "value_str": "10^(36)",
+      "log10_str": "36",
+      "magnitude": {
+        "height": 0,
+        "top": 36.0
+      },
+      "scale_hint": {
+        "en": "about the same as an undecillion (10^36) — level a starts here",
+        "ru": "примерно как ундециллион (10^36) — здесь начинается уровень a"
+      },
+      "beyond_physical": false
+    },
+    {
+      "n": 2,
+      "letter": "b",
+      "stars": 1,
+      "value_str": "10^(3.6e+37)",
+      "log10_str": "3.6e+37",
+      "magnitude": {
+        "height": 0,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Overtakes a googol and every physically meaningful count.",
+        "ru": "Обгоняет гугол и вообще любое физически осмысленное число."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 3,
+      "letter": "c",
+      "stars": 2,
+      "value_str": "10^(10^(3.6e+37))",
+      "log10_str": "10^(3.6e+37)",
+      "magnitude": {
+        "height": 1,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Past a googolplex — its exponent alone is astronomical.",
+        "ru": "Уже больше гуголплекса — один только показатель степени астрономичен."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 4,
+      "letter": "d",
+      "stars": 3,
+      "value_str": "10^(10^(10^(3.6e+37)))",
+      "log10_str": "10^(10^(3.6e+37))",
+      "magnitude": {
+        "height": 2,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Its number of digits has more digits than the universe has atoms.",
+        "ru": "У числа его цифр — больше цифр, чем атомов во Вселенной."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 5,
+      "letter": "e",
+      "stars": 4,
+      "value_str": "10^(10^(10^(10^(3.6e+37))))",
+      "log10_str": "10^(10^(10^(3.6e+37)))",
+      "magnitude": {
+        "height": 3,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Take the logarithm three times over — still beyond all physics.",
+        "ru": "Возьмите логарифм трижды подряд — всё ещё за пределами всей физики."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 6,
+      "letter": "f",
+      "stars": 5,
+      "value_str": "10^(10^(10^(10^(10^(3.6e+37)))))",
+      "log10_str": "10^(10^(10^(10^(3.6e+37))))",
+      "magnitude": {
+        "height": 4,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Raise a googolplex to a googolplex; you are not even close.",
+        "ru": "Возведите гуголплекс в гуголплекс — вы даже не рядом."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 7,
+      "letter": "g",
+      "stars": 6,
+      "value_str": "10^(10^(10^(10^(10^(10^(3.6e+37))))))",
+      "log10_str": "10^(10^(10^(10^(10^(3.6e+37)))))",
+      "magnitude": {
+        "height": 5,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "More than Shannon's chess games raised to the positions of Go.",
+        "ru": "Больше шахматных партий Шеннона в степени числа позиций го."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 8,
+      "letter": "h",
+      "stars": 7,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(3.6e+37))))))",
+      "magnitude": {
+        "height": 6,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "A busy-beaver machine would halt before printing the first exponent.",
+        "ru": "«Трудолюбивый бобёр» остановится раньше, чем напечатает первый показатель."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 9,
+      "letter": "i",
+      "stars": 8,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))",
+      "magnitude": {
+        "height": 7,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Write Avogadro's number in every Planck volume of the cosmos — not close.",
+        "ru": "Впишите число Авогадро в каждый планковский объём космоса — всё равно мало."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 10,
+      "letter": "j",
+      "stars": 9,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))",
+      "magnitude": {
+        "height": 8,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Every digit a universe, every universe's atoms digits — still short.",
+        "ru": "Каждая цифра — вселенная, атомы каждой вселенной — цифры; всё равно мало."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 11,
+      "letter": "k",
+      "stars": 10,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))",
+      "magnitude": {
+        "height": 9,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "The number of its digits is itself beyond counting.",
+        "ru": "Само число его цифр уже за пределами всякого счёта."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 12,
+      "letter": "l",
+      "stars": 11,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))",
+      "magnitude": {
+        "height": 10,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Deep in tetration: self-powers stacked past every named number.",
+        "ru": "В глубине тетрации: самовозведения выше любого именованного числа."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 13,
+      "letter": "m",
+      "stars": 12,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))",
+      "magnitude": {
+        "height": 11,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "The Ackermann function would treat this as an early, warm-up input.",
+        "ru": "Функция Аккермана сочла бы это одним из первых, разминочных значений."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 14,
+      "letter": "n",
+      "stars": 13,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))",
+      "magnitude": {
+        "height": 12,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Beyond Skewes's number, once called 'the largest in mathematics'.",
+        "ru": "Больше числа Скьюза — когда-то «крупнейшего числа в математике»."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 15,
+      "letter": "o",
+      "stars": 14,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))",
+      "magnitude": {
+        "height": 13,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Name a new number every Planck time since the Big Bang — never reach it.",
+        "ru": "Называйте новое число каждый планковский миг от Большого взрыва — не дойдёте."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 16,
+      "letter": "p",
+      "stars": 15,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))",
+      "magnitude": {
+        "height": 14,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "A googolplexian is a rounding error down at its base.",
+        "ru": "Гуголплексиан — лишь погрешность округления у его основания."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 17,
+      "letter": "q",
+      "stars": 16,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))",
+      "magnitude": {
+        "height": 15,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Its logarithm needs its own logarithm, which needs its own…",
+        "ru": "Его логарифму нужен свой логарифм, а тому — ещё свой…"
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 18,
+      "letter": "r",
+      "stars": 17,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))",
+      "magnitude": {
+        "height": 16,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Taller than any tower of tens you could build atom by atom.",
+        "ru": "Выше любой башни из десяток, что можно сложить атом за атомом."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 19,
+      "letter": "s",
+      "stars": 18,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))))",
+      "magnitude": {
+        "height": 17,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "The exponent of the exponent of the exponent is already unphysical.",
+        "ru": "Показатель показателя показателя уже нефизичен."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 20,
+      "letter": "t",
+      "stars": 19,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))))",
+      "magnitude": {
+        "height": 18,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Past every 'illion' and every number humans have ever named.",
+        "ru": "Дальше всех «-иллионов» и всех чисел, что люди когда-либо называли."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 21,
+      "letter": "u",
+      "stars": 20,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))))))",
+      "magnitude": {
+        "height": 19,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "You'd exhaust factorials of factorials before catching up.",
+        "ru": "Исчерпаете факториалы факториалов — и всё ещё не догоните."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 22,
+      "letter": "v",
+      "stars": 21,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))))))",
+      "magnitude": {
+        "height": 20,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Twenty rounds of 'raise to itself', and you have barely arrived.",
+        "ru": "Двадцать раз «возведи в себя» — и вы едва добрались сюда."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 23,
+      "letter": "w",
+      "stars": 22,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))))))))",
+      "magnitude": {
+        "height": 21,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "The power tower is now so tall the tens blur into a single line.",
+        "ru": "Башня степеней уже так высока, что десятки сливаются в одну линию."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 24,
+      "letter": "x",
+      "stars": 23,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))))))))",
+      "magnitude": {
+        "height": 22,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "And yet — a humbling truth — infinitely short of Graham's number.",
+        "ru": "И всё же — отрезвляющая правда — бесконечно далеко от числа Грэма."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 25,
+      "letter": "y",
+      "stars": 24,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))))))))))",
+      "magnitude": {
+        "height": 23,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "Infinitely short of TREE(3), which dwarfs Graham's number.",
+        "ru": "Бесконечно далеко от TREE(3), рядом с которым число Грэма ничтожно."
+      },
+      "beyond_physical": true
+    },
+    {
+      "n": 26,
+      "letter": "z",
+      "stars": 25,
+      "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))))))))))))",
+      "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))))))))))",
+      "magnitude": {
+        "height": 24,
+        "top": 3.6000000000000038e+37
+      },
+      "scale_hint": {
+        "en": "The last letter — the alphabet ran out before the number did.",
+        "ru": "Последняя буква — алфавит кончился раньше, чем число."
+      },
+      "beyond_physical": true
+    }
+  ],
+  "crypto_coma": {
+    "name": "crypto coma",
+    "symbol": "ℂ⇈",
+    "definition": "z ^ z = L(26) ^ L(26)",
+    "star_notation": "(10^36)*26",
+    "value_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37))))))))))))))))))))))))))",
+    "log10_str": "10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(10^(3.6e+37)))))))))))))))))))))))))",
+    "magnitude": {
+      "height": 25,
+      "top": 3.6000000000000038e+37
+    },
+    "tower_height": 25,
+    "scale_hint": {
+      "en": "The summit — yet still a finite number you could, in principle, write.",
+      "ru": "Вершина — и всё же конечное число, которое в принципе можно записать."
+    }
+  }
+}

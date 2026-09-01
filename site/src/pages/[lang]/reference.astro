@@ -1,0 +1,483 @@
+---
+import Base from "../../layouts/Base.astro";
+import { langStaticPaths } from "../../i18n/paths";
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+import { levels, cryptoComa } from "../../data/levels";
+import { refNumbers, refSequences, namedNumbers, tr } from "../../data/reference";
+import Epigraph from "../../components/Epigraph.astro";
+
+export function getStaticPaths() {
+  return langStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+
+const dict = {
+  ru: {
+    title: "Справочник больших чисел",
+    intro:
+      "Какие большие числа бывают, зачем они нужны и что признано наукой. Уже уровень b нашей лестницы оставляет позади всё физическое.",
+    realH: "Реальные большие числа, признанные наукой",
+    seqH: "Другие ряды и множества, восходящие к бесконечности",
+    ladderH: "Лестница крипто комы (a…z)",
+    cValue: "Величина",
+    cName: "Название",
+    cDomain: "Где нужна",
+    cSource: "Источник",
+    cLevel: "Уровень",
+    cNotation: "Запись",
+    cWhat: "Значение",
+    cScale: "Масштаб",
+    beyond: "за пределами чисел с плавающей точкой",
+    namedH: "Именованные числа (от 1 и выше)",
+    namedIntro: "Привычные имена больших чисел по короткой шкале и то, для чего они бывают нужны. Чем выше, тем чаще имя ждёт величину, которой пока нет.",
+    cUse: "Для чего",
+    noteNamed: "Ундециллион здесь — не случайность: это и есть уровень a, с которого начинается лестница.",
+    noteReal: "Каждая строка — число, которое где-то работает. Ни одно из них не дотягивает даже до b.",
+    noteSeq: "Все эти ряды уходят в бесконечность. Наш — тоже, но мы дали ему остановку и имя.",
+    noteLadder: "Между двумя соседними строками не шаг, а пропасть, большая, чем вся строка над ней.",
+  },
+  en: {
+    title: "Big-numbers reference",
+    intro:
+      "Which large numbers exist, why they are needed, and what science recognises. Already level b of our ladder leaves everything physical behind.",
+    realH: "Real large numbers recognised by science",
+    seqH: "Other series and sets tending to infinity",
+    ladderH: "The crypto coma ladder (a…z)",
+    cValue: "Value",
+    cName: "Name",
+    cDomain: "Where it is used",
+    cSource: "Source",
+    cLevel: "Level",
+    cNotation: "Notation",
+    cWhat: "Value",
+    cScale: "Scale",
+    beyond: "beyond floating-point numbers",
+    namedH: "Named numbers (from 1 upward)",
+    namedIntro: "The familiar names for large numbers on the short scale, and what each is good for. The higher you go, the more often the name is just waiting for a quantity that does not yet exist.",
+    cUse: "What it is for",
+    noteNamed: "The undecillion here is no coincidence: it is level a, where the ladder begins.",
+    noteReal: "Every row is a number that does a job somewhere. None of them reaches even b.",
+    noteSeq: "All of these run to infinity. So does ours — we just gave it a stop and a name.",
+    noteLadder: "Between two neighbouring rows is not a step but an abyss larger than the whole row above it.",
+  },
+  de: {
+    title: "Nachschlagewerk großer Zahlen",
+    intro: "Welche großen Zahlen es gibt, wofür sie gut sind und was die Wissenschaft anerkennt. Schon Stufe b unserer Leiter lässt alles Körperliche hinter sich.",
+    realH: "Reale große Zahlen, von der Wissenschaft anerkannt",
+    seqH: "Andere Reihen und Mengen, die ins Unendliche streben",
+    ladderH: "Die Crypto-Coma-Leiter (a…z)",
+    cValue: "Wert",
+    cName: "Name",
+    cDomain: "Wo sie gebraucht wird",
+    cSource: "Quelle",
+    cLevel: "Stufe",
+    cNotation: "Schreibweise",
+    cWhat: "Wert",
+    cScale: "Größenordnung",
+    beyond: "jenseits der Gleitkommazahlen",
+    namedH: "Benannte Zahlen (von 1 aufwärts)",
+    namedIntro: "Die vertrauten Namen großer Zahlen auf der kurzen Skala und wozu sie taugen. Je höher man steigt, desto öfter wartet ein Name auf eine Größe, die es noch nicht gibt.",
+    cUse: "Wofür",
+    noteNamed: "Die Undezillion ist hier kein Zufall: Sie ist Stufe a, wo die Leiter beginnt.",
+    noteReal: "Jede Zeile ist eine Zahl, die irgendwo ihren Dienst tut. Keine reicht auch nur an b heran.",
+    noteSeq: "Alle diese Reihen laufen ins Unendliche. Unsere auch — wir haben ihr nur einen Halt und einen Namen gegeben.",
+    noteLadder: "Zwischen zwei benachbarten Zeilen liegt kein Schritt, sondern ein Abgrund, größer als die ganze Zeile darüber.",
+  },
+  fr: {
+    title: "Référence des grands nombres",
+    intro: "Quels grands nombres existent, à quoi ils servent et ce que la science reconnaît. Déjà le niveau b de notre échelle laisse tout ce qui est physique derrière.",
+    realH: "Grands nombres réels reconnus par la science",
+    seqH: "Autres suites et ensembles tendant vers l'infini",
+    ladderH: "L'échelle de la crypto coma (a…z)",
+    cValue: "Valeur",
+    cName: "Nom",
+    cDomain: "Où on l'utilise",
+    cSource: "Source",
+    cLevel: "Niveau",
+    cNotation: "Notation",
+    cWhat: "Valeur",
+    cScale: "Ordre de grandeur",
+    beyond: "au-delà des nombres à virgule flottante",
+    namedH: "Nombres nommés (à partir de 1)",
+    namedIntro: "Les noms familiers des grands nombres sur l'échelle courte, et à quoi chacun sert. Plus on monte, plus le nom attend souvent une grandeur qui n'existe pas encore.",
+    cUse: "À quoi il sert",
+    noteNamed: "L'undécillion n'est pas un hasard : c'est le niveau a, là où commence l'échelle.",
+    noteReal: "Chaque ligne est un nombre qui travaille quelque part. Aucun n'atteint même b.",
+    noteSeq: "Toutes ces suites vont à l'infini. La nôtre aussi — nous lui avons seulement donné un arrêt et un nom.",
+    noteLadder: "Entre deux lignes voisines, il n'y a pas un pas mais un abîme plus grand que toute la ligne du dessus.",
+  },
+  it: {
+    title: "Prontuario dei grandi numeri",
+    intro: "Quali grandi numeri esistono, a cosa servono e cosa riconosce la scienza. Già il livello b della nostra scala lascia indietro tutto ciò che è fisico.",
+    realH: "Grandi numeri reali riconosciuti dalla scienza",
+    seqH: "Altre serie e insiemi tendenti all'infinito",
+    ladderH: "La scala della crypto coma (a…z)",
+    cValue: "Valore",
+    cName: "Nome",
+    cDomain: "Dove serve",
+    cSource: "Fonte",
+    cLevel: "Livello",
+    cNotation: "Notazione",
+    cWhat: "Valore",
+    cScale: "Ordine di grandezza",
+    beyond: "oltre i numeri in virgola mobile",
+    namedH: "Numeri nominati (da 1 in su)",
+    namedIntro: "I nomi familiari dei grandi numeri sulla scala corta, e a cosa serve ciascuno. Più si sale, più spesso il nome attende una quantità che non esiste ancora.",
+    cUse: "A che serve",
+    noteNamed: "L'undecilione qui non è un caso: è il livello a, dove comincia la scala.",
+    noteReal: "Ogni riga è un numero che fa un lavoro da qualche parte. Nessuno arriva nemmeno a b.",
+    noteSeq: "Tutte queste serie vanno all'infinito. Anche la nostra — le abbiamo solo dato una fermata e un nome.",
+    noteLadder: "Tra due righe vicine non c'è un passo, ma un abisso più grande dell'intera riga sopra.",
+  },
+  es: {
+    title: "Referencia de números grandes",
+    intro: "Qué números grandes existen, para qué sirven y qué reconoce la ciencia. Ya el nivel b de nuestra escalera deja atrás todo lo físico.",
+    realH: "Números grandes reales reconocidos por la ciencia",
+    seqH: "Otras series y conjuntos que tienden al infinito",
+    ladderH: "La escalera de la crypto coma (a…z)",
+    cValue: "Valor",
+    cName: "Nombre",
+    cDomain: "Dónde se usa",
+    cSource: "Fuente",
+    cLevel: "Nivel",
+    cNotation: "Notación",
+    cWhat: "Valor",
+    cScale: "Orden de magnitud",
+    beyond: "más allá de los números de coma flotante",
+    namedH: "Números con nombre (desde 1 en adelante)",
+    namedIntro: "Los nombres familiares de los números grandes en la escala corta, y para qué sirve cada uno. Cuanto más se sube, más a menudo el nombre espera a una cantidad que aún no existe.",
+    cUse: "Para qué sirve",
+    noteNamed: "El undecillón no es casualidad: es el nivel a, donde empieza la escalera.",
+    noteReal: "Cada fila es un número que hace su trabajo en alguna parte. Ninguno alcanza siquiera b.",
+    noteSeq: "Todas estas series van al infinito. La nuestra también — solo le dimos una parada y un nombre.",
+    noteLadder: "Entre dos filas vecinas no hay un paso, sino un abismo mayor que toda la fila de arriba.",
+  },
+  pt: {
+    title: "Referência de números grandes",
+    intro: "Que números grandes existem, para que servem e o que a ciência reconhece. Já o nível b da nossa escada deixa para trás tudo o que é físico.",
+    realH: "Números grandes reais reconhecidos pela ciência",
+    seqH: "Outras séries e conjuntos que tendem para o infinito",
+    ladderH: "A escada da crypto coma (a…z)",
+    cValue: "Valor",
+    cName: "Nome",
+    cDomain: "Onde se usa",
+    cSource: "Fonte",
+    cLevel: "Nível",
+    cNotation: "Notação",
+    cWhat: "Valor",
+    cScale: "Ordem de grandeza",
+    beyond: "para além dos números de vírgula flutuante",
+    namedH: "Números com nome (de 1 para cima)",
+    namedIntro: "Os nomes familiares dos números grandes na escala curta, e para que serve cada um. Quanto mais se sobe, mais vezes o nome espera por uma quantidade que ainda não existe.",
+    cUse: "Para que serve",
+    noteNamed: "O undecilião aqui não é acaso: é o nível a, onde começa a escada.",
+    noteReal: "Cada linha é um número que trabalha em algum lugar. Nenhum chega sequer a b.",
+    noteSeq: "Todas estas séries vão para o infinito. A nossa também — só lhe demos uma paragem e um nome.",
+    noteLadder: "Entre duas linhas vizinhas não há um passo, mas um abismo maior do que toda a linha de cima.",
+  },
+  zh: {
+    title: "大数参考",
+    intro: "有哪些大数、它们为何存在、科学界承认哪些。我们阶梯的 b 级，已经把所有物理事物远远抛在身后。",
+    realH: "科学承认的真实大数",
+    seqH: "其他趋向无穷的数列与集合",
+    ladderH: "crypto coma 的阶梯（a…z）",
+    cValue: "数值",
+    cName: "名称",
+    cDomain: "用于何处",
+    cSource: "来源",
+    cLevel: "层级",
+    cNotation: "记法",
+    cWhat: "数值",
+    cScale: "数量级",
+    beyond: "超出浮点数范围",
+    namedH: "有名字的数（从 1 起）",
+    namedIntro: "短级数制中大数的常见名字，以及各自用途。越往上，名字越常是等待一个还不存在的量。",
+    cUse: "用途",
+    noteNamed: "这里的 undecillion 不是巧合：它就是层级 a，阶梯的起点。",
+    noteReal: "每一行都是一个在某个地方真正起作用的数。它们没有一个能到达 b。",
+    noteSeq: "这些数列都通向无穷。我们的也是——只是我们给它设了一站，又给它起了名字。",
+    noteLadder: "相邻两行之间不是一步，而是一个比上一整行还要大的深渊。",
+  },
+  ja: {
+    title: "大きな数のリファレンス",
+    intro: "どんな大きな数があるか、なぜ必要か、そして科学が認めているもの。私たちの梯子のレベル b でさえ、あらゆる物理的なものを置き去りにする。",
+    realH: "科学に認められた本物の大きな数",
+    seqH: "無限へと向かう他の数列と集合",
+    ladderH: "crypto coma の梯子（a…z）",
+    cValue: "値",
+    cName: "名前",
+    cDomain: "使われる場所",
+    cSource: "出典",
+    cLevel: "レベル",
+    cNotation: "表記",
+    cWhat: "値",
+    cScale: "数量級",
+    beyond: "浮動小数点数を超える",
+    namedH: "名前のついた数（1 以上）",
+    namedIntro: "短階でおなじみの大きな数の名前と、それぞれの用途。上に行くほど、名前はまだ存在しない量を待っていることが多くなる。",
+    cUse: "用途",
+    noteNamed: "ここでの undecillion は偶然ではない——それが梯子の始まるレベル a だからだ。",
+    noteReal: "どの行も、どこかで役に立っている数だ。どれも b にすら届かない。",
+    noteSeq: "これらの数列はすべて無限へ向かう。私たちのも同じ——ただ停留所と名前を与えただけだ。",
+    noteLadder: "隣り合う二つの行の間は一段ではなく、上の行全体よりも大きな深淵である。",
+  },
+  ko: {
+    title: "큰 수 참고 자료",
+    intro: "어떤 큰 수들이 존재하고, 왜 필요하며, 과학이 무엇을 인정하는가. 우리 사다리의 b 단계만 해도 물리적인 모든 것을 이미 훌쩍 넘어선다.",
+    realH: "과학이 인정한 실제 큰 수",
+    seqH: "무한으로 향하는 다른 수열과 집합",
+    ladderH: "crypto coma의 사다리 (a…z)",
+    cValue: "값",
+    cName: "이름",
+    cDomain: "쓰이는 곳",
+    cSource: "출처",
+    cLevel: "단계",
+    cNotation: "표기",
+    cWhat: "값",
+    cScale: "규모",
+    beyond: "부동소수점 수를 넘어섬",
+    namedH: "이름이 붙은 수 (1부터 위로)",
+    namedIntro: "짧은 척도에서 큰 수에 붙는 익숙한 이름과 각각의 용도. 위로 갈수록 이름이 아직 존재하지 않는 양을 기다리는 경우가 많아진다.",
+    cUse: "용도",
+    noteNamed: "여기서 undecillion은 우연이 아니다. 그것은 사다리가 시작되는 단계 a다.",
+    noteReal: "각 행은 어딘가에서 일을 하는 수다. 그중 어느 것도 b에조차 닿지 못한다.",
+    noteSeq: "이 수열들은 모두 무한으로 달린다. 우리 것도 마찬가지다 — 다만 정거장과 이름을 하나씩 붙여 주었을 뿐.",
+    noteLadder: "이웃한 두 행 사이는 한 걸음이 아니라, 위의 행 전체보다 더 큰 심연이다.",
+  },
+  hi: {
+    title: "बड़ी संख्याओं का संदर्भ",
+    intro: "कौन-सी बड़ी संख्याएँ मौजूद हैं, वे क्यों चाहिएँ, और विज्ञान क्या मानता है। हमारी सीढ़ी का स्तर b भी हर भौतिक चीज़ को पीछे छोड़ देता है।",
+    realH: "विज्ञान द्वारा मान्य वास्तविक बड़ी संख्याएँ",
+    seqH: "अनंत की ओर जाती अन्य श्रेणियाँ और समुच्चय",
+    ladderH: "crypto coma की सीढ़ी (a…z)",
+    cValue: "मान",
+    cName: "नाम",
+    cDomain: "कहाँ काम आती है",
+    cSource: "स्रोत",
+    cLevel: "स्तर",
+    cNotation: "संकेतन",
+    cWhat: "मान",
+    cScale: "परिमाण-कोटि",
+    beyond: "फ़्लोटिंग-पॉइंट संख्याओं से परे",
+    namedH: "नामित संख्याएँ (1 से ऊपर)",
+    namedIntro: "छोटे पैमाने पर बड़ी संख्याओं के परिचित नाम, और हर एक किस काम की। जितना ऊपर जाते हैं, नाम उतना ही अक्सर ऐसी मात्रा की प्रतीक्षा करता है जो अभी मौजूद नहीं है।",
+    cUse: "किस काम की",
+    noteNamed: "यहाँ undecillion कोई संयोग नहीं: वही स्तर a है, जहाँ सीढ़ी शुरू होती है।",
+    noteReal: "हर पंक्ति एक ऐसी संख्या है जो कहीं न कहीं काम करती है। उनमें से कोई भी b तक नहीं पहुँचती।",
+    noteSeq: "ये सारी श्रेणियाँ अनंत की ओर दौड़ती हैं। हमारी भी — बस हमने उसे एक पड़ाव और एक नाम दे दिया।",
+    noteLadder: "दो पड़ोसी पंक्तियों के बीच एक कदम नहीं, बल्कि ऊपर की पूरी पंक्ति से बड़ी खाई है।",
+  },
+  ar: {
+    title: "مرجع الأعداد الكبيرة",
+    intro: "ما الأعداد الكبيرة الموجودة، ولماذا نحتاجها، وما الذي يعترف به العلم. حتى المستوى b من سلّمنا يترك كل ما هو فيزيائي خلفه.",
+    realH: "أعداد كبيرة حقيقية يعترف بها العلم",
+    seqH: "متتالياتٌ ومجموعاتٌ أخرى تصعد نحو اللانهاية",
+    ladderH: "سلّم الكريبتو كوما (a…z)",
+    cValue: "القيمة",
+    cName: "الاسم",
+    cDomain: "أين تُستخدم",
+    cSource: "المصدر",
+    cLevel: "المستوى",
+    cNotation: "التدوين",
+    cWhat: "القيمة",
+    cScale: "مرتبة المقدار",
+    beyond: "فيما وراء أعداد الفاصلة العائمة",
+    namedH: "الأعداد المسماة (من 1 فصاعدًا)",
+    namedIntro: "الأسماء المألوفة للأعداد الكبيرة على السُلَّم القصير، وفيمَ يصلح كلٌّ منها. كلّما صعدت أكثر، ازداد انتظارُ الاسم لكمّيةٍ لم توجد بعد.",
+    cUse: "فيمَ يصلح",
+    noteNamed: "الأونديسيليون هنا ليس صدفة: إنه المستوى a، حيث يبدأ السُّلَّم.",
+    noteReal: "كل صفٍّ عددٌ يؤدّي عملًا ما في مكانٍ ما. لا يبلغ أيُّها حتى b.",
+    noteSeq: "كل هذه المتتاليات تجري إلى اللانهاية. ومتتاليتنا أيضًا — نحن منحناها فقط محطّةً واسمًا.",
+    noteLadder: "بين صفّين متجاورين ليست خطوةً بل هوّةٌ أكبر من الصفّ الأعلى بأكمله.",
+  },
+  he: {
+    title: "מקור למספרים גדולים",
+    intro: "אילו מספרים גדולים קיימים, לשם מה הם נחוצים, ומה המדע מכיר. כבר רמה b של הסולם שלנו משאירה מאחור כל דבר פיזי.",
+    realH: "מספרים גדולים אמיתיים המוכרים על ידי המדע",
+    seqH: "סדרות וקבוצות אחרות השואפות לאינסוף",
+    ladderH: "הסולם של הקריפטו קומה (a…z)",
+    cValue: "ערך",
+    cName: "שם",
+    cDomain: "היכן משתמשים",
+    cSource: "מקור",
+    cLevel: "רמה",
+    cNotation: "סימון",
+    cWhat: "ערך",
+    cScale: "סדר גודל",
+    beyond: "מעבר למספרי הנקודה הצפה",
+    namedH: "מספרים בעלי שם (מ-1 ומעלה)",
+    namedIntro: "השמות המוכרים של מספרים גדולים בסולם הקצר, ולמה כל אחד מהם טוב. ככל שעולים, כך השם ממתין לעתים קרובות יותר לכמות שטרם קיימת.",
+    cUse: "למה הוא טוב",
+    noteNamed: "האונדציליון כאן אינו מקרי: זו הרמה a, שבה מתחיל הסולם.",
+    noteReal: "כל שורה היא מספר שעושה עבודה במקום כלשהו. אף אחד מהם אינו מגיע אפילו ל-b.",
+    noteSeq: "כל הסדרות האלה רצות אל האינסוף. גם שלנו — רק נתנו לה תחנה ושם.",
+    noteLadder: "בין שתי שורות שכנות אין צעד אלא תהום גדולה יותר מכל השורה שמעליה.",
+  },
+  ka: {
+    title: "დიდი რიცხვების ცნობარი",
+    intro: "რა დიდი რიცხვები არსებობს, რისთვის სჭირდებათ ისინი და რას აღიარებს მეცნიერება. უკვე ჩვენი კიბის b დონე ყველაფერ ფიზიკურს ტოვებს უკან.",
+    realH: "ნამდვილი დიდი რიცხვები, რომლებსაც მეცნიერება აღიარებს",
+    seqH: "სხვა რიგები და სიმრავლეები, რომლებიც უსასრულობისკენ მიისწრაფვიან",
+    ladderH: "crypto coma-ს კიბე (a…z)",
+    cValue: "სიდიდე",
+    cName: "სახელი",
+    cDomain: "სად სჭირდება",
+    cSource: "წყარო",
+    cLevel: "დონე",
+    cNotation: "ჩანაწერი",
+    cWhat: "მნიშვნელობა",
+    cScale: "მასშტაბი",
+    beyond: "მცურავი წერტილის რიცხვებს მიღმა",
+    namedH: "სახელდებული რიცხვები (1-დან ზემოთ)",
+    namedIntro: "დიდი რიცხვების ნაცნობი სახელები მოკლე შკალაზე და რისთვისაა თითოეული. რაც უფრო მაღლა ადიხარ, მით უფრო ხშირად ელოდება სახელი სიდიდეს, რომელიც ჯერ არ არსებობს.",
+    cUse: "რისთვისაა",
+    noteNamed: "უნდეცილიონი აქ შემთხვევითი არ არის: ეს არის დონე a, საიდანაც იწყება კიბე.",
+    noteReal: "თითოეული სტრიქონი — რიცხვია, რომელიც სადღაც მუშაობს. არცერთი არ აღწევს b-მდეც კი.",
+    noteSeq: "ეს რიგები ყველანი უსასრულობისკენ მიექანებიან. ჩვენიც — უბრალოდ, ჩვენ მას გაჩერება და სახელი მივეცით.",
+    noteLadder: "ორ მეზობელ სტრიქონს შორის არა საფეხური, არამედ უფსკრულია, მთელ ზემოთა სტრიქონზე დიდი.",
+  },
+  hy: {
+    title: "Տեղեկատու մեծ թվերի մասին",
+    intro: "Ինչ մեծ թվեր կան, ինչու են դրանք պետք, և ինչ է ճանաչում գիտությունը։ Մեր սանդուղքի b մակարդակն անգամ հետ է թողնում ամեն ինչ ֆիզիկական։",
+    realH: "Իրական մեծ թվեր, որոնք ճանաչում է գիտությունը",
+    seqH: "Այլ շարքեր ու բազմություններ՝ ձգվող դեպի անվերջություն",
+    ladderH: "crypto coma-ի սանդուղքը (a…z)",
+    cValue: "Մեծություն",
+    cName: "Անուն",
+    cDomain: "Որտեղ է օգտագործվում",
+    cSource: "Աղբյուր",
+    cLevel: "Մակարդակ",
+    cNotation: "Գրառում",
+    cWhat: "Արժեք",
+    cScale: "Մեծության կարգ",
+    beyond: "լողացող կետով թվերից դուրս",
+    namedH: "Անվանված թվեր (1-ից վեր)",
+    namedIntro: "Մեծ թվերի ծանոթ անունները կարճ սանդղակում և ինչի համար է յուրաքանչյուրը։ Որքան բարձր ես բարձրանում, այնքան հաճախ անունը սպասում է մի մեծության, որը դեռ գոյություն չունի։",
+    cUse: "Ինչի համար է",
+    noteNamed: "Ունդեցիլիոնն այստեղ պատահական չէ. դա a մակարդակն է, որտեղ սկսվում է սանդուղքը։",
+    noteReal: "Ամեն տող մի թիվ է, որ ինչ-որ տեղ աշխատում է։ Դրանցից ոչ մեկը չի հասնում անգամ b-ին։",
+    noteSeq: "Այս շարքերը բոլորն էլ վազում են դեպի անվերջություն։ Մերը՝ նույնպես. մենք նրան ուղղակի կանգառ ու անուն տվեցինք։",
+    noteLadder: "Երկու հարևան տողերի միջև ոչ թե քայլ է, այլ անդունդ, որ մեծ է վերևի ամբողջ տողից։",
+  },
+} as const;
+const copy = (dict as Record<string, (typeof dict)["en"]>)[lang] ?? dict.en;
+---
+
+<Base lang={lang} title={copy.title}>
+  <h1>{copy.title}</h1>
+  <p class="lead">{copy.intro}</p>
+  <Epigraph lang={lang} id="gauss" />
+
+  <h2>{copy.namedH}</h2>
+  <p>{copy.namedIntro}</p>
+  <table>
+    <thead>
+      <tr><th>{copy.cValue}</th><th>{copy.cName}</th><th>{copy.cUse}</th></tr>
+    </thead>
+    <tbody>
+      {
+        namedNumbers.map((n) => (
+          <tr>
+            <td style="white-space:nowrap">
+              {n.exp >= 6 ? (
+                <span>10<sup>{n.exp}</sup></span>
+              ) : (
+                <span>{n.value_str}</span>
+              )}
+            </td>
+            <td>{tr(n.name, lang)}</td>
+            <td>{tr(n.use, lang)}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <p class="note">{copy.noteNamed}</p>
+
+  <h2 class="rule-top">{copy.realH}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>{copy.cValue}</th>
+        <th>{copy.cName}</th>
+        <th>{copy.cDomain}</th>
+        <th>{copy.cSource}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        refNumbers.map((r) => (
+          <tr>
+            <td style="white-space:nowrap">{r.value_str}</td>
+            <td>{tr(r.name, lang)}</td>
+            <td>{tr(r.domain, lang)}</td>
+            <td class="src">{r.source}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <p class="note">{copy.noteReal}</p>
+
+  <h2>{copy.seqH}</h2>
+  <table>
+    <thead>
+      <tr><th>{copy.cName}</th><th>{copy.cDomain}</th><th>{copy.cSource}</th></tr>
+    </thead>
+    <tbody>
+      {
+        refSequences.map((s) => (
+          <tr>
+            <td>{tr(s.name, lang)}</td>
+            <td>{tr(s.note, lang)}</td>
+            <td class="src">{s.source}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <p class="note">{copy.noteSeq}</p>
+
+  <h2>{copy.ladderH}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>{copy.cLevel}</th>
+        <th>{copy.cNotation}</th>
+        <th>{copy.cWhat}</th>
+        <th>{copy.cScale}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        levels.map((l) => (
+          <tr>
+            <td>{l.letter}</td>
+            <td style="white-space:nowrap">
+              {l.stars === 0 ? (
+                <span>10<sup>36</sup></span>
+              ) : (
+                <span>(10<sup>36</sup>)<sup>★{l.stars}</sup></span>
+              )}
+            </td>
+            <td style="font-family:system-ui;white-space:nowrap;max-width:14rem;overflow:hidden;text-overflow:ellipsis">
+              {l.value_str}
+            </td>
+            <td>{l.scale_hint[lang] ?? l.scale_hint.en}</td>
+          </tr>
+        ))
+      }
+      <tr>
+        <td><span class="ccoma">ℂ⇈</span></td>
+        <td style="white-space:nowrap">(10<sup>36</sup>)<sup>★26</sup></td>
+        <td style="font-family:system-ui">z<sup>z</sup></td>
+        <td>{cryptoComa.scale_hint[lang] ?? cryptoComa.scale_hint.en}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">{copy.noteLadder}</p>
+</Base>
+

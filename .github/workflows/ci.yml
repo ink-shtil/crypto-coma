@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Builds and tests everything; on pushes to main it also deploys the site to GitHub Pages
+# (https://ink-shtil.github.io/crypto-coma/). Pull requests build but do not deploy.
+# One-time setup: repo Settings → Pages → Source = "GitHub Actions". See docs/deployment.md.
+jobs:
+  pylib:
+    name: pylib (tests + lint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e "./pylib[dev]"
+      - run: ruff check pylib
+      - run: black --check pylib
+      - run: pytest pylib
+
+  site:
+    name: site (build)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate canonical levels.json
+        run: |
+          pip install -e ./pylib
+          python -m cryptocoma table
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Build site
+        working-directory: site
+        run: |
+          npm ci
+          npm run build
+      - name: Upload site (publish-ready)
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: site/dist
+
+  deploy:
+    name: deploy (GitHub Pages)
+    # Deploy only from main; PRs still build via the `site` job but never publish.
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: site
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write # publish to GitHub Pages
+      id-token: write # OIDC token the deploy-pages action verifies
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  paper:
+    name: paper (build PDF)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate paper data from levels.json
+        run: |
+          pip install -e ./pylib
+          python -m cryptocoma table
+          python paper/gen_data.py
+      - name: "Build LaTeX (TeX Live scheme-full: Cyrillic + TikZ)"
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: paper
+          root_file: main.tex
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: crypto-coma-paper
+          path: paper/build/main.pdf

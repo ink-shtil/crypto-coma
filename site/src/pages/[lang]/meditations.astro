@@ -1,0 +1,50 @@
+---
+import Base from "../../layouts/Base.astro";
+import { langStaticPaths } from "../../i18n/paths";
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+import Epigraph from "../../components/Epigraph.astro";
+import {
+  meditations,
+  thoughtExperiments,
+  medIntroFor,
+  teIntroFor,
+  teHeadFor,
+  medField,
+} from "../../data/meditations";
+
+export function getStaticPaths() {
+  return langStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+---
+
+<Base lang={lang} title={t("nav.meditations")}>
+  <h1>{t("nav.meditations")}</h1>
+  <p class="lead">{medIntroFor(lang)}</p>
+  <Epigraph lang={lang} id="cantor" />
+
+  {
+    meditations.map((m) => (
+      <section class="entry">
+        <h2>{medField(m, lang, "title")}</h2>
+        <p>{medField(m, lang, "body")}</p>
+        <p class="q">{medField(m, lang, "question")}</p>
+      </section>
+    ))
+  }
+
+  <h2 class="rule-top">{teHeadFor(lang)}</h2>
+  <p class="lead">{teIntroFor(lang)}</p>
+  {
+    thoughtExperiments.map((m) => (
+      <section class="entry">
+        <h3>{medField(m, lang, "title")}</h3>
+        <p>{medField(m, lang, "body")}</p>
+        <p class="q">{medField(m, lang, "question")}</p>
+      </section>
+    ))
+  }
+</Base>

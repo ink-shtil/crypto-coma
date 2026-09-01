@@ -1,0 +1,74 @@
+% Crypto Coma — a parody scientific paper "from the children".
+% Build:  latexmk -pdf main.tex   (needs a TeX distribution with T2A/babel-russian + TikZ)
+% Numbers come from generated/levels.tex (run `python ../gen_data.py` first).
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{abstract}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+% ---- the crypto coma symbol (see docs/formal-model.md §4) ----
+\newcommand{\ccoma}{\ensuremath{\mathbb{C}\mkern-1.5mu{\uparrow\uparrow}}}
+
+% ---- numbers generated from docs/data/levels.json ----
+\input{generated/levels.tex}
+
+\title{\textbf{Крипто кома}\\[0.3em]
+  \large О самом большом числе, придуманном летним вечером на лавочке}
+\author{Двое мальчиков\\ \small (при участии взрослых, которым эти числа уже известны)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{center}\itshape\small
+Дань уважения мечтам детства\\[0.8em]
+«Бог создал натуральные числа, всё остальное --- дело рук человеческих.»\\
+\upshape\footnotesize --- Леопольд Кронекер
+\end{center}
+\medskip
+
+\begin{abstract}
+\noindent
+Мы вводим восходящий ряд чисел \(a, b, c, \dots, z\), в котором каждый следующий член
+есть предыдущий, возведённый в собственную степень, и определяем его кульминацию ---
+\emph{крипто кому} \(\ccoma = z^{z}\). Мы оцениваем эту величину как «мощность»,
+записываем её степенным выражением, предлагаем для неё символ \(\ccoma\) и выносим её
+на суд научного сообщества. Работа выполнена в строгом академическом тоне; наивность
+замысла является его достоинством, а не изъяном.
+\end{abstract}
+
+\begin{otherlanguage}{english}
+\begin{abstract}
+\noindent
+\textbf{Abstract (English).} We introduce an ascending series \(a, b, c, \dots, z\) in
+which each term is the previous one raised to itself, and define its culmination --- the
+\emph{crypto coma} \(\ccoma = z^{z}\). We estimate this value as a ``cardinality'', write
+it as a power expression, and propose the symbol \(\ccoma\) for it. The work is presented
+in a rigorously academic tone; the naivety of the idea is its virtue, not its flaw.
+\end{abstract}
+\end{otherlanguage}
+
+\input{sections/01-legend.tex}
+\input{sections/02-formalism.tex}
+\input{sections/02b-ladder-table.tex}
+\input{sections/03-why-it-matters.tex}
+\input{sections/03b-questions.tex}
+\input{sections/03c-meditations.tex}
+\input{sections/03d-thought-experiments.tex}
+\input{sections/04-disclaimer.tex}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
