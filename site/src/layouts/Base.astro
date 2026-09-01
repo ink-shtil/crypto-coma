@@ -45,8 +45,8 @@ const showReview = reviewNeeded.includes(lang);
           <a href={path(lang, "/meditations")}>{t("nav.meditations")}</a>
           <a href={path(lang, "/archive")}>{t("nav.archive")}</a>
           <a href={path(lang, "/collaborate")}>{t("nav.collaborate")}</a>
-          <PdfSwitcher current={lang} />
           <LangSwitcher current={lang} />
+          <PdfSwitcher />
         </nav>
       </div>
     </header>
