@@ -36,9 +36,10 @@ jobs:
           python -m cryptocoma table
       - uses: actions/setup-node@v4
         with:
-          # Node 22 ships npm >=10.9 (fixes the "Exit handler never called!" npm ci crash on
-          # Node 20 / npm 10.8.2) and satisfies undici@8's engine requirement (node >=22.19).
-          node-version: "22"
+          # Node 24 ships npm 11, which fixes the "Exit handler never called!" crash that npm
+          # 10.8/10.9 (Node 20/22) hit on `npm ci` here. Matches the local dev environment where
+          # `npm ci` + `npm run build` pass. Also satisfies undici@8's engine (node >=22.19).
+          node-version: "24"
           cache: npm
           cache-dependency-path: site/package-lock.json
       - name: Build site
