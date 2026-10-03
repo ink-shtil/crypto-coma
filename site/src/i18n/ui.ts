@@ -38,7 +38,7 @@ export const ui = {
     "nav.collaborate": "Collaborate",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "A spoof of a scientific paper. Grown-ups have seen them long ago — children are seeing them for the first time. A tribute to the dreams of childhood.",
+      "A spoof of a scientific paper. Grown-ups have long known these numbers by name — children are meeting them for the first time. A tribute to the dreams of childhood.",
     "home.manifest.title": "A history: how children dreamed of big numbers",
     "home.legend.title": "The legend of the two boys",
     "home.legend.figAlt": "Two boys on a bench looking at the starry sky",
@@ -64,7 +64,7 @@ export const ui = {
     "nav.collaborate": "Сотрудничество",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "Пародия на научную статью. Взрослые видели эти числа давным-давно — дети видят их впервые. Дань уважения мечтам детства.",
+      "Пародия на научную статью. Взрослые давно знают имена этих чисел — дети встречают их впервые. Дань уважения мечтам детства.",
     "home.manifest.title": "История одной детской мечты о больших числах",
     "home.legend.title": "Легенда о двух мальчиках",
     "home.legend.figAlt": "Двое мальчиков на лавочке смотрят на звёздное небо",

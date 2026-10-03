@@ -22,10 +22,10 @@ export const meditationsIntro: Bi = {
 export const meditations: Meditation[] = [
   {
     id: "democracy",
-    title: { ru: "Демократия невообразимого", en: "The democracy of the unimaginable" },
+    title: { ru: "За горизонтом", en: "Beyond the horizon" },
     body: {
-      ru: "С человеческой точки зрения гугол, гуголплекс, уровень d, уровень p, крипто кома и даже число Грэма сливаются в одну размытую категорию: «примерно бесконечность». У интуиции есть потолок — когнитивный горизонт, — и он лежит абсурдно низко, где-то в районе нескольких тысяч. За ним все великаны на одно лицо. Разница между ними огромна, реальна и нам невидима.",
-      en: "To a human, a googol, a googolplex, level d, level p, the crypto coma, even Graham's number collapse into one blurred category: “basically infinity.” Intuition has a ceiling — a cognitive horizon — and it sits absurdly low, somewhere around a few thousand. Past it, every giant looks the same. The differences between them are vast, real, and invisible to us.",
+      ru: "С человеческой точки зрения гугол, гуголплекс, уровень d, уровень p, крипто кома и даже число Грэма сливаются в одну размытую категорию: «примерно бесконечность». У интуиции есть потолок — когнитивный горизонт, — и он лежит абсурдно низко, где-то в районе нескольких тысяч. За ним всё сливается в одно пятно: гугол и крипто кома выглядят одинаково. Разница между ними огромна, реальна и нам невидима.",
+      en: "To a human, a googol, a googolplex, level d, level p, the crypto coma, even Graham's number collapse into one blurred category: “basically infinity.” Intuition has a ceiling — a cognitive horizon — and it sits absurdly low, somewhere around a few thousand. Past it, everything blurs into one smudge: a googol and the crypto coma look the same. The differences between them are vast, real, and invisible to us.",
     },
     question: {
       ru: "Где проходит ваш горизонт — последнее число, которое вы способны по-настоящему почувствовать?",
@@ -34,10 +34,10 @@ export const meditations: Meditation[] = [
   },
   {
     id: "name-instead",
-    title: { ru: "Имя вместо числа", en: "A name instead of the number" },
+    title: { ru: "Поводок без зверя", en: "A leash without the beast" },
     body: {
-      ru: "Крипто кому нельзя удержать — поэтому мы держим её имя: ℂ⇈, три штриха. Имя конечно, число не записать. Назвать — способ приручить то, что не унести. Но поводок — это не зверь.",
-      en: "We cannot hold the crypto coma, so we hold its name: ℂ⇈, three strokes. The name is finite; the number cannot be written. Naming is how we tame what we cannot carry. But a leash is not the animal.",
+      ru: "Крипто кому в руках не удержать — поэтому мы держим её имя: ℂ⇈, три чёрточки на бумаге. Имя короткое, а само число не записать никогда. Дать имя — значит хоть как-то приручить то, что не унести с собой. Только поводок — ещё не зверь.",
+      en: "We cannot hold the crypto coma, so we hold its name: ℂ⇈, three strokes on paper. The name is short; the number itself can never be written. Naming is how we half-tame what we cannot carry. But a leash is not yet the beast.",
     },
     question: {
       ru: "Когда вы говорите «крипто кома», что именно у вас в голове — число или слово, стоящее там, куда число не помещается?",
@@ -48,32 +48,20 @@ export const meditations: Meditation[] = [
     id: "nameless",
     title: { ru: "Почти все великаны безымянны", en: "Almost every giant is nameless" },
     body: {
-      ru: "Коротких описаний конечное число: фраз короче заданной длины попросту не бесконечно много. А чисел — бесконечно. Значит, почти всякое число — включая почти всякое число размера d — нельзя ни назвать, ни описать, ни выделить. Крипто кома — редкий именованный великан в бесконечной толпе анонимных.",
-      en: "There are only finitely many short descriptions: sentences under a given length do not go on forever. But numbers do. So almost every number — including almost every number the size of d — can never be named, described, or singled out. The crypto coma is a rare named giant in an endless crowd of anonymous ones.",
+      ru: "Коротких описаний конечное число: фраз короче заданной длины попросту не бесконечно много. А чисел — бесконечно. Значит, почти всякое число — включая почти всякое число размера d — нельзя ни назвать, ни описать, ни выделить. А ведь у каждого числа своя красота. Ноль, например, красив своей симметрией: это единственное число, которому всё равно, стоит ли перед ним минус, — −0 и +0 одно и то же. Красота крипто комы другая: её нашли мы. Она стояла в бесконечной безымянной толпе и ждала — и однажды летним вечером ей улыбнулась удача. Наверное, в ту минуту у великана была очень красивая улыбка.",
+      en: "There are only finitely many short descriptions: sentences under a given length do not go on forever. But numbers do. So almost every number — including almost every number the size of d — can never be named, described, or singled out. And yet every number has its own beauty. Zero, for instance, is beautiful in its symmetry: it is the only number that does not care whether a minus sign stands before it — −0 and +0 are the same. The crypto coma's beauty is different: we are the ones who found it. It stood in an endless nameless crowd and waited — and one summer evening luck smiled on it. That giant must have had a very beautiful smile just then.",
     },
     question: {
-      ru: "Если число нельзя ни назвать, ни достичь, — в каком смысле оно «есть»?",
-      en: "If a number can never be named or reached, in what sense is it “there”?",
-    },
-  },
-  {
-    id: "giant-smile",
-    title: { ru: "Улыбка великана", en: "The giant's smile" },
-    body: {
-      ru: "У каждого числа своя красота. Ноль, например, — единственное число, которое не замечает минуса: −0 и +0 — одно и то же. Красота крипто комы другая: её нашли мы. Она стояла в своей бесконечной толпе безымянных великанов и ждала — и однажды летним вечером ей улыбнулась удача. Наверное, в ту минуту у великана была очень красивая улыбка.",
-      en: "Every number has its own beauty. Zero, for instance, is the only number that ignores a minus sign: −0 and +0 are the same. The crypto coma's beauty is different: we are the ones who found it. It stood in its endless crowd of nameless giants and waited — and one summer evening luck smiled on it. That giant must have had a very beautiful smile just then.",
-    },
-    question: {
-      ru: "Может ли число стать красивым просто потому, что его кто-то заметил?",
-      en: "Can a number become beautiful simply because someone noticed it?",
+      ru: "Если число нельзя ни назвать, ни достичь, — в каком смысле оно «есть»?\nМожет ли число стать красивым просто потому, что его кто-то заметил?",
+      en: "If a number can never be named or reached, in what sense is it “there”?\nCan a number become beautiful simply because someone noticed it?",
     },
   },
   {
     id: "physically-transcendent",
     title: { ru: "Физически трансцендентное", en: "Physically transcendent" },
     body: {
-      ru: "Компьютер, работающий до тепловой смерти Вселенной и переключающий бит каждый планковский миг, не напечатал бы цифры уровня d — даже число его цифр. У вычислений есть физический предел (Бремерман, Ландауэр). Значит, некоторые конечные числа реальны, но навсегда неосуществимы: истинны — и никогда не будут построены, сосчитаны или показаны нигде в этом космосе.",
-      en: "A computer running until the heat death of the universe, flipping one bit every Planck time, could not print the digits of level d — not even the count of its digits. Computation has a physical limit (Bremermann, Landauer). So some finite numbers are real yet forever un-realizable: true, and never to be built, counted, or displayed anywhere in this cosmos.",
+      ru: "Компьютер, работающий до тепловой смерти Вселенной и переключающий бит каждый планковский миг, не напечатал бы цифры уровня d — даже число его цифр. У вычислений есть физический предел (Бремерман, Ландауэр). Значит, есть конечные числа, которые совершенно реальны, — и всё же в нашей Вселенной их никогда не построить, не сосчитать и не показать.",
+      en: "A computer running until the heat death of the universe, flipping one bit every Planck time, could not print the digits of level d — not even the count of its digits. Computation has a physical limit (Bremermann, Landauer). So there are finite numbers that are perfectly real — and yet in our universe they can never be built, counted, or shown.",
     },
     question: {
       ru: "Число, которое реальность не может воплотить, — это факт о математике или о нас?",
@@ -108,8 +96,8 @@ export const meditations: Meditation[] = [
     id: "child-frontier",
     title: { ru: "Ребёнок на границе", en: "The child at the frontier" },
     body: {
-      ru: "«Какое число самое большое?» звучит как вопрос из детской. Это не так. Решить, как быстро числа могут расти — TREE, последовательности Гудстейна, «трудолюбивый бобёр», — значит коснуться пределов того, что математика вообще способна доказать. Мальчики, сами того не зная, положили палец на край доказуемости. Границу числа стерегут дети.",
-      en: "“What is the biggest number?” sounds like a nursery question. It is not. Deciding how fast numbers may grow — TREE, Goodstein sequences, the busy beaver — touches the limits of what mathematics can prove at all. The boys, without knowing it, put a finger on the edge of provability. The frontier of number is guarded by children.",
+      ru: "«Какое число самое большое?» звучит как вопрос из детской. Это не так. Решить, как быстро числа могут расти — TREE, последовательности Гудстейна, «трудолюбивый бобёр», — значит коснуться пределов того, что математика вообще способна доказать. Мальчики, сами того не зная, подошли к самому этому краю. Похоже, к самой границе чисел первыми приходят дети.",
+      en: "“What is the biggest number?” sounds like a nursery question. It is not. Deciding how fast numbers may grow — TREE, Goodstein sequences, the busy beaver — touches the limits of what mathematics can prove at all. Without knowing it, the boys walked right up to that edge. It seems children are the first to reach the frontier of number.",
     },
     question: {
       ru: "Почему самый простой вопрос ведёт прямиком к самому трудному?",
@@ -120,8 +108,8 @@ export const meditations: Meditation[] = [
     id: "ruler-of-infinities",
     title: { ru: "Линейка из бесконечностей", en: "A ruler made of infinities" },
     body: {
-      ru: "Чтобы сравнить двух конечных великанов, которых не записать, математик забирается в трансфинитное: ординалы, иерархии, размеченные бесконечностью, — и меряет ими всего лишь большое. Конечное вынуждает нас подняться в бесконечное, чтобы получить собственную меру.",
-      en: "To compare two finite giants that cannot be written, a mathematician climbs into the transfinite: ordinals, hierarchies indexed by infinity — and uses them to measure the merely large. The finite forces us up into the infinite to get its own measure.",
+      ru: "Чтобы сравнить два конечных числа, которые не записать, математик забирается в трансфинитное: ординалы, иерархии, размеченные бесконечностью, — и меряет ими всего лишь большое. Конечное вынуждает нас подняться в бесконечное, чтобы получить собственную меру.",
+      en: "To compare two finite numbers that cannot be written, a mathematician climbs into the transfinite: ordinals, hierarchies indexed by infinity — and uses them to measure the merely large. The finite forces us up into the infinite to get its own measure.",
     },
     question: {
       ru: "Почему, чтобы взвесить конечное, нам приходится брать в руки бесконечное?",
@@ -396,8 +384,8 @@ export const thoughtExperiments: Meditation[] = [
     id: "scribe",
     title: { ru: "Писец", en: "The scribe" },
     body: {
-      ru: "Писец пишет по одной цифре каждый планковский миг — быстрее не меняется ничто во Вселенной. С Большого взрыва он успел бы вывести около 10⁶⁰ цифр. У уровня b их 10^(3.6×10³⁷). Он не закончил и ничтожной доли; конца b он не достигнет никогда — не говоря уже о c. А b — самый маленький из наших великанов.",
-      en: "A scribe writes one digit every Planck time — nothing in the universe changes faster. Since the Big Bang he would have produced about 10⁶⁰ digits. Level b has 10^(3.6×10³⁷) of them. He has not finished a vanishing fraction; he will never reach the end of b, let alone c. And b is the smallest of our giants.",
+      ru: "Писец пишет по одной цифре каждый планковский миг — быстрее не меняется ничто во Вселенной. С Большого взрыва он успел бы вывести около 10⁶⁰ цифр. У уровня b их 10^(3.6×10³⁷). Он не закончил и ничтожной доли; конца b он не достигнет никогда — не говоря уже о c. А b — всего лишь вторая ступенька лестницы.",
+      en: "A scribe writes one digit every Planck time — nothing in the universe changes faster. Since the Big Bang he would have produced about 10⁶⁰ digits. Level b has 10^(3.6×10³⁷) of them. He has not finished a vanishing fraction; he will never reach the end of b, let alone c. And b is only the second rung of the ladder.",
     },
     question: {
       ru: "Если даже время не доходит до конца b, что значит сказать, что у b «столько-то» цифр?",

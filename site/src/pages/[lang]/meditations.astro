@@ -31,7 +31,7 @@ const t = useTranslations(lang);
       <section class="entry">
         <h2>{medField(m, lang, "title")}</h2>
         <p>{medField(m, lang, "body")}</p>
-        <p class="q">{medField(m, lang, "question")}</p>
+        {medField(m, lang, "question").split("\n").map((q) => <p class="q">{q}</p>)}
       </section>
     ))
   }
@@ -43,7 +43,7 @@ const t = useTranslations(lang);
       <section class="entry">
         <h3>{medField(m, lang, "title")}</h3>
         <p>{medField(m, lang, "body")}</p>
-        <p class="q">{medField(m, lang, "question")}</p>
+        {medField(m, lang, "question").split("\n").map((q) => <p class="q">{q}</p>)}
       </section>
     ))
   }
