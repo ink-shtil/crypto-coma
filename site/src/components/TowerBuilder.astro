@@ -37,7 +37,7 @@ const uiDict = {
     stars: "stars",
   },
 } as const;
-const ui = (uiDict as Record<string, (typeof uiDict)["en"]>)[lang] ?? uiDict.en;
+const ui = (uiDict as unknown as Record<string, (typeof uiDict)["en"]>)[lang] ?? uiDict.en;
 ---
 
 <section class="tower" aria-labelledby="tower-h">

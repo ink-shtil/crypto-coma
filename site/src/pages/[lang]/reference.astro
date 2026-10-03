@@ -363,7 +363,7 @@ const dict = {
     noteLadder: "Երկու հարևան տողերի միջև ոչ թե քայլ է, այլ անդունդ, որ մեծ է վերևի բոլոր տողերից։",
   },
 } as const;
-const copy = (dict as Record<string, (typeof dict)["en"]>)[lang] ?? dict.en;
+const copy = (dict as unknown as Record<string, (typeof dict)["en"]>)[lang] ?? dict.en;
 ---
 
 <Base lang={lang} title={copy.title}>

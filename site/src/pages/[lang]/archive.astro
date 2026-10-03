@@ -47,7 +47,7 @@ const dict = {
   es: { title: "Archivo en caché", intro: "Copias locales de páginas externas sobre números grandes, por si el original desaparece (protección contra los enlaces rotos). Cada copia es un extracto de texto con un enlace a la fuente.", captured: "capturado", snapshot: "Ver copia", original: "Original", generated: "Archivo generado" },
   pt: { title: "Arquivo em cache", intro: "Cópias locais de páginas externas sobre números grandes, caso o original desapareça (proteção contra ligações mortas). Cada cópia é um excerto de texto com uma ligação à fonte.", captured: "capturado", snapshot: "Ver cópia", original: "Original", generated: "Arquivo gerado" },
 } as const;
-const copy = (dict as Record<string, (typeof dict)["en"]>)[lang] ?? dict.en;
+const copy = (dict as unknown as Record<string, (typeof dict)["en"]>)[lang] ?? dict.en;
 ---
 
 <Base lang={lang} title={copy.title}>

@@ -2,7 +2,7 @@ project_name: "crypto-coma"
 default_status: "To Do"
 statuses: ["To Do", "In Progress", "Done"]
 labels: []
-definition_of_done: ["the site project is consistent", "every non-Latin locale passes the i18n completeness check (cd site && npm run build && npm run check:i18n) — no unfinished transcriptions"]
+definition_of_done: ["Ran QA gate: npm run check:i18n passes", "Ran QA gate: npx astro check passes", "Ran QA gate: npm run build succeeds", "No math/symbols/numbers/sources/citations or the term crypto coma / ℂ⇈ were altered", "Meaning and register preserved against the RU/EN source"]
 date_format: yyyy-mm-dd
 max_column_width: 20
 default_editor: "/opt/homebrew/bin/nano"
