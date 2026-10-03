@@ -14,33 +14,35 @@ export interface HomeContent {
 const home: Partial<Record<Lang, HomeContent>> = {
   en: {
     manifest: [
-      "People often reach for “powerful, tending-to-infinity” sets. This is the story of two children who once did exactly that, looking at the stars.",
+      "Almost everyone has tried, as a child, to name the biggest number — and the game nearly always ended at “infinity plus one.” This is the story of two children who, looking at the stars one evening, took another road.",
     ],
     legend: [
       "One summer evening two boys sat on a bench, looked at the stars, and argued about how many atoms fit in the Universe.",
       "They named bigger and bigger numbers and reached an undecillion (10³⁶). It still felt too small.",
+      "Had they been born among the Pirahã of the Amazon, the evening would have ended sooner. Pirahã, many linguists believe, has no numbers at all — only “a little,” “a bit more,” and “more still.” Perhaps the boys would have discovered a sort of “four” that night. But they grew up where people know the word “undecillion.”",
       "So they did what real mathematicians do: they gave the big number a name. Let a be the first step. Then each next number is the previous one raised to itself — all the way up to the summit, the crypto coma.",
     ],
     formulaIntro:
       "The series is set by a starting value a and one simple rule: the next level is the previous one raised to the power of itself.",
     formulaOutro:
-      "There are twenty-six levels, one per letter. The crypto coma is the self-power of the last level, z.",
+      "There are twenty-six levels, one per letter. The crypto coma is the self-power of the last level, z. Funny thing: the answer to the boys’ original question — about 10⁸⁰ atoms — fits between the undecillion and the very first step, a. They overshot their own question before setting foot on the ladder.",
     compact:
       "In short: write x★ = xˣ (a star means “raise the number to itself”). Then the crypto coma is ((10³⁶)^(10³⁶))★²⁶ — twenty-six stars, one per letter of the alphabet.",
   },
   ru: {
     manifest: [
-      "Люди часто прибегают к «мощным, восходящим к бесконечности» множествам. Эта история — о том, как двое детей однажды сделали то же самое, глядя на звёзды.",
+      "Каждый в детстве хоть раз пытался назвать самое большое число — и почти всегда игра кончалась на «бесконечность плюс один». Эта история — о двух детях, которые однажды, глядя на звёзды, пошли другим путём.",
     ],
     legend: [
       "Летним вечером двое мальчиков сидели на лавочке, смотрели на звёзды и спорили, сколько атомов поместится во Вселенной.",
       "Они называли всё большие числа и дошли до ундециллиона (10³⁶). Им показалось мало.",
+      "Родись они в племени пираха на Амазонке, вечер кончился бы раньше. В языке пираха, как считают многие лингвисты, чисел нет вовсе — есть только «немного», «побольше» и «ещё побольше». Может быть, мальчики открыли бы в тот вечер условную четвёрку. Но они росли там, где знают слово «ундециллион».",
       "Тогда они поступили как настоящие математики: дали большому числу имя. Пусть a — первый шаг. А дальше каждое следующее число есть предыдущее, возведённое в самого себя, — до самой вершины, крипто комы.",
     ],
     formulaIntro:
       "Ряд задаётся начальным значением a и простым правилом: следующий уровень — это предыдущий в степени самого себя.",
     formulaOutro:
-      "Всего уровней — двадцать шесть, по числу букв. Крипто кома — это самовозведение последнего уровня z.",
+      "Всего уровней — двадцать шесть, по числу букв. Крипто кома — это самовозведение последнего уровня z. Забавно: ответ на исходный вопрос мальчиков — около 10⁸⁰ атомов — уместился между ундециллионом и самой первой ступенькой a. Они проскочили собственный вопрос, ещё не ступив на лестницу.",
     compact:
       "Короче: обозначим x★ = xˣ (звёздочка значит «возвести число в себя»). Тогда крипто кома — это ((10³⁶)^(10³⁶))★²⁶: двадцать шесть звёздочек, по одной на каждую букву алфавита.",
   },

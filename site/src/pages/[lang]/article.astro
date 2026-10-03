@@ -20,7 +20,7 @@ const dict = {
     title: "Крипто кома",
     abstractH: "Аннотация",
     abstract:
-      "Мы вводим восходящий ряд a, b, …, z, где каждый следующий член есть предыдущий, возведённый в собственную степень, и определяем его кульминацию — крипто кому ℂ⇈ = z^z. Мы оцениваем эту величину, записываем её степенным выражением и предлагаем символ. А затем честно признаём, сколько вопросов остаётся без ответа.",
+      "Всё началось с летнего вечера, лавочки и спора о звёздах. Мы вводим восходящий ряд a, b, …, z, где каждый следующий член есть предыдущий, возведённый в собственную степень, и определяем его кульминацию — крипто кому ℂ⇈ = z^z. Мы оцениваем эту величину, записываем её степенным выражением и предлагаем символ. А затем честно признаём, сколько вопросов остаётся без ответа.",
     formalismH: "Формализм",
     formalism: `Обозначим уровни буквами a…z (всего ${meta.levels}). Ряд задаётся как a = 10^${meta.start_value_log10} и L(n+1) = L(n)^L(n). Это тетрация: основание степени само растёт.`,
     starNote:
@@ -36,6 +36,9 @@ const dict = {
     existH: "А оно вообще существует?",
     exist:
       "d нельзя записать, нельзя досчитать до него, нельзя хранить. Считай Вселенная от единицы вечно — она бы до d не дошла. В каком смысле d существует? Мы его придумали — или обнаружили? Если это факт о мире, то где он лежит? Если только о нашей записи — почему он подчиняется тем же законам, что и настоящие числа?",
+    calibrateH: "Зачем мальчикам лестница?",
+    calibrate:
+      "Ступени лестницы задумывались как мера для великанов — чтобы их наконец можно было различать в толпе. Вот группа a. А вот группа f. Они совсем разные: между ними четыре пропасти — четыре целые группы. Но если честно, пока не нашлось ни явлений, ни знаний, ни фактов, которые чётко «жили» бы в одной группе и не жили в соседней. Может быть, их ещё найдут. А может быть, лестницу придётся откалибровать — например, сменить основание, — чтобы у человечества всё-таки появилась удобная шкала для сверхбольших чисел.",
     cardinalityH: "«Мощность»",
     cardinality:
       "Мы называем крипто кому «мощностью», играя на двух значениях слова — «кардинальное число» и «сила». Шутка? Да. Но чем дольше смотришь на эти уровни, тем меньше понятно, где кончается шутка.",
@@ -44,6 +47,7 @@ const dict = {
       "Если и d, и p для человека «бесконечно большие», есть ли между ними разница — или она живёт только на бумаге?",
       "Число, которое нельзя ни записать, ни вычислить, ни досчитать, — существует ли оно?",
       "Мы придумали крипто кому — или наткнулись на неё?",
+      "Можно ли откалибровать лестницу так, чтобы её группы стали различимы, — и что тогда окажется в группе f?",
       "Работать с адресом числа — это работать с числом?",
       "«Мало» — мало для чего? Что добавляет размер, чего не хватает смыслу?",
       "Есть ли последнее число — или у мысли нет потолка?",
@@ -57,7 +61,7 @@ const dict = {
     title: "Crypto Coma",
     abstractH: "Abstract",
     abstract:
-      "We introduce an ascending series a, b, …, z where each term is the previous one raised to itself, and define its culmination — the crypto coma ℂ⇈ = z^z. We estimate the value, write it as a power expression, and propose a symbol. And then we admit, honestly, how many questions are left with no answer.",
+      "It started with a summer evening, a bench, and an argument about the stars. We introduce an ascending series a, b, …, z where each term is the previous one raised to itself, and define its culmination — the crypto coma ℂ⇈ = z^z. We estimate the value, write it as a power expression, and propose a symbol. And then we admit, honestly, how many questions are left with no answer.",
     formalismH: "Formalism",
     formalism: `Label the levels a…z (${meta.levels} in total). The series is a = 10^${meta.start_value_log10} and L(n+1) = L(n)^L(n). This is tetration: the base of the power grows at every step.`,
     starNote:
@@ -73,6 +77,9 @@ const dict = {
     existH: "Does it even exist?",
     exist:
       "d cannot be written, counted to, or stored. If the universe counted from one forever, it would never reach d. In what sense, then, does d exist? Did we invent it — or discover it? If it is a fact about the world, where is it kept? If only about our notation, why does it obey the same laws as ordinary numbers?",
+    calibrateH: "What was the ladder for?",
+    calibrate:
+      "The rungs of the ladder were meant as a measure for giants — a way to finally tell them apart in the crowd. Here is group a. And here is group f. They are nothing alike: four chasms lie between them — four whole groups. But to be honest, no phenomenon, no piece of knowledge, no fact has yet been found that clearly “lives” in one group and not in the next. Perhaps one will be found. Or perhaps the ladder needs calibrating — a different base, say — so that humanity finally gets a usable scale for numbers this large.",
     cardinalityH: "“Cardinality”",
     cardinality:
       "We call the crypto coma a “cardinality,” punning on a word that means both “cardinal number” and “might.” A joke? Yes. But the longer you stare at these levels, the less certain you are where the joke ends.",
@@ -81,6 +88,7 @@ const dict = {
       "If both d and p are “infinitely large” to a human, is there a difference between them — or does it live only on paper?",
       "A number you can neither write, compute, nor count to — does it exist?",
       "Did we invent the crypto coma, or stumble upon it?",
+      "Can the ladder be calibrated so that its groups become distinguishable — and what would we then find in group f?",
       "Is working with a number’s address the same as working with the number?",
       "“Too small” — too small for what? What does size add that meaning is missing?",
       "Is there a last number — or does thought have no ceiling?",
@@ -571,6 +579,9 @@ const copy = (dict as unknown as Record<string, (typeof dict)["en"]>)[lang] ?? d
 
     <h2>{copy.existH}</h2>
     <p>{copy.exist}</p>
+
+    <h2>{copy.calibrateH}</h2>
+    <p>{copy.calibrate}</p>
 
     <h2>{copy.cardinalityH}</h2>
     <p>{copy.cardinality}</p>

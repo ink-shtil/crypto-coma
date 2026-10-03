@@ -57,6 +57,18 @@ export const meditations: Meditation[] = [
     },
   },
   {
+    id: "giant-smile",
+    title: { ru: "Улыбка великана", en: "The giant's smile" },
+    body: {
+      ru: "У каждого числа своя красота. Ноль, например, — единственное число, которое не замечает минуса: −0 и +0 — одно и то же. Красота крипто комы другая: её нашли мы. Она стояла в своей бесконечной толпе безымянных великанов и ждала — и однажды летним вечером ей улыбнулась удача. Наверное, в ту минуту у великана была очень красивая улыбка.",
+      en: "Every number has its own beauty. Zero, for instance, is the only number that ignores a minus sign: −0 and +0 are the same. The crypto coma's beauty is different: we are the ones who found it. It stood in its endless crowd of nameless giants and waited — and one summer evening luck smiled on it. That giant must have had a very beautiful smile just then.",
+    },
+    question: {
+      ru: "Может ли число стать красивым просто потому, что его кто-то заметил?",
+      en: "Can a number become beautiful simply because someone noticed it?",
+    },
+  },
+  {
     id: "physically-transcendent",
     title: { ru: "Физически трансцендентное", en: "Physically transcendent" },
     body: {
