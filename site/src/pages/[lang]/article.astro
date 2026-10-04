@@ -101,7 +101,7 @@ const dict = {
   zh: {
     title: "Crypto Coma",
     abstract:
-      "我们引入一个上升数列 a, b, …, z，其中每一项都是前一项自身的幂，并定义它的顶点——crypto coma ℂ⇈ = z^z。我们估计它的大小，用幂的表达式写出它，并为它提出一个符号。然后我们坦白：还有多少问题没有答案。",
+      "一切始于一个夏夜、一张长椅和一场关于星星的争论。我们引入一个上升数列 a, b, …, z，其中每一项都是前一项自身的幂，并定义它的顶点——crypto coma ℂ⇈ = z^z。我们估计它的大小，用幂的表达式写出它，并为它提出一个符号。然后我们坦白：还有多少问题没有答案。",
     formalismH: "形式化",
     formalism: `把各层记为 a…z（共 ${meta.levels} 层）。数列由 a = 10^${meta.start_value_log10} 与 L(n+1) = L(n)^L(n) 给定。这就是超幂（tetration）：幂的底数每一步都在增大。`,
     starNote: "简而言之：记 x★ = xˣ，则 crypto coma 为 ((10³⁶)^(10³⁶))★²⁶——二十六颗星，每个字母一颗。",
@@ -116,6 +116,9 @@ const dict = {
     existH: "它究竟存在吗？",
     exist:
       "d 无法写出，无法数到，也无法储存。纵使宇宙从一开始永远数下去，也到不了 d。那么 d 在何种意义上存在？是我们发明了它，还是发现了它？若它是关于世界的事实，那它藏在哪里？若只是关于我们记法的事实，它又为何遵守与真实的数相同的定律？",
+    calibrateH: "男孩们要这座梯子做什么？",
+    calibrate:
+      "梯子的每一级，本是用来衡量这些庞大数字的——好让我们终于能在人群中把它们分辨出来。这是 a 组。这是 f 组。它们截然不同：中间隔着四道深渊——整整四个组。可说实话，至今还没有找到哪种现象、哪项知识、哪个事实，能清清楚楚地“住”在某一组里，而不住在相邻的一组。也许将来会找到。也许梯子需要校准——比如换一个底数——好让人类终于有一把顺手的尺子，来量这些超大的数。",
     cardinalityH: "“势”",
     cardinality:
       "我们把 crypto coma 称作一种“势”（мощность）——这个词兼有“基数”与“力量”之意，是个双关。玩笑吗？是的。可你越久地凝视这些层级，就越难说清玩笑在哪里终止。",
@@ -124,6 +127,7 @@ const dict = {
       "若 d 与 p 对人而言都“无穷大”，它们之间还有差别吗——还是差别只活在纸上？",
       "一个既不能写、不能算、也数不到的数——它存在吗？",
       "crypto coma 是我们发明的，还是我们撞见的？",
+      "能否校准这座梯子，让它的各组变得可以区分——那时 f 组里会有什么？",
       "处理一个数的地址，等于处理这个数吗？",
       "“太小”——对什么而言太小？当尺寸增加时，意义缺的是什么？",
       "有最后一个数吗——还是思想没有天花板？",
@@ -136,7 +140,7 @@ const dict = {
   ja: {
     title: "Crypto Coma",
     abstract:
-      "私たちは上昇数列 a, b, …, z を導入する。各項は前項を自分自身で累乗したものであり、その頂点を crypto coma ℂ⇈ = z^z と定める。その大きさを見積もり、累乗の式で書き表し、記号を提案する。そして正直に認める——答えのない問いが、どれほど残るかを。",
+      "すべては、ある夏の夕べとベンチ、そして星をめぐる言い争いから始まった。私たちは上昇数列 a, b, …, z を導入する。各項は前項を自分自身で累乗したものであり、その頂点を crypto coma ℂ⇈ = z^z と定める。その大きさを見積もり、累乗の式で書き表し、記号を提案する。そして正直に認める——答えのない問いが、どれほど残るかを。",
     formalismH: "形式化",
     formalism: `各段を a…z と記す（全 ${meta.levels} 段）。数列は a = 10^${meta.start_value_log10} と L(n+1) = L(n)^L(n) で定まる。これはテトレーション——累乗の底が一段ごとに自ら大きくなる。`,
     starNote: "手短に言えば：x★ = xˣ とすると、crypto coma は ((10³⁶)^(10³⁶))★²⁶——星が二十六個、文字ごとに一つ。",
@@ -151,6 +155,9 @@ const dict = {
     existH: "それは本当に存在するのか？",
     exist:
       "d は書けず、そこまで数えられず、蓄えられない。宇宙が一から永遠に数え続けても、d には届かない。ならば d はいかなる意味で存在するのか。私たちはそれを発明したのか、発見したのか。もし世界についての事実なら、それはどこにあるのか。もし私たちの記法についての事実にすぎないなら、なぜ本物の数と同じ法則に従うのか。",
+    calibrateH: "梯子は何のためだったのか",
+    calibrate:
+      "梯子の段は、こうした途方もない数を測る物差しとして考えられた——群衆の中で、ようやく見分けがつくように。ここにグループ a がある。そしてここにグループ f。両者はまるで違う。あいだには四つの深淵——まるごと四つのグループ——が横たわっている。だが正直に言えば、あるグループには「住んで」いて隣のグループには住んでいない、とはっきり言える現象も知識も事実も、まだ見つかっていない。いつか見つかるかもしれない。あるいは梯子を較正し直す必要があるのかもしれない——たとえば底を変えて——人類がようやく、とてつもなく大きな数のための使いやすい目盛りを手にできるように。",
     cardinalityH: "「濃度」",
     cardinality:
       "私たちは crypto coma を「濃度（мощность）」と呼ぶ——「基数」と「力」の両義をかけた駄洒落だ。冗談か？ そのとおり。だが、これらの段を長く見つめるほど、その冗談がどこで終わるのか、確信は薄れていく。",
@@ -159,6 +166,7 @@ const dict = {
       "d も p も人にとって「無限に大きい」なら、両者に違いはあるのか——それとも違いは紙の上にしかないのか。",
       "書くことも、計算することも、数え上げることもできない数——それは存在するのか。",
       "crypto coma を、私たちは発明したのか、偶然行き当たったのか。",
+      "梯子を較正して、各グループを見分けられるようにできるか——そのとき、グループ f には何が見つかるのか。",
       "数の住所を扱うことは、その数を扱うことと同じか。",
       "「小さすぎる」——何にとって小さすぎるのか。大きさが増すとき、意味に欠けているものは何か。",
       "最後の数はあるのか——それとも思考に天井はないのか。",
@@ -171,7 +179,7 @@ const dict = {
   ko: {
     title: "Crypto Coma",
     abstract:
-      "우리는 상승 수열 a, b, …, z를 도입한다. 각 항은 앞의 항을 자기 자신으로 거듭제곱한 것이며, 그 정점을 crypto coma ℂ⇈ = z^z로 정의한다. 우리는 그 크기를 어림하고, 거듭제곱 식으로 적고, 기호를 제안한다. 그러고 나서 솔직히 인정한다—답 없는 물음이 얼마나 남는지를.",
+      "모든 것은 어느 여름 저녁, 벤치 하나, 그리고 별을 두고 벌인 다툼에서 시작되었다. 우리는 상승 수열 a, b, …, z를 도입한다. 각 항은 앞의 항을 자기 자신으로 거듭제곱한 것이며, 그 정점을 crypto coma ℂ⇈ = z^z로 정의한다. 우리는 그 크기를 어림하고, 거듭제곱 식으로 적고, 기호를 제안한다. 그러고 나서 솔직히 인정한다—답 없는 물음이 얼마나 남는지를.",
     formalismH: "형식화",
     formalism: `각 단계를 a…z로 표기한다(모두 ${meta.levels}단계). 수열은 a = 10^${meta.start_value_log10}와 L(n+1) = L(n)^L(n)로 정해진다. 이것이 테트레이션이다—거듭제곱의 밑이 매 단계 스스로 커진다.`,
     starNote: "요컨대: x★ = xˣ로 두면 crypto coma는 ((10³⁶)^(10³⁶))★²⁶—별 스물여섯 개, 글자마다 하나씩.",
@@ -186,6 +194,9 @@ const dict = {
     existH: "그것은 정말 존재하는가?",
     exist:
       "d는 쓸 수도, 거기까지 셀 수도, 저장할 수도 없다. 우주가 하나부터 영원히 센다 해도 d에 이르지 못한다. 그렇다면 d는 어떤 의미에서 존재하는가? 우리가 그것을 발명했는가, 발견했는가? 그것이 세계에 관한 사실이라면 어디에 놓여 있는가? 우리 표기법에 관한 사실일 뿐이라면, 어째서 진짜 수와 같은 법칙을 따르는가?",
+    calibrateH: "사다리는 무엇을 위한 것이었나?",
+    calibrate:
+      "사다리의 단계들은 이 거대한 수들을 재는 잣대로 고안되었다—무리 속에서 마침내 그것들을 가려낼 수 있도록. 여기 a 그룹이 있다. 그리고 여기 f 그룹이 있다. 둘은 전혀 다르다: 그 사이에는 네 개의 심연—꼬박 네 개의 그룹—이 놓여 있다. 하지만 솔직히 말해, 한 그룹에는 뚜렷이 ‘살고’ 이웃한 그룹에는 살지 않는 현상도, 지식도, 사실도 아직 찾지 못했다. 언젠가 찾을지도 모른다. 아니면 사다리를 보정해야 할지도 모른다—이를테면 밑을 바꿔서—인류가 마침내 아주 큰 수를 위한 쓸 만한 눈금을 갖도록.",
     cardinalityH: "‘농도’",
     cardinality:
       "우리는 crypto coma를 ‘농도(мощность)’라 부른다—‘기수’와 ‘힘’을 함께 뜻하는 말장난이다. 농담인가? 그렇다. 그러나 이 단계들을 오래 바라볼수록, 농담이 어디서 끝나는지 점점 확신이 서지 않는다.",
@@ -194,6 +205,7 @@ const dict = {
       "d와 p가 사람에게 모두 ‘무한히 크다’면, 둘 사이에 차이가 있는가—아니면 그 차이는 종이 위에만 있는가?",
       "쓸 수도, 계산할 수도, 셀 수도 없는 수—그것은 존재하는가?",
       "crypto coma를 우리는 발명했는가, 우연히 마주쳤는가?",
+      "사다리를 보정해 그 그룹들을 구별할 수 있게 만들 수 있을까—그렇다면 f 그룹에서는 무엇을 찾게 될까?",
       "수의 주소를 다루는 일이 그 수를 다루는 일과 같은가?",
       "‘너무 작다’—무엇에 비해 작은가? 크기가 더해질 때, 의미에 모자란 것은 무엇인가?",
       "마지막 수가 있는가—아니면 사고에는 천장이 없는가?",
@@ -206,7 +218,7 @@ const dict = {
   hi: {
     title: "Crypto Coma",
     abstract:
-      "हम एक आरोही श्रेणी a, b, …, z प्रस्तुत करते हैं, जिसमें हर पद पिछले पद की स्वयं-घात है, और इसकी पराकाष्ठा को परिभाषित करते हैं—crypto coma ℂ⇈ = z^z। हम इसका परिमाण आँकते हैं, इसे घात-व्यंजक के रूप में लिखते हैं, और एक प्रतीक सुझाते हैं। और फिर ईमानदारी से मानते हैं कि कितने प्रश्न बिना उत्तर के रह जाते हैं।",
+      "सब कुछ गर्मियों की एक शाम, एक बेंच और तारों पर एक बहस से शुरू हुआ। हम एक आरोही श्रेणी a, b, …, z प्रस्तुत करते हैं, जिसमें हर पद पिछले पद की स्वयं-घात है, और इसकी पराकाष्ठा को परिभाषित करते हैं—crypto coma ℂ⇈ = z^z। हम इसका परिमाण आँकते हैं, इसे घात-व्यंजक के रूप में लिखते हैं, और एक प्रतीक सुझाते हैं। और फिर ईमानदारी से मानते हैं कि कितने प्रश्न बिना उत्तर के रह जाते हैं।",
     formalismH: "औपचारिकता",
     formalism: `स्तरों को a…z कहें (कुल ${meta.levels})। श्रेणी a = 10^${meta.start_value_log10} और L(n+1) = L(n)^L(n) से तय होती है। यह टेट्रेशन है: घात का आधार हर क़दम पर स्वयं बढ़ता है।`,
     starNote: "संक्षेप में: यदि x★ = xˣ, तो crypto coma है ((10³⁶)^(10³⁶))★²⁶—छब्बीस तारे, हर अक्षर के लिए एक।",
@@ -221,6 +233,9 @@ const dict = {
     existH: "क्या यह सचमुच अस्तित्व में है?",
     exist:
       "d को न लिखा जा सकता है, न वहाँ तक गिना जा सकता है, न संचित किया जा सकता है। यदि ब्रह्मांड एक से अनंत काल तक गिनता रहे, तब भी d तक न पहुँचे। तो d किस अर्थ में अस्तित्व रखता है? हमने इसे रचा या पाया? यदि यह संसार के बारे में तथ्य है, तो कहाँ रखा है? यदि केवल हमारी संकेत-पद्धति के बारे में है, तो यह असली संख्याओं जैसे नियमों का पालन क्यों करता है?",
+    calibrateH: "सीढ़ी किसलिए थी?",
+    calibrate:
+      "सीढ़ी के पायदान इन विराट संख्याओं के लिए एक पैमाने के रूप में सोचे गए थे — ताकि आख़िरकार भीड़ में इन्हें अलग-अलग पहचाना जा सके। यह रहा समूह a। और यह रहा समूह f। दोनों बिलकुल अलग हैं: उनके बीच चार खाइयाँ हैं — पूरे चार समूह। पर सच कहें तो अब तक ऐसी कोई घटना, कोई ज्ञान, कोई तथ्य नहीं मिला जो साफ़ तौर पर एक समूह में ‘रहता’ हो और पड़ोसी समूह में नहीं। शायद कभी मिल जाए। या शायद सीढ़ी को कैलिब्रेट करना पड़े — मसलन, आधार बदलकर — ताकि मानवता को आख़िरकार बहुत बड़ी संख्याओं के लिए एक काम का पैमाना मिल सके।",
     cardinalityH: "“मोश्नोस्त” (सामर्थ्य / कार्डिनैलिटी)",
     cardinality:
       "हम crypto coma को एक “सामर्थ्य” कहते हैं—रूसी शब्द पर श्लेष, जिसका अर्थ ‘कार्डिनल संख्या’ भी है और ‘शक्ति’ भी। मज़ाक? हाँ। पर जितनी देर आप इन स्तरों को ताकते हैं, उतना ही कम स्पष्ट रहता है कि मज़ाक कहाँ ख़त्म होता है।",
@@ -229,6 +244,7 @@ const dict = {
       "यदि d और p दोनों मनुष्य के लिए ‘अनंत रूप से बड़े’ हैं, तो उनमें अंतर है भी—या वह केवल काग़ज़ पर जीता है?",
       "जिस संख्या को न लिखा, न गिना, न परिकलित किया जा सके—क्या वह अस्तित्व रखती है?",
       "crypto coma को हमने रचा, या उससे टकरा गए?",
+      "क्या सीढ़ी को ऐसे कैलिब्रेट किया जा सकता है कि उसके समूह अलग-अलग पहचाने जा सकें — और तब समूह f में हमें क्या मिलेगा?",
       "किसी संख्या के पते के साथ काम करना, क्या उस संख्या के साथ काम करना है?",
       "‘बहुत कम’—किसके लिए कम? जब आकार बढ़ता है, तो अर्थ में क्या घटता है?",
       "क्या कोई अंतिम संख्या है—या विचार की कोई छत नहीं?",
@@ -241,7 +257,7 @@ const dict = {
   ar: {
     title: "Crypto Coma",
     abstract:
-      "نقدّم متتاليةً صاعدة a, b, …, z، حيث كلّ حدٍّ هو سابقه مرفوعًا إلى نفسه، ونعرّف ذروتها — الكريبتو كوما ℂ⇈ = z^z. نقدّر مقدارها، ونكتبها بصيغةٍ أُسّية، ونقترح لها رمزًا. ثم نعترف بصدق: كم من الأسئلة تبقى بلا جواب.",
+      "بدأ كلّ شيء بمساءٍ صيفيّ، ومقعد، وجدالٍ عن النجوم. نقدّم متتاليةً صاعدة a, b, …, z، حيث كلّ حدٍّ هو سابقه مرفوعًا إلى نفسه، ونعرّف ذروتها — الكريبتو كوما ℂ⇈ = z^z. نقدّر مقدارها، ونكتبها بصيغةٍ أُسّية، ونقترح لها رمزًا. ثم نعترف بصدق: كم من الأسئلة تبقى بلا جواب.",
     formalismH: "الصياغة الشكلية",
     formalism: `نرمز للمستويات بـ a…z (وعددها ${meta.levels}). تُعطى المتتالية بـ a = 10^${meta.start_value_log10} و L(n+1) = L(n)^L(n). هذا هو «التربيع المتكرّر» (tetration): أساس الأُسّ نفسه يكبر عند كلّ خطوة.`,
     starNote: "باختصار: إذا كتبنا x★ = xˣ، فإنّ الكريبتو كوما هي ((10³⁶)^(10³⁶))★²⁶ — ستّةٌ وعشرون نجمة، واحدةٌ لكلّ حرف.",
@@ -256,6 +272,9 @@ const dict = {
     existH: "وهل هي موجودة أصلًا؟",
     exist:
       "لا يمكن كتابة d، ولا العدّ إليه، ولا تخزينه. ولو ظلّ الكون يعدّ من الواحد إلى الأبد لما بلغ d. فبأيّ معنًى يوجد d إذن؟ أاخترعناه أم اكتشفناه؟ إن كان حقيقةً عن العالم، فأين يقيم؟ وإن كان مجرّد حقيقةٍ عن ترميزنا، فلماذا يخضع لقوانين الأعداد الحقيقية نفسها؟",
+    calibrateH: "لماذا احتاج الصبيّان إلى السُّلّم؟",
+    calibrate:
+      "أُريدَ لدرجات السُّلّم أن تكون مقياسًا لهذه الأعداد الهائلة — كي نميّز بينها أخيرًا وسط الزحام. هذه هي المجموعة a. وهذه المجموعة f. إنّهما مختلفتان تمامًا: بينهما أربع هُوًى — أربع مجموعاتٍ كاملة. لكن بصراحة، لم نجد بعدُ ظاهرةً ولا معرفةً ولا حقيقةً «تعيش» بوضوح في مجموعةٍ ولا تعيش في جارتها. ربّما نجدها يومًا. وربّما علينا أن نعاير السُّلّم — أن نغيّر الأساس مثلًا — كي يحصل البشر أخيرًا على مقياسٍ مريحٍ للأعداد الهائلة.",
     cardinalityH: "«القوّة» (الكاردينالية)",
     cardinality:
       "نسمّي الكريبتو كوما «قوّة» (мощность) — توريةٌ على كلمةٍ تعني «العدد الأصلي/الكاردينال» و«القدرة» معًا. أمزحةٌ هي؟ نعم. لكن كلّما أطلتَ التأمّل في هذه المستويات، قلّ يقينك أين تنتهي المزحة.",
@@ -264,6 +283,7 @@ const dict = {
       "إن كان d و p كلاهما «لا نهائيَّي الكبر» بالنسبة إلى الإنسان، فهل بينهما فرق — أم أنّ الفرق يعيش على الورق فقط؟",
       "عددٌ لا يُكتب ولا يُحسب ولا يُعَدّ إليه — هل هو موجود؟",
       "الكريبتو كوما: هل اخترعناها أم عثرنا عليها مصادفةً؟",
+      "هل يمكن معايرة السُّلّم بحيث تصبح مجموعاته متمايزة — وماذا سنجد عندئذٍ في المجموعة f؟",
       "هل التعامل مع عنوان العدد كالتعامل مع العدد نفسه؟",
       "«صغيرٌ جدًّا» — صغيرٌ بالنسبة إلى ماذا؟ وما الذي يضيفه الحجم مما يفتقر إليه المعنى؟",
       "أثمّة عددٌ أخير — أم أنّ الفكر بلا سقف؟",
@@ -276,7 +296,7 @@ const dict = {
   de: {
     title: "Crypto Coma",
     abstract:
-      "Wir führen eine aufsteigende Reihe a, b, …, z ein, in der jedes Glied das vorige in sich selbst potenziert ist, und definieren ihren Höhepunkt — die Crypto Coma ℂ⇈ = z^z. Wir schätzen den Wert, schreiben ihn als Potenzausdruck und schlagen ein Symbol vor. Und dann geben wir ehrlich zu, wie viele Fragen ohne Antwort bleiben.",
+      "Alles begann mit einem Sommerabend, einer Bank und einem Streit über die Sterne. Wir führen eine aufsteigende Reihe a, b, …, z ein, in der jedes Glied das vorige in sich selbst potenziert ist, und definieren ihren Höhepunkt — die Crypto Coma ℂ⇈ = z^z. Wir schätzen den Wert, schreiben ihn als Potenzausdruck und schlagen ein Symbol vor. Und dann geben wir ehrlich zu, wie viele Fragen ohne Antwort bleiben.",
     formalismH: "Formalismus",
     formalism: `Bezeichnen wir die Stufen mit a…z (insgesamt ${meta.levels}). Die Reihe ist a = 10^${meta.start_value_log10} und L(n+1) = L(n)^L(n). Das ist Tetration: Die Basis der Potenz wächst bei jedem Schritt selbst.`,
     starNote: "Kurz: mit x★ = xˣ ist die Crypto Coma ((10³⁶)^(10³⁶))★²⁶ — sechsundzwanzig Sterne, einer je Buchstabe.",
@@ -291,6 +311,9 @@ const dict = {
     existH: "Existiert es überhaupt?",
     exist:
       "d lässt sich nicht schreiben, nicht bis dahin zählen, nicht speichern. Zählte das Universum von eins bis in alle Ewigkeit, es erreichte d nie. In welchem Sinne existiert d dann? Haben wir es erfunden oder entdeckt? Ist es eine Tatsache über die Welt — wo liegt sie? Ist es nur eine Tatsache über unsere Schreibweise — warum gehorcht es denselben Gesetzen wie echte Zahlen?",
+    calibrateH: "Wozu war die Leiter gut?",
+    calibrate:
+      "Die Stufen der Leiter waren als Maß für diese Zahlenkolosse gedacht — damit man sie in der Menge endlich auseinanderhalten kann. Hier ist Gruppe a. Und hier ist Gruppe f. Sie haben nichts gemeinsam: Zwischen ihnen liegen vier Abgründe — vier ganze Gruppen. Aber ehrlich gesagt hat man bisher kein Phänomen, kein Wissen, keine Tatsache gefunden, die eindeutig in einer Gruppe „wohnt“ und in der nächsten nicht. Vielleicht findet sich noch etwas. Oder die Leiter muss kalibriert werden — etwa mit einer anderen Basis —, damit die Menschheit endlich eine handliche Skala für so große Zahlen bekommt.",
     cardinalityH: "„Mächtigkeit“",
     cardinality:
       "Wir nennen die Crypto Coma eine „Mächtigkeit“ (мощность) — ein Wortspiel mit einem Wort, das zugleich „Kardinalzahl“ und „Macht“ bedeutet. Ein Scherz? Ja. Doch je länger man diese Stufen betrachtet, desto weniger sicher ist man, wo der Scherz endet.",
@@ -299,6 +322,7 @@ const dict = {
       "Wenn d und p für einen Menschen beide „unendlich groß“ sind, gibt es dann einen Unterschied zwischen ihnen — oder lebt er nur auf dem Papier?",
       "Eine Zahl, die man weder schreiben noch berechnen noch abzählen kann — existiert sie?",
       "Haben wir die Crypto Coma erfunden oder sind wir über sie gestolpert?",
+      "Lässt sich die Leiter so kalibrieren, dass ihre Gruppen unterscheidbar werden — und was fänden wir dann in Gruppe f?",
       "Ist das Arbeiten mit der Adresse einer Zahl dasselbe wie das Arbeiten mit der Zahl?",
       "„Zu klein“ — zu klein wofür? Was fügt Größe hinzu, das dem Sinn fehlt?",
       "Gibt es eine letzte Zahl — oder hat das Denken keine Decke?",
@@ -311,7 +335,7 @@ const dict = {
   fr: {
     title: "Crypto Coma",
     abstract:
-      "Nous introduisons une suite ascendante a, b, …, z, où chaque terme est le précédent élevé à lui-même, et définissons son point culminant — la crypto coma ℂ⇈ = z^z. Nous en estimons la taille, l’écrivons comme une expression de puissance et proposons un symbole. Puis nous admettons, honnêtement, combien de questions restent sans réponse.",
+      "Tout a commencé par un soir d’été, un banc et une dispute à propos des étoiles. Nous introduisons une suite ascendante a, b, …, z, où chaque terme est le précédent élevé à lui-même, et définissons son point culminant — la crypto coma ℂ⇈ = z^z. Nous en estimons la taille, l’écrivons comme une expression de puissance et proposons un symbole. Puis nous admettons, honnêtement, combien de questions restent sans réponse.",
     formalismH: "Formalisme",
     formalism: `Nommons les niveaux a…z (${meta.levels} en tout). La suite est a = 10^${meta.start_value_log10} et L(n+1) = L(n)^L(n). C’est la tétration : la base de la puissance croît elle-même à chaque étape.`,
     starNote: "En bref : avec x★ = xˣ, la crypto coma vaut ((10³⁶)^(10³⁶))★²⁶ — vingt-six étoiles, une par lettre.",
@@ -326,6 +350,9 @@ const dict = {
     existH: "Existe-t-il seulement ?",
     exist:
       "d ne peut être écrit, ni atteint par le compte, ni stocké. Si l’univers comptait depuis un jusqu’à l’éternité, il n’atteindrait jamais d. En quel sens d existe-t-il alors ? L’avons-nous inventé ou découvert ? Si c’est un fait sur le monde, où réside-t-il ? Si ce n’est qu’un fait sur notre notation, pourquoi obéit-il aux mêmes lois que les vrais nombres ?",
+    calibrateH: "À quoi servait l’échelle ?",
+    calibrate:
+      "Les échelons devaient servir de mesure à ces nombres colossaux — pour enfin pouvoir les distinguer dans la foule. Voici le groupe a. Et voici le groupe f. Ils n’ont rien en commun : quatre gouffres les séparent — quatre groupes entiers. Mais pour être honnête, on n’a encore trouvé aucun phénomène, aucun savoir, aucun fait qui « vive » clairement dans un groupe et pas dans le suivant. Peut-être en trouvera-t-on. Ou peut-être faudra-t-il étalonner l’échelle — changer de base, par exemple — pour que l’humanité dispose enfin d’une graduation commode pour des nombres aussi grands.",
     cardinalityH: "« Puissance »",
     cardinality:
       "Nous appelons la crypto coma une « puissance » (мощность) — jeu de mots sur un terme qui signifie à la fois « cardinal » et « force ». Une plaisanterie ? Oui. Mais plus on contemple ces niveaux, moins on sait où la plaisanterie s’arrête.",
@@ -334,6 +361,7 @@ const dict = {
       "Si d et p sont tous deux « infiniment grands » pour un humain, y a-t-il une différence entre eux — ou ne vit-elle que sur le papier ?",
       "Un nombre qu’on ne peut ni écrire, ni calculer, ni atteindre par le compte — existe-t-il ?",
       "Avons-nous inventé la crypto coma, ou sommes-nous tombés dessus ?",
+      "Peut-on étalonner l’échelle pour que ses groupes deviennent distincts — et que trouverions-nous alors dans le groupe f ?",
       "Travailler avec l’adresse d’un nombre, est-ce travailler avec le nombre ?",
       "« Trop petit » — trop petit pour quoi ? Qu’ajoute la taille qui manque au sens ?",
       "Y a-t-il un dernier nombre — ou la pensée n’a-t-elle pas de plafond ?",
@@ -346,7 +374,7 @@ const dict = {
   it: {
     title: "Crypto Coma",
     abstract:
-      "Introduciamo una serie ascendente a, b, …, z, in cui ogni termine è il precedente elevato a se stesso, e ne definiamo il culmine — la crypto coma ℂ⇈ = z^z. Ne stimiamo la grandezza, la scriviamo come espressione di potenza e proponiamo un simbolo. E poi ammettiamo, onestamente, quante domande restino senza risposta.",
+      "Tutto è cominciato con una sera d’estate, una panchina e una discussione sulle stelle. Introduciamo una serie ascendente a, b, …, z, in cui ogni termine è il precedente elevato a se stesso, e ne definiamo il culmine — la crypto coma ℂ⇈ = z^z. Ne stimiamo la grandezza, la scriviamo come espressione di potenza e proponiamo un simbolo. E poi ammettiamo, onestamente, quante domande restino senza risposta.",
     formalismH: "Formalismo",
     formalism: `Chiamiamo i livelli a…z (${meta.levels} in tutto). La serie è a = 10^${meta.start_value_log10} e L(n+1) = L(n)^L(n). Questa è la tetrazione: la base della potenza cresce essa stessa a ogni passo.`,
     starNote: "In breve: con x★ = xˣ, la crypto coma è ((10³⁶)^(10³⁶))★²⁶ — ventisei stelle, una per lettera.",
@@ -361,6 +389,9 @@ const dict = {
     existH: "Ma esiste davvero?",
     exist:
       "d non si può scrivere, né raggiungere contando, né conservare. Se l’universo contasse da uno per l’eternità, non arriverebbe mai a d. In che senso, allora, d esiste? L’abbiamo inventato o scoperto? Se è un fatto sul mondo, dove si trova? Se è solo un fatto sulla nostra notazione, perché obbedisce alle stesse leggi dei numeri veri?",
+    calibrateH: "A che cosa serviva la scala?",
+    calibrate:
+      "I gradini della scala erano pensati come misura per questi colossi numerici — per poterli finalmente distinguere nella folla. Ecco il gruppo a. Ed ecco il gruppo f. Non si somigliano per niente: tra loro ci sono quattro abissi — quattro gruppi interi. Ma, a essere onesti, finora non si è trovato nessun fenomeno, nessuna conoscenza, nessun fatto che « viva » chiaramente in un gruppo e non in quello accanto. Forse lo si troverà. O forse la scala va calibrata — cambiando la base, per esempio — perché l’umanità abbia finalmente un metro comodo per numeri così grandi.",
     cardinalityH: "« Cardinalità »",
     cardinality:
       "Chiamiamo la crypto coma una « cardinalità » (мощность) — un gioco di parole su un termine che significa insieme « cardinale » e « potenza ». Uno scherzo? Sì. Ma più a lungo si contemplano questi livelli, meno si è certi di dove lo scherzo finisca.",
@@ -369,6 +400,7 @@ const dict = {
       "Se d e p sono entrambi « infinitamente grandi » per un uomo, c’è una differenza tra loro — o vive solo sulla carta?",
       "Un numero che non si può né scrivere, né calcolare, né raggiungere contando — esiste?",
       "Abbiamo inventato la crypto coma, o ci siamo imbattuti in essa?",
+      "Si può calibrare la scala in modo che i suoi gruppi diventino distinguibili — e che cosa troveremmo allora nel gruppo f?",
       "Lavorare con l’indirizzo di un numero è lavorare con il numero?",
       "« Troppo piccolo » — piccolo per che cosa? Che cosa aggiunge la grandezza che manca al senso?",
       "C’è un ultimo numero — o il pensiero non ha soffitto?",
@@ -381,7 +413,7 @@ const dict = {
   es: {
     title: "Crypto Coma",
     abstract:
-      "Introducimos una serie ascendente a, b, …, z, donde cada término es el anterior elevado a sí mismo, y definimos su culminación — la crypto coma ℂ⇈ = z^z. Estimamos su tamaño, la escribimos como una expresión de potencia y proponemos un símbolo. Y luego admitimos, con honestidad, cuántas preguntas quedan sin respuesta.",
+      "Todo empezó con una tarde de verano, un banco y una discusión sobre las estrellas. Introducimos una serie ascendente a, b, …, z, donde cada término es el anterior elevado a sí mismo, y definimos su culminación — la crypto coma ℂ⇈ = z^z. Estimamos su tamaño, la escribimos como una expresión de potencia y proponemos un símbolo. Y luego admitimos, con honestidad, cuántas preguntas quedan sin respuesta.",
     formalismH: "Formalismo",
     formalism: `Llamemos a los niveles a…z (${meta.levels} en total). La serie es a = 10^${meta.start_value_log10} y L(n+1) = L(n)^L(n). Esto es tetración: la base de la potencia crece ella misma en cada paso.`,
     starNote: "En resumen: con x★ = xˣ, la crypto coma es ((10³⁶)^(10³⁶))★²⁶ — veintiséis estrellas, una por letra.",
@@ -396,6 +428,9 @@ const dict = {
     existH: "¿Acaso existe?",
     exist:
       "d no se puede escribir, ni alcanzar contando, ni almacenar. Si el universo contara desde uno por la eternidad, nunca llegaría a d. ¿En qué sentido existe entonces d? ¿Lo inventamos o lo descubrimos? Si es un hecho sobre el mundo, ¿dónde reside? Si es solo un hecho sobre nuestra notación, ¿por qué obedece a las mismas leyes que los números reales?",
+    calibrateH: "¿Para qué servía la escalera?",
+    calibrate:
+      "Los peldaños de la escalera se pensaron como medida para estos colosos numéricos — para poder, por fin, distinguirlos entre la multitud. Aquí está el grupo a. Y aquí, el grupo f. No se parecen en nada: entre ellos hay cuatro abismos — cuatro grupos enteros. Pero, siendo sinceros, todavía no se ha encontrado ningún fenómeno, ningún saber, ningún hecho que « viva » claramente en un grupo y no en el siguiente. Quizá se encuentre. O quizá haya que calibrar la escalera — cambiar la base, por ejemplo — para que la humanidad tenga por fin una escala cómoda para números tan grandes.",
     cardinalityH: "« Cardinalidad »",
     cardinality:
       "Llamamos a la crypto coma una « cardinalidad » (мощность) — un juego con una palabra que significa a la vez « número cardinal » y « poder ». ¿Una broma? Sí. Pero cuanto más se contemplan estos niveles, menos se sabe dónde termina la broma.",
@@ -404,6 +439,7 @@ const dict = {
       "Si d y p son ambos « infinitamente grandes » para un humano, ¿hay diferencia entre ellos — o vive solo en el papel?",
       "Un número que no se puede ni escribir, ni calcular, ni alcanzar contando — ¿existe?",
       "¿Inventamos la crypto coma, o tropezamos con ella?",
+      "¿Se puede calibrar la escalera para que sus grupos se distingan — y qué encontraríamos entonces en el grupo f?",
       "Trabajar con la dirección de un número, ¿es trabajar con el número?",
       "« Demasiado pequeño » — ¿pequeño para qué? ¿Qué añade el tamaño que le falta al sentido?",
       "¿Hay un último número — o el pensamiento no tiene techo?",
@@ -416,7 +452,7 @@ const dict = {
   pt: {
     title: "Crypto Coma",
     abstract:
-      "Introduzimos uma série ascendente a, b, …, z, em que cada termo é o anterior elevado a si mesmo, e definimos o seu culminar — a crypto coma ℂ⇈ = z^z. Estimamos o seu tamanho, escrevemo-lo como uma expressão de potência e propomos um símbolo. E depois admitimos, honestamente, quantas perguntas ficam sem resposta.",
+      "Tudo começou com uma noite de verão, um banco e uma discussão sobre as estrelas. Introduzimos uma série ascendente a, b, …, z, em que cada termo é o anterior elevado a si mesmo, e definimos o seu culminar — a crypto coma ℂ⇈ = z^z. Estimamos o seu tamanho, escrevemo-lo como uma expressão de potência e propomos um símbolo. E depois admitimos, honestamente, quantas perguntas ficam sem resposta.",
     formalismH: "Formalismo",
     formalism: `Chamemos aos níveis a…z (${meta.levels} no total). A série é a = 10^${meta.start_value_log10} e L(n+1) = L(n)^L(n). Isto é a tetração: a base da potência cresce ela própria a cada passo.`,
     starNote: "Em resumo: com x★ = xˣ, a crypto coma é ((10³⁶)^(10³⁶))★²⁶ — vinte e seis estrelas, uma por letra.",
@@ -431,6 +467,9 @@ const dict = {
     existH: "Será que existe sequer?",
     exist:
       "d não pode ser escrito, nem alcançado a contar, nem guardado. Se o universo contasse desde um pela eternidade, nunca chegaria a d. Em que sentido, então, existe d? Inventámo-lo ou descobrimo-lo? Se é um facto sobre o mundo, onde reside? Se é apenas um facto sobre a nossa notação, porque obedece às mesmas leis que os números reais?",
+    calibrateH: "Para que servia a escada?",
+    calibrate:
+      "Os degraus da escada foram pensados como medida para estes colossos numéricos — para que, finalmente, se pudessem distinguir na multidão. Aqui está o grupo a. E aqui está o grupo f. Não se parecem nada: entre eles há quatro abismos — quatro grupos inteiros. Mas, para ser honesto, ainda não se encontrou nenhum fenómeno, nenhum saber, nenhum facto que « viva » claramente num grupo e não no seguinte. Talvez ainda se encontre. Ou talvez seja preciso calibrar a escada — mudar a base, por exemplo — para que a humanidade tenha finalmente uma escala prática para números tão grandes.",
     cardinalityH: "« Cardinalidade »",
     cardinality:
       "Chamamos à crypto coma uma « cardinalidade » (мощность) — um trocadilho com uma palavra que significa ao mesmo tempo « cardinal » e « poder ». Uma piada? Sim. Mas quanto mais se contemplam estes níveis, menos se sabe onde a piada acaba.",
@@ -439,6 +478,7 @@ const dict = {
       "Se d e p são ambos « infinitamente grandes » para um humano, há diferença entre eles — ou vive só no papel?",
       "Um número que não se pode escrever, nem calcular, nem alcançar a contar — existe?",
       "Inventámos a crypto coma, ou tropeçámos nela?",
+      "Será possível calibrar a escada de modo que os seus grupos se tornem distinguíveis — e o que encontraríamos então no grupo f?",
       "Trabalhar com o endereço de um número é trabalhar com o número?",
       "« Demasiado pequeno » — pequeno para quê? O que acrescenta o tamanho que falta ao sentido?",
       "Há um último número — ou o pensamento não tem tecto?",
@@ -451,7 +491,7 @@ const dict = {
   he: {
     title: "Crypto Coma",
     abstract:
-      "אנו מציגים סדרה עולה a, b, …, z, שבה כל איבר הוא הקודם מועלה בחזקת עצמו, ומגדירים את שיאה — הקריפטו קומה ℂ⇈ = z^z. אנו אומדים את גודלה, כותבים אותה כביטוי חזקה, ומציעים סמל. ואז מודים, בכנות, כמה שאלות נותרות ללא מענה.",
+      "הכול התחיל בערב קיץ, בספסל ובוויכוח על הכוכבים. אנו מציגים סדרה עולה a, b, …, z, שבה כל איבר הוא הקודם מועלה בחזקת עצמו, ומגדירים את שיאה — הקריפטו קומה ℂ⇈ = z^z. אנו אומדים את גודלה, כותבים אותה כביטוי חזקה, ומציעים סמל. ואז מודים, בכנות, כמה שאלות נותרות ללא מענה.",
     formalismH: "פורמליזם",
     formalism: `נסמן את הרמות a…z (בסך הכול ${meta.levels}). הסדרה היא a = 10^${meta.start_value_log10} ו-L(n+1) = L(n)^L(n). זוהי טטרציה: בסיס החזקה עצמו גדל בכל צעד.`,
     starNote: "בקצרה: עם x★ = xˣ, הקריפטו קומה היא ((10³⁶)^(10³⁶))★²⁶ — עשרים ושישה כוכבים, אחד לכל אות.",
@@ -466,6 +506,9 @@ const dict = {
     existH: "האם הוא בכלל קיים?",
     exist:
       "d אי-אפשר לכתוב, אי-אפשר לספור עדיו, אי-אפשר לאחסן. גם אם היקום יספור מאחד לנצח, לעולם לא יגיע ל-d. באיזה מובן, אם כן, קיים d? האם המצאנו אותו או גילינו? אם זו עובדה על העולם, היכן היא שוכנת? אם זו רק עובדה על הסימון שלנו, מדוע הוא מציית לאותם חוקים כמו מספרים אמיתיים?",
+    calibrateH: "בשביל מה לנערים סולם?",
+    calibrate:
+      "שלבי הסולם נועדו להיות קנה מידה למספרי־העל האלה — כדי שסוף־סוף אפשר יהיה להבחין ביניהם בתוך ההמון. הנה הקבוצה a. והנה הקבוצה f. הן שונות לגמרי: ביניהן ארבע תהומות — ארבע קבוצות שלמות. אבל אם להודות על האמת, עדיין לא נמצאו תופעה, ידע או עובדה ש« חיים » בבירור בקבוצה אחת ולא בשכנה שלה. אולי עוד יימצאו. ואולי יהיה צורך לכייל את הסולם — למשל, להחליף את הבסיס — כדי שלאנושות תהיה סוף־סוף סקאלה נוחה למספרים גדולים כל כך.",
     cardinalityH: "« עוצמה »",
     cardinality:
       "אנו מכנים את הקריפטו קומה « עוצמה » (мощность) — משחק מילים על מונח שמשמעו גם « מספר מונה » וגם « כוח ». בדיחה? כן. אך ככל שמתבוננים יותר ברמות הללו, פחות בטוחים היכן הבדיחה נגמרת.",
@@ -474,6 +517,7 @@ const dict = {
       "אם d ו-p שניהם « אינסופיים בגודלם » עבור אדם, האם יש ביניהם הבדל — או שהוא חי רק על הנייר?",
       "מספר שאי-אפשר לכתוב, לחשב, או לספור עדיו — האם הוא קיים?",
       "האם המצאנו את הקריפטו קומה, או נתקלנו בה?",
+      "האם אפשר לכייל את הסולם כך שאפשר יהיה להבחין בין קבוצותיו — ומה יימצא אז בקבוצה f?",
       "לעבוד עם כתובת של מספר, האם זה לעבוד עם המספר?",
       "« קטן מדי » — קטן מדי לשם מה? מה מוסיף הגודל שחסר למשמעות?",
       "האם יש מספר אחרון — או שלמחשבה אין תקרה?",
@@ -486,7 +530,8 @@ const dict = {
   ka: {
     title: "Crypto Coma",
     abstractH: "ანოტაცია",
-    abstract: "წარმოგიდგენთ აღმავალ მწკრივს a, b, …, z, სადაც ყოველი მომდევნო წევრი წინას საკუთარ თავში აყვანილია, და განვსაზღვრავთ მის კულმინაციას — crypto coma ℂ⇈ = z^z. ვაფასებთ ამ სიდიდეს, ვწერთ მას ხარისხოვანი გამოსახულებით და ვთავაზობთ სიმბოლოს. შემდეგ კი პატიოსნად ვაღიარებთ, რამდენი კითხვა რჩება უპასუხოდ.",
+    abstract:
+      "ყველაფერი ზაფხულის საღამოთი, სკამითა და ვარსკვლავებზე კამათით დაიწყო. წარმოგიდგენთ აღმავალ მწკრივს a, b, …, z, სადაც ყოველი მომდევნო წევრი წინას საკუთარ თავში აყვანილია, და განვსაზღვრავთ მის კულმინაციას — crypto coma ℂ⇈ = z^z. ვაფასებთ ამ სიდიდეს, ვწერთ მას ხარისხოვანი გამოსახულებით და ვთავაზობთ სიმბოლოს. შემდეგ კი პატიოსნად ვაღიარებთ, რამდენი კითხვა რჩება უპასუხოდ.",
     formalismH: "ფორმალიზმი",
     starNote: "მოკლედ: თუ x★ = xˣ, მაშინ crypto coma არის ((10³⁶)^(10³⁶))★²⁶ — ოცდაექვსი ვარსკვლავი, თითო ასოზე.",
     magnitudeH: "სიდიდის შეფასება",
@@ -496,6 +541,9 @@ const dict = {
     work: "არანაირად — თუ „მუშაობა“ ნიშნავს „ჩაწერას“ ან „გამოთვლას“: არც ქაღალდი კმარა, არც ატომები და არც დრო. მათემატიკოსი მუშაობს არა რიცხვთან, არამედ მის მისამართთან — კოშკის სიმაღლესთან, ზრდის სისწრაფესთან, ორდინალებთან როგორც სახაზავთან. ჩვენ ვადარებთ არა რიცხვებს, არამედ მათ გაქცევის ტემპებს უსასრულობისკენ. მაგრამ მაშინ: რიცხვის მისამართთან ჭყლეტა — იგივეა, რაც რიცხვის ცოდნა? ჩვენ თავდაჯერებით ვწერთ ℂ⇈, არც ერთხელ რომ არ გვინახავს ის. რა გვიჭირავს ხელში — რიცხვი თუ სახელი?",
     existH: "ის საერთოდ არსებობს?",
     exist: "d-ს ვერც ჩაწერ, ვერც მიუთვლი და ვერც შეინახავ. სამყარომ ერთიდან უსასრულოდ რომ ითვალოს, d-მდე ვერ მივიდოდა. რა აზრით მაშინ არსებობს d? ჩვენ გამოვიგონეთ ის — თუ აღმოვაჩინეთ? თუ ეს მსოფლიოს შესახებ ფაქტია, სად დევს ის? თუ მხოლოდ ჩვენი ჩანაწერის შესახებ — რატომ ემორჩილება ის იმავე კანონებს, რასაც ნამდვილი რიცხვები?",
+    calibrateH: "რად უნდოდათ ბიჭებს კიბე?",
+    calibrate:
+      "კიბის საფეხურები ამ რიცხვითი კოლოსების საზომად იყო ჩაფიქრებული — რომ ბოლოს და ბოლოს ბრბოში ერთმანეთისგან გაგვერჩია ისინი. აი, a ჯგუფი. აი კი — f ჯგუფი. ისინი სრულიად განსხვავდებიან: მათ შორის ოთხი უფსკრულია — ოთხი მთელი ჯგუფი. მაგრამ, სიმართლე რომ ვთქვათ, ჯერ არ მოიძებნა არც მოვლენა, არც ცოდნა, არც ფაქტი, რომელიც მკაფიოდ „ცხოვრობდა“ ერთ ჯგუფში და არ ცხოვრობდა მეზობელში. იქნებ ჯერ კიდევ იპოვონ. ან იქნებ კიბის დაკალიბრება მოგვიწიოს — მაგალითად, ფუძის შეცვლა, — რომ კაცობრიობას ბოლოს და ბოლოს ზედიდი რიცხვების მოხერხებული შკალა ჰქონდეს.",
     cardinalityH: "„სიმძლავრე“",
     cardinality: "ჩვენ crypto coma-ს „სიმძლავრეს“ ვეძახით, სიტყვის ორი მნიშვნელობით თამაშით — „კარდინალური რიცხვი“ და „ძალა“. ხუმრობა? დიახ. მაგრამ რაც უფრო დიდხანს უყურებ ამ დონეებს, მით ნაკლებად ნათელია, სად მთავრდება ხუმრობა.",
     questionsH: "კითხვები უპასუხოდ",
@@ -507,6 +555,7 @@ const dict = {
       "თუ d და p ორივე ადამიანისთვის „უსასრულოდ დიდია“, არსებობს მათ შორის განსხვავება — თუ ის მხოლოდ ქაღალდზე ცხოვრობს?",
       "რიცხვი, რომლის არც ჩაწერა, არც გამოთვლა და არც მიუთვლა შეიძლება — არსებობს თუ არა ის?",
       "ჩვენ გამოვიგონეთ crypto coma — თუ მას წავაწყდით?",
+      "შეიძლება თუ არა კიბის ისე დაკალიბრება, რომ მისი ჯგუფები ერთმანეთისგან გასარჩევი გახდეს, — და რას ვიპოვით მაშინ f ჯგუფში?",
       "რიცხვის მისამართთან მუშაობა — რიცხვთან მუშაობაა?",
       "„ცოტაა“ — რისთვის ცოტა? რას ამატებს ზომა, რაც აზრს აკლია?",
       "არსებობს უკანასკნელი რიცხვი — თუ აზრს ჭერი არ აქვს?",
@@ -516,7 +565,8 @@ const dict = {
   hy: {
     title: "Crypto Coma",
     abstractH: "Անոտացիա",
-    abstract: "Մենք ներկայացնում ենք աճող շարք a, b, …, z, որտեղ յուրաքանչյուր հաջորդ անդամ նախորդն է՝ բարձրացված ինքն իր աստիճան, և սահմանում նրա գագաթնակետը՝ crypto coma ℂ⇈ = z^z։ Մենք գնահատում ենք այդ մեծությունը, գրում այն աստիճանային արտահայտության տեսքով և առաջարկում խորհրդանիշ։ Ապա ազնվորեն ընդունում ենք, թե որքան հարց է մնում պատասխան չստացած։",
+    abstract:
+      "Ամեն ինչ սկսվեց ամառային երեկոյից, նստարանից և աստղերի մասին վեճից։ Մենք ներկայացնում ենք աճող շարք a, b, …, z, որտեղ յուրաքանչյուր հաջորդ անդամ նախորդն է՝ բարձրացված ինքն իր աստիճան, և սահմանում նրա գագաթնակետը՝ crypto coma ℂ⇈ = z^z։ Մենք գնահատում ենք այդ մեծությունը, գրում այն աստիճանային արտահայտության տեսքով և առաջարկում խորհրդանիշ։ Ապա ազնվորեն ընդունում ենք, թե որքան հարց է մնում պատասխան չստացած։",
     formalismH: "Ֆորմալիզմ",
     starNote: "Համառոտ. եթե x★ = xˣ, ապա crypto coma-ն ((10³⁶)^(10³⁶))★²⁶ է՝ քսանվեց աստղանիշ՝ մեկական յուրաքանչյուր տառի համար։",
     magnitudeH: "Մեծության գնահատում",
@@ -526,6 +576,9 @@ const dict = {
     work: "Ոչ մի կերպ, եթե «աշխատել» նշանակում է «գրել» կամ «հաշվել». ոչ թուղթը կհերիքի, ոչ ատոմները, ոչ ժամանակը։ Մաթեմատիկոսն աշխատում է ոչ թե թվի, այլ նրա հասցեի հետ՝ աշտարակի բարձրության, աճի արագության, քանոն դարձած օրդինալների։ Մենք համեմատում ենք ոչ թե թվերը, այլ անվերջություն փախչելու նրանց արագությունները։ Բայց արդյոք թվի հասցեով զբաղվելը նույնն է, ինչ թիվը ճանաչելը։ Մենք վստահ գրում ենք ℂ⇈՝ երբեք չտեսած այն։ Մեր ձեռքում ի՞նչ է՝ թի՞վ, թե՞ անուն։",
     existH: "Իսկ այն ընդհանրապես գոյությու՞ն ունի։",
     exist: "d-ն չի կարելի գրել, չի կարելի հաշվելով հասնել, չի կարելի պահել։ Թող Տիեզերքը մեկից սկսած հավերժ հաշվի. այն երբեք չէր հասնի d-ին։ Ո՞ր իմաստով է ուրեմն d-ն գոյություն ունենում։ Մենք այն հնարե՞լ ենք, թե՞ հայտնաբերել։ Եթե դա փաստ է աշխարհի մասին, ապա որտե՞ղ է այն գտնվում։ Եթե՝ միայն մեր գրառման մասին, ինչո՞ւ է այն ենթարկվում նույն օրենքներին, ինչ իրական թվերը։",
+    calibrateH: "Ինչի՞ն էր պետք տղաներին սանդուղքը",
+    calibrate:
+      "Սանդուղքի աստիճանները մտածված էին որպես չափ այս ահռելի թվերի համար, որպեսզի վերջապես հնարավոր լինի դրանք տարբերել ամբոխի մեջ։ Ահա a խումբը։ Իսկ ահա f խումբը։ Դրանք բոլորովին տարբեր են. նրանց միջև չորս անդունդ կա՝ չորս ամբողջ խումբ։ Բայց եթե անկեղծ լինենք, դեռ չեն գտնվել ո՛չ երևույթներ, ո՛չ գիտելիքներ, ո՛չ փաստեր, որոնք հստակ «ապրեին» մի խմբում և չապրեին հարևանում։ Գուցե դեռ կգտնվեն։ Իսկ գուցե սանդուղքը պետք լինի տրամաչափել, օրինակ՝ փոխել հիմքը, որպեսզի մարդկությունը վերջապես հարմար սանդղակ ունենա գերմեծ թվերի համար։",
     cardinalityH: "«Հզորություն»",
     cardinality: "Մենք crypto coma-ն անվանում ենք «հզորություն»՝ խաղալով բառի երկու իմաստների հետ՝ «կարդինալ թիվ» և «ուժ»։ Կատակ։ Այո։ Բայց որքան երկար ես նայում այդ մակարդակներին, այնքան պակաս պարզ է դառնում, թե որտեղ է ավարտվում կատակը։",
     questionsH: "Անպատասխան հարցեր",
@@ -537,6 +590,7 @@ const dict = {
       "Եթե և՛ d-ն, և՛ p-ն մարդու համար «անվերջ մեծ» են, արդյոք նրանց միջև տարբերություն կա՞, թե՞ այն ապրում է միայն թղթի վրա։",
       "Թիվ, որը չի կարելի գրել, հաշվել կամ հաշվելով հասնել, — գոյությու՞ն ունի։",
       "Մենք հնարե՞լ ենք crypto coma-ն, թե՞ պատահաբար հանդիպել դրան։",
+      "Կարելի՞ է սանդուղքն այնպես տրամաչափել, որ նրա խմբերը տարբերելի դառնան, — և ի՞նչ կգտնենք այդ դեպքում f խմբում։",
       "Թվի հասցեով աշխատելը՝ արդյոք թիվը աշխատելու հետ նո՞ւյնն է։",
       "«Քիչ է» — քիչ ինչի՞ համար։ Ի՞նչ է ավելացնում չափը, ինչը պակասում է իմաստին։",
       "Կա՞ վերջին թիվը, թե՞ մտքի առաստաղ չկա։",

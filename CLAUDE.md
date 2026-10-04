@@ -42,6 +42,25 @@ cd site && npx astro check       # type-checks .astro and .ts files
 cd site && npm run build         # full production build
 ```
 
+### Lockfile must use the public npm registry
+
+The local machine resolves npm through a private corporate Nexus
+(`nexus.yc.alfaleasing.ru`) that remote CI cannot reach. Any `npm install` /
+`npm update` run locally writes those Nexus URLs into `site/package-lock.json`,
+and CI then fails with `ENOTFOUND nexus.yc.alfaleasing.ru`.
+
+After touching dependencies (or whenever `site/package-lock.json` changed), run:
+
+```bash
+grep -c nexus site/package-lock.json   # must print 0
+# if not, rewrite the URLs to the public registry (integrity hashes stay valid):
+sed -i '' 's#https://nexus.yc.alfaleasing.ru/repository/npm.org-proxy/#https://registry.npmjs.org/#g' site/package-lock.json
+```
+
+Never commit a lockfile that contains a Nexus URL. Do not add an `.npmrc` that
+points the registry away from Nexus: locally npm still needs Nexus, and it
+swaps `registry.npmjs.org` for the configured registry on its own.
+
 ### Python library (`pylib/`)
 
 ```bash

@@ -90,7 +90,7 @@ export const ui = {
     "nav.collaborate": "Mitmachen",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "Eine Parodie auf einen wissenschaftlichen Aufsatz. Erwachsene haben diese Zahlen längst gesehen — Kinder sehen sie zum ersten Mal. Eine Hommage an die Kindheitsträume.",
+      "Eine Parodie auf einen wissenschaftlichen Aufsatz. Erwachsene kennen diese Zahlen längst beim Namen — Kinder begegnen ihnen zum ersten Mal. Eine Hommage an die Kindheitsträume.",
     "home.manifest.title": "Eine Geschichte: wie Kinder von großen Zahlen träumten",
     "home.legend.title": "Die Legende der zwei Jungen",
     "home.legend.figAlt": "Zwei Jungen auf einer Bank blicken in den Sternenhimmel",
@@ -116,7 +116,7 @@ export const ui = {
     "nav.collaborate": "Contribuer",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "Une parodie d’article scientifique. Les adultes ont vu ces nombres il y a bien longtemps — les enfants les découvrent pour la première fois. Hommage aux rêves d’enfance.",
+      "Une parodie d’article scientifique. Les adultes connaissent depuis longtemps ces nombres par leur nom — les enfants les rencontrent pour la première fois. Hommage aux rêves d’enfance.",
     "home.manifest.title": "Une histoire : comment des enfants rêvaient de grands nombres",
     "home.legend.title": "La légende des deux garçons",
     "home.legend.figAlt": "Deux garçons sur un banc regardant le ciel étoilé",
@@ -142,7 +142,7 @@ export const ui = {
     "nav.collaborate": "Collabora",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "Una parodia di articolo scientifico. Gli adulti hanno visto questi numeri molto tempo fa — i bambini li vedono per la prima volta. Un omaggio ai sogni dell’infanzia.",
+      "Una parodia di articolo scientifico. Gli adulti conoscono da tempo questi numeri per nome — i bambini li incontrano per la prima volta. Un omaggio ai sogni dell’infanzia.",
     "home.manifest.title": "Una storia: come dei bambini sognavano i grandi numeri",
     "home.legend.title": "La leggenda dei due ragazzi",
     "home.legend.figAlt": "Due ragazzi su una panchina guardano il cielo stellato",
@@ -168,7 +168,7 @@ export const ui = {
     "nav.collaborate": "Colaborar",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "Una parodia de artículo científico. Los adultos vieron estos números hace mucho tiempo — los niños los ven por primera vez. Un homenaje a los sueños de la infancia.",
+      "Una parodia de artículo científico. Los adultos conocen desde hace mucho el nombre de estos números — los niños se encuentran con ellos por primera vez. Un homenaje a los sueños de la infancia.",
     "home.manifest.title": "Una historia: cómo unos niños soñaban con números grandes",
     "home.legend.title": "La leyenda de los dos niños",
     "home.legend.figAlt": "Dos niños en un banco miran el cielo estrellado",
@@ -194,7 +194,7 @@ export const ui = {
     "nav.collaborate": "Colaborar",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "Uma paródia de artigo científico. Os adultos viram estes números há muito tempo — as crianças os veem pela primeira vez. Uma homenagem aos sonhos da infância.",
+      "Uma paródia de artigo científico. Os adultos conhecem há muito estes números pelo nome — as crianças encontram-nos pela primeira vez. Uma homenagem aos sonhos da infância.",
     "home.manifest.title": "Uma história: como crianças sonhavam com números grandes",
     "home.legend.title": "A lenda dos dois meninos",
     "home.legend.figAlt": "Dois meninos num banco olhando o céu estrelado",
@@ -219,7 +219,8 @@ export const ui = {
     "nav.archive": "存档",
     "nav.collaborate": "合作",
     "nav.pdf": "PDF",
-    "footer.disclaimer": "对科学论文的戏仿。大人们早就见过这些数字——孩子们却是头一回见。致敬童年的梦想。",
+    "footer.disclaimer":
+      "对科学论文的戏仿。大人们早就知道这些数的名字——孩子们却是头一回遇见它们。致敬童年的梦想。",
     "home.manifest.title": "一段往事：孩子们如何梦想着大数",
     "home.legend.title": "两个男孩的传说",
     "home.legend.figAlt": "两个男孩坐在长椅上仰望星空",
@@ -244,7 +245,8 @@ export const ui = {
     "nav.archive": "アーカイブ",
     "nav.collaborate": "協力",
     "nav.pdf": "PDF",
-    "footer.disclaimer": "科学論文のパロディー。大人たちはこれらの数をずっと昔に見た——子どもたちは初めて目にする。子どもの頃の夢へのオマージュ。",
+    "footer.disclaimer":
+      "科学論文のパロディー。大人たちはこれらの数の名前をずっと前から知っている——子どもたちは初めて出会う。子どもの頃の夢へのオマージュ。",
     "home.manifest.title": "物語：子どもたちはいかに大きな数を夢見たか",
     "home.legend.title": "二人の少年の伝説",
     "home.legend.figAlt": "ベンチに座って星空を見上げる二人の少年",
@@ -269,7 +271,8 @@ export const ui = {
     "nav.archive": "보관소",
     "nav.collaborate": "함께하기",
     "nav.pdf": "PDF",
-    "footer.disclaimer": "과학 논문의 패러디. 어른들은 이 수들을 오래전에 보았다 — 아이들은 처음 본다. 어린 시절의 꿈에 바치는 경의.",
+    "footer.disclaimer":
+      "과학 논문의 패러디. 어른들은 이 수들의 이름을 오래전부터 알고 있다 — 아이들은 처음 만난다. 어린 시절의 꿈에 바치는 경의.",
     "home.manifest.title": "이야기: 아이들은 어떻게 큰 수를 꿈꾸었는가",
     "home.legend.title": "두 소년의 전설",
     "home.legend.figAlt": "벤치에 앉아 별이 총총한 하늘을 바라보는 두 소년",
@@ -295,7 +298,7 @@ export const ui = {
     "nav.collaborate": "सहयोग",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "वैज्ञानिक पर्चे की शक्ल में एक पैरोडी। बड़े लोग इन संख्याओं को बहुत पहले देख चुके हैं — बच्चे इन्हें पहली बार देख रहे हैं। बचपन के सपनों को श्रद्धांजलि।",
+      "वैज्ञानिक पर्चे की शक्ल में एक पैरोडी। बड़े लोग इन संख्याओं को बहुत पहले से नाम से जानते हैं — बच्चे इनसे पहली बार मिल रहे हैं। बचपन के सपनों को श्रद्धांजलि।",
     "home.manifest.title": "एक कहानी: कैसे बच्चों ने बड़ी संख्याओं के सपने देखे",
     "home.legend.title": "दो लड़कों की दास्तान",
     "home.legend.figAlt": "एक बेंच पर बैठे दो लड़के तारों भरे आसमान को देखते हुए",
@@ -321,7 +324,7 @@ export const ui = {
     "nav.collaborate": "التعاون",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "محاكاة ساخرة لبحثٍ علمي. رأى الكبارُ هذه الأعدادَ منذ زمنٍ بعيد — أما الأطفال فيرونها لأول مرة. تكريمًا لأحلام الطفولة.",
+      "محاكاة ساخرة لبحثٍ علمي. يعرف الكبارُ أسماءَ هذه الأعداد منذ زمنٍ بعيد — أما الأطفال فيلتقونها لأول مرة. تكريمًا لأحلام الطفولة.",
     "home.manifest.title": "حكاية: كيف حلم الأطفال بالأعداد الكبيرة",
     "home.legend.title": "أسطورة الصبيَّين",
     "home.legend.figAlt": "صبيّان على مقعد ينظران إلى السماء المرصّعة بالنجوم",
@@ -347,7 +350,7 @@ export const ui = {
     "nav.collaborate": "שיתוף פעולה",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "פרודיה על מאמר מדעי. המבוגרים ראו את המספרים האלה מזמן — הילדים רואים אותם בפעם הראשונה. מחווה לחלומות הילדות.",
+      "פרודיה על מאמר מדעי. המבוגרים מכירים את המספרים האלה בשמם מזמן — הילדים פוגשים אותם בפעם הראשונה. מחווה לחלומות הילדות.",
     "home.manifest.title": "סיפור: כיצד חלמו ילדים על מספרים גדולים",
     "home.legend.title": "אגדת שני הנערים",
     "home.legend.figAlt": "שני נערים על ספסל מביטים בשמי הכוכבים",
@@ -373,7 +376,7 @@ export const ui = {
     "nav.collaborate": "თანამშრომლობა",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "სამეცნიერო სტატიის პაროდია. უფროსებმა ეს რიცხვები დიდი ხნის წინ ნახეს — ბავშვები პირველად ხედავენ. ბავშვობის ოცნებების პატივი.",
+      "სამეცნიერო სტატიის პაროდია. უფროსებმა ამ რიცხვების სახელები დიდი ხანია იციან — ბავშვები მათ პირველად ხვდებიან. ბავშვობის ოცნებების პატივი.",
     "home.manifest.title": "ამბავი: როგორ ოცნებობდნენ ბავშვები დიდ რიცხვებზე",
     "home.legend.title": "ორი ბიჭის ლეგენდა",
     "home.legend.figAlt": "ორი ბიჭი სკამზე ვარსკვლავიან ცას უყურებს",
@@ -399,7 +402,7 @@ export const ui = {
     "nav.collaborate": "Համագործակցություն",
     "nav.pdf": "PDF",
     "footer.disclaimer":
-      "Գիտական հոդվածի ծաղրերգություն։ Մեծերն այս թվերը վաղուց տեսել են — երեխաներն առաջին անգամ են տեսնում։ Մանկության երազանքներին՝ հարգանքի տուրք։",
+      "Գիտական հոդվածի ծաղրերգություն։ Մեծերը վաղուց գիտեն այս թվերի անունները — երեխաներն առաջին անգամ են հանդիպում դրանց։ Մանկության երազանքներին՝ հարգանքի տուրք։",
     "home.manifest.title": "Պատմություն. ինչպես երեխաները երազում էին մեծ թվերի մասին",
     "home.legend.title": "Երկու տղաների ավանդությունը",
     "home.legend.figAlt": "Երկու տղա նստարանին նայում են աստղալից երկնքին",
