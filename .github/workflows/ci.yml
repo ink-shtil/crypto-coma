@@ -6,7 +6,7 @@ on:
   pull_request:
 
 # Builds and tests everything; on pushes to main it also deploys the site to GitHub Pages
-# (https://ink-shtil.github.io/crypto-coma/). Pull requests build but do not deploy.
+# (https://cryptocoma.org, custom domain via site/public/CNAME). Pull requests build but do not deploy.
 # One-time setup: repo Settings → Pages → Source = "GitHub Actions". See docs/deployment.md.
 jobs:
   pylib:
@@ -76,7 +76,7 @@ jobs:
         with:
           name: crypto-coma-paper
           path: pdf
-      - name: Add PDFs to the site (served at /crypto-coma/crypto-coma-{ru,en}.pdf)
+      - name: Add PDFs to the site (served at /crypto-coma-{ru,en}.pdf)
         run: |
           mv pdf/main.pdf dist/crypto-coma-ru.pdf
           mv pdf/main-en.pdf dist/crypto-coma-en.pdf

@@ -1,30 +1,34 @@
 # Deployment
 
-**Host: GitHub Pages** (project site) → **https://ink-shtil.github.io/crypto-coma/**
+**Host: GitHub Pages** (custom domain) → **https://cryptocoma.org**
 
 The site auto-deploys from `main` via the `deploy` job in `.github/workflows/ci.yml`
 (`actions/upload-pages-artifact` + `actions/deploy-pages`). Pull requests build but do not
 deploy.
 
-### One-time repo setting (manual)
+### One-time repo settings (manual)
 
-In GitHub: **Settings → Pages → Build and deployment → Source: "GitHub Actions"**. Until this
-is set, the `deploy` job runs but publishing fails. This is the only step that cannot be
-automated from the repo.
+In GitHub **Settings → Pages**:
+- **Build and deployment → Source: "GitHub Actions"**. With "Deploy from a branch" GitHub
+  also runs its own Jekyll "pages build and deployment", which fails on this repo.
+- **Custom domain: `cryptocoma.org`**, then **Enforce HTTPS** once the certificate is issued.
+  With an Actions deploy GitHub ignores CNAME files, so this setting is what binds the domain;
+  `site/public/CNAME` is kept only so the built `dist/` documents it.
 
-### The base path `/crypto-coma/`
+DNS for the apex `cryptocoma.org`: `A` records → `185.199.108.153`, `185.199.109.153`,
+`185.199.110.153`, `185.199.111.153` (optionally `AAAA` → `2606:50c0:8000::153` …
+`2606:50c0:8003::153`); `www` → `CNAME ink-shtil.github.io`.
 
-A project site is served under a sub-path, so `astro.config.mjs` sets `base: "/crypto-coma/"`
-(and `site: "https://ink-shtil.github.io"`). All internal links go through `withBase()` /
-`path()` in `site/src/i18n/utils.ts`; assets via `Figure.astro` and the archive's `/cache/`
-links are wrapped the same way. The root redirect target in `astro.config.mjs` includes the
-base explicitly (Astro does not prefix `base` onto redirect *values*). The Pages artifact
-deploy does not run Jekyll, so `dist/_astro/` (underscore-prefixed) is served fine — no
-`.nojekyll` needed.
+### Base path
 
-> **Custom domain later?** Set `base` back to `"/"` in `astro.config.mjs`, add a
-> `site/public/CNAME` file with the domain, point DNS at GitHub Pages — the `deploy` job is
-> unchanged.
+The site is served from the domain root, so `astro.config.mjs` sets `base: "/"` and
+`site: "https://cryptocoma.org"`. All internal links go through `withBase()` / `path()` in
+`site/src/i18n/utils.ts`; assets via `Figure.astro` and the archive's `/cache/` links are
+wrapped the same way, and the root redirect target includes the base explicitly (Astro does
+not prefix `base` onto redirect *values*). So moving back to the project site
+(`https://ink-shtil.github.io/crypto-coma/`) is just `base = "/crypto-coma/"` plus the old
+`site` URL. The Pages artifact deploy does not run Jekyll, so `dist/_astro/` is served fine —
+no `.nojekyll` needed.
 
 ## Alternatives (if we ever move off Pages)
 
